@@ -358,7 +358,8 @@ class PoFile
 
         $wsBreak = false;
         $inHeader = true;
-        $entry = new PoHeader;
+        $headerEntry = new PoHeader;
+        $entry = $headerEntry;
         $unrecognized = array();
         $lastKey = '';
         $currentPlural = 0;
@@ -368,7 +369,7 @@ class PoFile
                 $lastKey = '';
                 if ($s=='' || ctype_space($s)) {
                     if ($inHeader) {
-                        $this->setHeaderEntry($entry);
+                        $this->setHeaderEntry($headerEntry);
                         $entry = null;
                         $inHeader = false;
                     }
