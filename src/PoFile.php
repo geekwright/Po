@@ -361,6 +361,7 @@ class PoFile
         $entry = new PoHeader;
         $unrecognized = array();
         $lastKey = '';
+        $currentPlural = 0;
         foreach ($source_lines as $line => $s) {
             $result = preg_match($pattern, $s, $matches);
             if (!$result) {
@@ -372,7 +373,7 @@ class PoFile
                         $inHeader = false;
                     }
                     if (!$wsBreak) {
-                        if ($entry === null) {
+                        if (!($entry === null)) {
                             $this->addEntry($entry);
                         }
                         $entry = null;
