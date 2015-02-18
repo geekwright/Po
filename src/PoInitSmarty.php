@@ -31,6 +31,11 @@ class PoInitSmarty implements PoInitInterface
     protected $poFile = null;
 
     /**
+     * @var Smarty $smarty Smarty 3 object
+     */
+    protected $smarty = null;
+
+    /**
      * @var string[] $gettextTags tags for gettext constructs, i.e. tag($msgid)
      */
     protected $gettextTags = array('gettext', '_');
@@ -101,7 +106,7 @@ class PoInitSmarty implements PoInitInterface
      */
     public function addMsgctxtArgNames($argNames)
     {
-        $tags = is_scalar($argNames) ? array($argNames) : $argNames;
+        $argNames = is_scalar($argNames) ? array($argNames) : $argNames;
         $this->msgctxtArgNames = array_merge($this->msgctxtArgNames, $argNames);
     }
 
@@ -124,7 +129,7 @@ class PoInitSmarty implements PoInitInterface
      */
     public function addMsgidArgNames($argNames)
     {
-        $tags = is_scalar($argNames) ? array($argNames) : $argNames;
+        $argNames = is_scalar($argNames) ? array($argNames) : $argNames;
         $this->msgidArgNames = array_merge($this->msgidArgNames, $argNames);
     }
 
@@ -147,7 +152,7 @@ class PoInitSmarty implements PoInitInterface
      */
     public function addMsgidPluralArgNames($argNames)
     {
-        $tags = is_scalar($argNames) ? array($argNames) : $argNames;
+        $argNames = is_scalar($argNames) ? array($argNames) : $argNames;
         $this->msgidPluralArgNames = array_merge($this->msgidPluralArgNames, $argNames);
     }
 

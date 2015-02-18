@@ -197,9 +197,9 @@ class PoFile
                 $toMerge = $newEntry->get($type);
                 if (!empty($toMerge)) {
                     $toMerge = is_array($toMerge) ? $toMerge : array($toMerge);
-                }
-                foreach ($toMerge as $value) {
-                    $existingEntry->add($type, $value);
+                    foreach ($toMerge as $value) {
+                        $existingEntry->add($type, $value);
+                    }
                 }
             }
         } else {
@@ -216,7 +216,7 @@ class PoFile
      * @param string $msgid_plural the untranslated plural message of the entry, if any
      * @return PoEntry|null matching entry, or null if not found
      */
-    public static function findEntry($msgid, $msgctxt = null, $msgid_plural = null)
+    public function findEntry($msgid, $msgctxt = null, $msgid_plural = null)
     {
         $key = $this->createKey($msgid, $msgctxt, $msgid_plural);
         $entry = null;
@@ -294,7 +294,7 @@ class PoFile
      */
     public function dumpString()
     {
-        if (is_null($this->header)) {
+        if ($this->header === null) {
             $this->header = new PoHeader;
             $this->header->buildDefaultHeader();
         }
@@ -359,8 +359,9 @@ class PoFile
         $wsBreak = false;
         $inHeader = true;
         $entry = new PoHeader;
-        $headerEntry = null;
         $unrecognized = array();
+        $lastKey = '';
+        $currentKey = '';
         foreach ($source_lines as $line => $s) {
             $result = preg_match($pattern, $s, $matches);
             if (!$result) {
@@ -372,7 +373,7 @@ class PoFile
                         $inHeader = false;
                     }
                     if (!$wsBreak) {
-                        if (!is_null($entry)) {
+                        if ($entry === null) {
                             $this->addEntry($entry);
                         }
                         $entry = null;
@@ -383,7 +384,7 @@ class PoFile
                     $unrecognized[$line+1] = $s;
                 }
             } else {
-                if (is_null($entry)) {
+                if ($entry === null) {
                     $entry = new PoEntry;
                 }
                 $wsBreak=false;
@@ -452,9 +453,9 @@ class PoFile
                 $lastKey = $currentKey;
             }
         }
-        if (!is_null($entry)) {
+        if (!($entry === null)) {
             $this->addEntry($entry);
-            $entry = null;
+            //$entry = null;
         }
 
         // throw at the very end, anything recognized has been processed

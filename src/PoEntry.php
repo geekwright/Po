@@ -44,7 +44,7 @@ class PoEntry
      */
     public function add($type, $value)
     {
-        if (is_null($this->entry[$type])) {
+        if ($this->entry[$type] === null) {
             $this->entry[$type] = array();
         }
         if (is_scalar($this->entry[$type])) {
@@ -66,7 +66,7 @@ class PoEntry
         }
         $value = stripcslashes($value);
 
-        if (is_null($this->entry[$type])) {
+        if ($this->entry[$type] === null) {
             $this->entry[$type] = array();
         }
         if (is_scalar($this->entry[$type])) {
@@ -93,7 +93,7 @@ class PoEntry
         }
         $value = stripcslashes($value);
 
-        if (is_null($this->entry[$type])) {
+        if ($this->entry[$type] === null) {
             $this->entry[$type] = array();
         }
         if (isset($this->entry[$type][$position]) &&
@@ -183,19 +183,19 @@ class PoEntry
                 foreach ($section as $comment) {
                     $output .= $type . ' ' . $comment . "\n";
                 }
-            } elseif (!is_null($section)) {
+            } elseif (!($section === null)) {
                 $output .= $type . ' ' . $section . "\n";
             }
         }
         $key = PoTokens::CONTEXT;
-        if (!is_null($this->entry[$key])) {
+        if (!($this->entry[$key] === null)) {
             $output .= $key . $this->formatQuotedString($this->entry[$key]);
         }
         $key = PoTokens::MESSAGE;
-        if (!is_null($this->entry[$key])) {
+        if (!($this->entry[$key] === null)) {
             $output .= $key . $this->formatQuotedString($this->entry[$key]);
             $key = PoTokens::PLURAL;
-            if (!is_null($this->entry[$key])) {
+            if (!($this->entry[$key] === null)) {
                 $output .= $key . $this->formatQuotedString($this->entry[$key]);
                 $key = PoTokens::TRANSLATED;
                 $plurals = $this->entry[$key];
@@ -208,8 +208,6 @@ class PoEntry
                 $output .= $key . $this->formatQuotedString($this->entry[$key]);
             }
         }
-        $key = PoTokens::PLURAL;
-        $key = PoTokens::TRANSLATED;
 
         $output .= "\n";
         return $output;
@@ -233,7 +231,7 @@ class PoEntry
             }
             return $bare ? $string : ' ' . $string;
         } else {
-            $string = (is_null($value)) ? '' : $value;
+            $string = ($value === null) ? '' : $value;
             $string = stripcslashes($string);
             $string = addcslashes($string, "\0..\37\"");
             $string = '"' . $string . '"';

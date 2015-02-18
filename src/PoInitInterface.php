@@ -92,5 +92,4 @@ interface PoInitInterface
      * @return PoFile
      */
     public function msginitString($source, $refname);
-
 }

@@ -198,22 +198,16 @@ class PoInitPHP implements PoInitInterface
                     if (count($gtt['args'])) {
                         if (in_array($gtt['function'], $this->gettextTags)) {
                             $entry->set(PoTokens::MESSAGE, $this->escapeForPo($gtt['args'][0]));
-                            $gtt['msgid'] = $this->escapeForPo($gtt['args'][0]);
                         } elseif (in_array($gtt['function'], $this->pgettextTags)) {
                             $entry->set(PoTokens::CONTEXT, $this->escapeForPo($gtt['args'][0]));
                             $entry->set(PoTokens::MESSAGE, $this->escapeForPo($gtt['args'][1]));
-                            $gtt['msgctxt'] = $this->escapeForPo($gtt['args'][0]);
-                            $gtt['msgid'] = $this->escapeForPo($gtt['args'][1]);
                         } elseif (in_array($gtt['function'], $this->ngettextTags)) {
                             $entry->set(PoTokens::MESSAGE, $this->escapeForPo($gtt['args'][0]));
                             $entry->set(PoTokens::PLURAL, $this->escapeForPo($gtt['args'][1]));
                             $entry->set(PoTokens::FLAG, 'php-format');
-                            $gtt['msgid'] = $this->escapeForPo($gtt['args'][0]);
-                            $gtt['msgid_plural'] = $this->escapeForPo($gtt['args'][1]);
                         }
                         if ($gtt['line']==($commentLine+1)) {
                             $entry->set(PoTokens::EXTRACTED_COMMENTS, $this->stripComment($commentText));
-                            $gtt['comment'] = $commentText;
                         }
                         $this->poFile->mergeEntry($entry);
                     }
