@@ -1,2 +1,2 @@
 # Po
-Classes modeling the GNU gettext style PO file
+Objects representing the GNU gettext style PO file.
