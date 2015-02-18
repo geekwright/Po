@@ -31,7 +31,7 @@ class PoInitSmarty implements PoInitInterface
     protected $poFile = null;
 
     /**
-     * @var Smarty $smarty Smarty 3 object
+     * @var \Smarty $smarty Smarty 3 object
      */
     protected $smarty = null;
 

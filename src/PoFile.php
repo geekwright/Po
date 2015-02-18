@@ -361,7 +361,6 @@ class PoFile
         $entry = new PoHeader;
         $unrecognized = array();
         $lastKey = '';
-        $currentKey = '';
         foreach ($source_lines as $line => $s) {
             $result = preg_match($pattern, $s, $matches);
             if (!$result) {
@@ -455,7 +454,6 @@ class PoFile
         }
         if (!($entry === null)) {
             $this->addEntry($entry);
-            //$entry = null;
         }
 
         // throw at the very end, anything recognized has been processed

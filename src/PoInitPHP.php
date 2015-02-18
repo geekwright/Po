@@ -159,8 +159,6 @@ class PoInitPHP implements PoInitInterface
             $this->poFile = new PoFile;
         }
 
-        $source_lines = explode("\n", $source);
-        //var_dump($source);
         $tokens = token_get_all($source);
 
         $translateTags = array_merge($this->gettextTags, $this->pgettextTags, $this->ngettextTags);
