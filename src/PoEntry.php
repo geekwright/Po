@@ -47,9 +47,7 @@ class PoEntry
         if ($this->entry[$type] === null) {
             $this->entry[$type] = array();
         }
-        if (is_scalar($this->entry[$type])) {
-            $this->entry[$type] = array($this->entry[$type]);
-        }
+        $this->entry[$type] = (array) $this->entry[$type];
         $this->entry[$type][] = $value;
     }
 
@@ -69,9 +67,7 @@ class PoEntry
         if ($this->entry[$type] === null) {
             $this->entry[$type] = array();
         }
-        if (is_scalar($this->entry[$type])) {
-            $this->entry[$type] = array($this->entry[$type]);
-        }
+        $this->entry[$type] = (array) $this->entry[$type];
         $this->entry[$type][] = $value;
     }
 

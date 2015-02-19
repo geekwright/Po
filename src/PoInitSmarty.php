@@ -2,8 +2,6 @@
 
 namespace Geekwright\Po;
 
-use Geekwright\Po\Exceptions\FileNotReadableException;
-
 /**
  * PoInitPHP provides 'msginit' like logic which can take a Smarty template file,
  * recognize gettext like function tokens, and capture the translatable strings

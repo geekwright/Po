@@ -2,8 +2,6 @@
 
 namespace Geekwright\Po;
 
-use Geekwright\Po\Exceptions\FileNotReadableException;
-
 /**
  * PoInitPHP provides 'msginit' like logic which can take a source PHP file,
  * recognize gettext like function tokens, and capture the translatable strings
@@ -63,7 +61,6 @@ class PoInitPHP extends PoInitAbstract
         $commentText=null;
         $commentLine=(-10);
         $tokenCount = count($tokens);
-        $gtRefs = array();
         $i = 0;
         while ($i<$tokenCount) {
             $token = $tokens[$i];
@@ -71,7 +68,6 @@ class PoInitPHP extends PoInitAbstract
                 $entry = new PoEntry;
                 $gtt = array();
                 list($id, $text, $line) = $token;
-                $tname = token_name($id);
                 $entry->add(PoTokens::REFERENCE, $refname . ':' . $line);
                 $gtt['line']=$line;
                 $gtt['function']=$text;
