@@ -30,6 +30,7 @@ class PoHeader extends PoEntry
     {
         $this->structuredHeaders = array();
         $headers = $this->entry[PoTokens::TRANSLATED];
+        $headers = ($headers === null) ? array() : $headers;
         $full = implode('', $headers);
         $headers = explode("\n", $full);
         // split on ':'

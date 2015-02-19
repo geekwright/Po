@@ -67,7 +67,7 @@ class PoInitPHP extends PoInitAbstract
             if (is_array($token) && $token[0] == T_STRING && in_array($token[1], $translateTags)) {
                 $entry = new PoEntry;
                 $gtt = array();
-                list($id, $text, $line) = $token;
+                list(, $text, $line) = $token;
                 $entry->add(PoTokens::REFERENCE, $refname . ':' . $line);
                 $gtt['line']=$line;
                 $gtt['function']=$text;
@@ -82,7 +82,7 @@ class PoInitPHP extends PoInitAbstract
                             $token[0] == T_CONSTANT_ENCAPSED_STRING
                             || $token[0] == T_ENCAPSED_AND_WHITESPACE
                         )) {
-                            list($id, $text, $line) = $token;
+                            list(, $text, $line) = $token;
                             $gtt['args'][]=$text;
                         }
                         $la++;
@@ -90,10 +90,10 @@ class PoInitPHP extends PoInitAbstract
                     if (count($gtt['args'])) {
                         if (in_array($gtt['function'], $this->gettextTags)) {
                             $entry->set(PoTokens::MESSAGE, $this->escapeForPo($gtt['args'][0]));
-                        } elseif (in_array($gtt['function'], $this->pgettextTags)) {
+                        } elseif (count($gtt['args'])>1 && in_array($gtt['function'], $this->pgettextTags)) {
                             $entry->set(PoTokens::CONTEXT, $this->escapeForPo($gtt['args'][0]));
                             $entry->set(PoTokens::MESSAGE, $this->escapeForPo($gtt['args'][1]));
-                        } elseif (in_array($gtt['function'], $this->ngettextTags)) {
+                        } elseif (count($gtt['args'])>1 && in_array($gtt['function'], $this->ngettextTags)) {
                             $entry->set(PoTokens::MESSAGE, $this->escapeForPo($gtt['args'][0]));
                             $entry->set(PoTokens::PLURAL, $this->escapeForPo($gtt['args'][1]));
                             $entry->set(PoTokens::FLAG, 'php-format');
@@ -105,7 +105,7 @@ class PoInitPHP extends PoInitAbstract
                     }
                 }
             } elseif (is_array($token) && $token[0] == T_COMMENT) {
-                list($id, $commentText, $commentLine) = $token;
+                list(, $commentText, $commentLine) = $token;
             }
             $i++;
         }

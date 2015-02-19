@@ -392,34 +392,18 @@ class PoFile
                 $currentKey = $matches[2];  // will be used to set last key
                 switch ($matches[2]) {
                     case PoTokens::TRANSLATOR_COMMENTS:
-                        $entry->add(PoTokens::TRANSLATOR_COMMENTS, $matches[5]);
-                        break;
                     case PoTokens::EXTRACTED_COMMENTS:
-                        $entry->add(PoTokens::EXTRACTED_COMMENTS, $matches[5]);
-                        break;
                     case PoTokens::REFERENCE:
-                        $entry->add(PoTokens::REFERENCE, $matches[5]);
-                        break;
                     case PoTokens::FLAG:
-                        $entry->add(PoTokens::FLAG, $matches[5]);
-                        break;
                     case PoTokens::OBSOLETE:
-                        $entry->add(PoTokens::OBSOLETE, $matches[5]);
+                    case PoTokens::PREVIOUS:
+                        $entry->add($matches[2], $matches[5]);
                         break;
                     case PoTokens::CONTEXT:
-                        $entry->addQuoted(PoTokens::CONTEXT, $matches[5]);
-                        break;
                     case PoTokens::MESSAGE:
-                        $entry->addQuoted(PoTokens::MESSAGE, $matches[5]);
-                        break;
                     case PoTokens::PLURAL:
-                        $entry->addQuoted(PoTokens::PLURAL, $matches[5]);
-                        break;
                     case PoTokens::TRANSLATED:
-                        $entry->addQuoted(PoTokens::TRANSLATED, $matches[5]);
-                        break;
-                    case PoTokens::PREVIOUS:
-                        $entry->add(PoTokens::PREVIOUS, $matches[5]);
+                        $entry->addQuoted($matches[2], $matches[5]);
                         break;
                     default:
                         if ($matches[4]==PoTokens::CONTINUED_DATA) {
