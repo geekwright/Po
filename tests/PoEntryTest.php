@@ -30,109 +30,94 @@ class PoEntryTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Geekwright\Po\PoEntry::add
-     * @todo   Implement testAdd().
+     * @covers Geekwright\Po\PoEntry::set
+     * @covers Geekwright\Po\PoEntry::get
      */
-    public function testAdd()
+    public function testAddGetSet()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $entry = new PoEntry;
+        $actual = $entry->get(PoTokens::TRANSLATOR_COMMENTS);
+        $this->assertNull($actual);
+
+        $value = 'this is a comment';
+        $entry->set(PoTokens::TRANSLATOR_COMMENTS, $value);
+        $actual = $entry->get(PoTokens::TRANSLATOR_COMMENTS);
+        $this->assertEquals($value, $actual);
+
+        $value2 = 'another comment';
+        $entry->add(PoTokens::TRANSLATOR_COMMENTS, $value2);
+        $expected = array($value, $value2);
+        $actual = $entry->get(PoTokens::TRANSLATOR_COMMENTS);
+        $this->assertEquals($expected, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoEntry::addQuoted
-     * @todo   Implement testAddQuoted().
+     * @covers Geekwright\Po\PoEntry::getAsString
      */
     public function testAddQuoted()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $this->object->set(PoTokens:: MESSAGE, null);
+        $this->object->addQuoted(PoTokens:: MESSAGE, '""');
+        $this->object->addQuoted(PoTokens:: MESSAGE, '"First\n"');
+        $this->object->addQuoted(PoTokens:: MESSAGE, '"Second\n"');
+        $actual = $this->object->getAsString(PoTokens:: MESSAGE);
+        $this->assertEquals("First\nSecond\n", $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoEntry::addQuotedAtPosition
-     * @todo   Implement testAddQuotedAtPosition().
+     * @covers Geekwright\Po\PoEntry::getAsStringArray
      */
     public function testAddQuotedAtPosition()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers Geekwright\Po\PoEntry::get
-     * @todo   Implement testGet().
-     */
-    public function testGet()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers Geekwright\Po\PoEntry::getAsString
-     * @todo   Implement testGetAsString().
-     */
-    public function testGetAsString()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers Geekwright\Po\PoEntry::getAsStringArray
-     * @todo   Implement testGetAsStringArray().
-     */
-    public function testGetAsStringArray()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers Geekwright\Po\PoEntry::set
-     * @todo   Implement testSet().
-     */
-    public function testSet()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $this->object->set(PoTokens:: TRANSLATED, null);
+        $this->object->addQuotedAtPosition(PoTokens:: TRANSLATED, 1, '""');
+        $this->object->addQuotedAtPosition(PoTokens:: TRANSLATED, 1, '"First\n"');
+        $this->object->addQuotedAtPosition(PoTokens:: TRANSLATED, 1, '"Second\n"');
+        $actual = $this->object->getAsStringArray(PoTokens:: TRANSLATED);
+        $this->assertEquals(array(1=>"First\nSecond\n"), $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoEntry::dumpEntry
-     * @todo   Implement testDumpEntry().
      */
     public function testDumpEntry()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $entry = new PoEntry;
+        $entry->set(PoTokens:: MESSAGE, 'Hello.');
+        $entry->set(PoTokens:: TRANSLATED, 'Bonjour!');
+        $entry->set(PoTokens:: TRANSLATOR_COMMENTS, 'Just saying hello');
+
+        $actual = $entry->dumpEntry();
+
+        $expected = "# Just saying hello\nmsgid \"Hello.\"\nmsgstr \"Bonjour!\"\n\n";
+        $this->assertEquals($expected, $actual);
     }
 
     /**
+     * @covers Geekwright\Po\PoEntry::addFlag
      * @covers Geekwright\Po\PoEntry::hasFlag
-     * @todo   Implement testHasFlag().
      */
     public function testHasFlag()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $this->object->set(PoTokens:: FLAG, null);
+        $this->object->set(PoTokens:: FLAG, 'fuzzy');
+
+        $this->assertTrue($this->object->hasFlag('fuzzy'));
+        $this->assertFalse($this->object->hasFlag('futzy'));
+
+        $this->object->set(PoTokens:: FLAG, null);
+        $this->object->set(PoTokens:: FLAG, ' php-format , fuzzy, OdD-StUfF');
+        $this->assertTrue($this->object->hasFlag('php-format'));
+        $this->assertTrue($this->object->hasFlag('fuzzy'));
+        $this->assertTrue($this->object->hasFlag('odd-stuff'));
+        $this->assertFalse($this->object->hasFlag('futzy'));
+        $this->object->add(PoTokens:: FLAG, 'separate');
+        $this->assertTrue($this->object->hasFlag('separate'));
+        $this->object->addFlag('futzy');
+        $this->assertTrue($this->object->hasFlag('fuzzy'));
+        $this->assertTrue($this->object->hasFlag('futzy'));
+        $this->assertTrue($this->object->hasFlag('separate'));
     }
 }

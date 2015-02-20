@@ -30,12 +30,9 @@ class PoFileTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Geekwright\Po\PoFile::createKey
-     * @todo   Implement testCreateKey().
      */
     public function testCreateKey()
     {
-        // createKey($msgid, $msgctxt = null, $msgid_plural = null)
-
         $msgid = 'message';
         $msgctxt = 'context';
         $msgid_plural = 'plural';
@@ -63,7 +60,6 @@ class PoFileTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Geekwright\Po\PoFile::createKeyFromEntry
-     * @todo   Implement testCreateKeyFromEntry().
      */
     public function testCreateKeyFromEntry()
     {
@@ -92,157 +88,206 @@ class PoFileTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Geekwright\Po\PoFile::setHeaderEntry
-     * @todo   Implement testSetHeaderEntry().
-     */
-    public function testSetHeaderEntry()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
      * @covers Geekwright\Po\PoFile::getHeaderEntry
-     * @todo   Implement testGetHeaderEntry().
      */
-    public function testGetHeaderEntry()
+    public function testGetSetHeaderEntry()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $header = new PoHeader;
+        $this->object->setHeaderEntry($header);
+        $actual = $this->object->getHeaderEntry();
+        $this->assertSame($header, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoFile::getEntries
-     * @todo   Implement testGetEntries().
+     * @covers Geekwright\Po\PoFile::addEntry
      */
-    public function testGetEntries()
+    public function testGetAddEntries()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $pofile = new PoFile;
+        $actual = $pofile->getEntries();
+        $expected = array();
+        $this->assertEquals($expected, $actual);
+
+        $entry1 = new PoEntry;
+        $entry1->set(PoTokens:: MESSAGE, 'Hello.');
+        $entry1->set(PoTokens:: TRANSLATED, 'Bonjour!');
+        $entry1->set(PoTokens:: TRANSLATOR_COMMENTS, 'Just saying hello');
+
+        $entry2 = new PoEntry;
+        $entry2->set(PoTokens:: MESSAGE, 'Hello.');
+        $entry2->set(PoTokens:: TRANSLATED, 'Bonjour!');
+        $entry2->set(PoTokens:: TRANSLATOR_COMMENTS, 'Just saying hello');
+
+        $pofile->addEntry($entry1);
+        $pofile->addEntry($entry2, false);
+        $entries = $pofile->getEntries();
+        $actual = reset($entries);
+        $this->assertSame($entry1, $actual);
+
+        $pofile->addEntry($entry2, true);
+        $entries = $pofile->getEntries();
+        $actual = reset($entries);
+        $this->assertSame($entry2, $actual);
+        $this->assertEquals(1, count($entries));
+
+        $entry1->set(PoTokens:: MESSAGE, 'Goodbye.');
+        $entry1->set(PoTokens:: TRANSLATED, 'Au Revoir.');
+        $pofile->addEntry($entry1);
+        $entries = $pofile->getEntries();
+        $this->assertEquals(2, count($entries));
     }
 
     /**
      * @covers Geekwright\Po\PoFile::setUnkeyedEntries
-     * @todo   Implement testSetUnkeyedEntries().
-     */
-    public function testSetUnkeyedEntries()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
      * @covers Geekwright\Po\PoFile::getUnkeyedEntries
-     * @todo   Implement testGetUnkeyedEntries().
      */
-    public function testGetUnkeyedEntries()
+    public function testGetSetDumpUnkeyedEntries()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
+        $pofile = new PoFile;
 
-    /**
-     * @covers Geekwright\Po\PoFile::addEntry
-     * @todo   Implement testAddEntry().
-     */
-    public function testAddEntry()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $entry1 = new PoEntry;
+        $entry1->add(PoTokens:: OBSOLETE, 'msgid "Hello."');
+        $entry1->add(PoTokens:: OBSOLETE, 'msgstr "Bonjour!"');
+
+        $expected = array($entry1);
+        $pofile->setUnkeyedEntries($expected);
+        $actual = $pofile->getUnkeyedEntries();
+        $this->assertSame($expected, $actual);
+
+        $output = $pofile->dumpString();
+        $pofile = new PoFile;
+        $pofile->parsePoSource($output);
+        $entries = $pofile->getUnkeyedEntries();
+        $entry = reset($entries);
+        $actual = $entry->dumpEntry();
+        $expected = "#~ msgid \"Hello.\"\n#~ msgstr \"Bonjour!\"\n\n";
+        $this->assertEquals($expected, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoFile::mergeEntry
-     * @todo   Implement testMergeEntry().
      */
     public function testMergeEntry()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
+        $pofile = new PoFile;
 
-    /**
-     * @covers Geekwright\Po\PoFile::findEntry
-     * @todo   Implement testFindEntry().
-     */
-    public function testFindEntry()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $entry1 = new PoEntry;
+        $entry1->set(PoTokens:: MESSAGE, 'Hello.');
+        $entry1->set(PoTokens:: TRANSLATED, 'Bonjour!');
+        $entry1->set(PoTokens:: TRANSLATOR_COMMENTS, 'Just saying hello');
+
+        $entry2 = new PoEntry;
+        $entry2->set(PoTokens:: MESSAGE, 'Hello.');
+        $entry2->set(PoTokens:: TRANSLATED, 'Bonjour!');
+        $entry2->set(PoTokens:: TRANSLATOR_COMMENTS, 'Just saying hello');
+
+        $pofile->mergeEntry($entry1);
+        $pofile->mergeEntry($entry2);
+        $entries = $pofile->getEntries();
+        $actual = reset($entries);
+        $this->assertSame($entry1, $actual);
+        $this->assertEquals(1, count($entries));
     }
 
     /**
      * @covers Geekwright\Po\PoFile::removeEntry
-     * @todo   Implement testRemoveEntry().
+     * @covers Geekwright\Po\PoFile::__construct
      */
     public function testRemoveEntry()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
+        $entry1 = new PoEntry;
+        $entry1->set(PoTokens:: MESSAGE, 'Hello.');
+        $entry1->set(PoTokens:: TRANSLATED, 'Bonjour!');
+        $entry1->set(PoTokens:: TRANSLATOR_COMMENTS, 'Just saying hello');
 
-    /**
-     * @covers Geekwright\Po\PoFile::writePoFile
-     * @todo   Implement testWritePoFile().
-     */
-    public function testWritePoFile()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
+        $entry2 = new PoEntry;
+        $entry2->set(PoTokens:: MESSAGE, 'Hello.');
+        $entry2->set(PoTokens:: TRANSLATED, 'Bonjour!');
+        $entry2->set(PoTokens:: TRANSLATOR_COMMENTS, 'Just saying hello');
 
-    /**
-     * @covers Geekwright\Po\PoFile::dumpString
-     * @todo   Implement testDumpString().
-     */
-    public function testDumpString()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $pofile = new PoFile(null, array($entry1, $entry2), array());
+        $entries = $pofile->getEntries();
+        $this->assertEquals(2, count($entries));
+
+        $this->assertTrue($pofile->removeEntry($entry2));
+
+        $entries = $pofile->getEntries();
+        $this->assertEquals(1, count($entries));
+        $actual = reset($entries);
+        $this->assertSame($entry1, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoFile::readPoFile
-     * @todo   Implement testReadPoFile().
+     * @covers Geekwright\Po\PoFile::findEntry
      */
     public function testReadPoFile()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $pofile = new PoFile;
+        $pofile->readPoFile(__DIR__ . '/files/fr.po');
+        $entries = $pofile->getEntries();
+        $this->assertEquals(2, count($entries));
+
+        $header = $pofile->getHeaderEntry();
+        $actual = $header->getHeader('plural-forms');
+        $expected = 'nplurals=2; plural=(n > 1);';
+        $this->assertEquals($expected, $actual);
+
+        $entry = $pofile->findEntry('This is how the story goes.');
+        $this->assertInstanceOf('Geekwright\Po\PoEntry', $entry);
+        $actual = $entry->getAsString(PoTokens:: TRANSLATED);
+        $expected = "C'est la narration de l'histoire.";
+        $this->assertEquals($expected, $actual);
+
+        $entry = $pofile->findEntry("%d pig went to the market", null, "%d pigs went to the market");
+        $this->assertInstanceOf('Geekwright\Po\PoEntry', $entry);
+        $actual = $entry->getAsStringArray(PoTokens:: TRANSLATED);
+        $expected = "%d cochons se sont rendus au marché.";
+        $this->assertEquals($expected, $actual[1]);
     }
 
     /**
-     * @covers Geekwright\Po\PoFile::parsePoSource
-     * @todo   Implement testParsePoSource().
+     * @covers Geekwright\Po\PoFile::readPoFile
      */
-    public function testParsePoSource()
+    public function testNotReadablePoFile()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $pofile = new PoFile;
+        $this->setExpectedException('Geekwright\Po\Exceptions\FileNotReadableException');
+        $pofile->readPoFile(__DIR__ . '/files/nosuchfile.po');
+    }
+
+    /**
+     * @covers Geekwright\Po\PoFile::dumpString
+     * @covers Geekwright\Po\PoFile::parsePoSource
+     */
+    public function testDumpParseString()
+    {
+        $pofile = new PoFile;
+        $pofile->readPoFile(__DIR__ . '/files/fr.po');
+        // verify that dump to parse is lossless
+        $output1 = $pofile->dumpString();
+        $pofile = new PoFile;
+        $pofile->parsePoSource($output1);
+        $output2 = $pofile->dumpString();
+        $this->assertEquals($output1, $output2);
+    }
+
+    /**
+     * @covers Geekwright\Po\PoFile::writePoFile
+     */
+    public function testWritePoFile()
+    {
+        $pofile = new PoFile;
+        $filename = tempnam('/tmp', 'PO');
+        $pofile->readPoFile(__DIR__ . '/files/fr.po');
+        $output1 = $pofile->dumpString();
+        $pofile->writePoFile($filename);
+        $pofile = new PoFile;
+        $pofile->readPoFile($filename);
+        $output2 = $pofile->dumpString();
+        $this->assertEquals($output1, $output2);
+        $entries = $pofile->getEntries();
+        $this->assertEquals(2, count($entries));
     }
 }

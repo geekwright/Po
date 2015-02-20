@@ -78,11 +78,11 @@ class PoEntry
      * continuation lines, the message is stored as an array of arrays.
      *
      * @param string  $type     PoToken constant
-     * @param string  $value    entry to store
      * @param integer $position array position to store
+     * @param string  $value    entry to store
      * @return void
      */
-    public function addQuotedAtPosition($type, $value, $position)
+    public function addQuotedAtPosition($type, $position, $value)
     {
         if ($value[0]=='"') {
             $value = substr($value, 1, -1);
@@ -140,7 +140,7 @@ class PoEntry
             if (is_array($value)) {
                 $value = implode('', $value);
             }
-            $ret[] = $value;
+            $ret[$i] = $value;
         }
         return $ret;
     }
@@ -162,27 +162,8 @@ class PoEntry
      */
     public function dumpEntry()
     {
-        $commentKeys = array(
-            PoTokens::TRANSLATOR_COMMENTS,
-            PoTokens::EXTRACTED_COMMENTS,
-            PoTokens::REFERENCE,
-            PoTokens::FLAG,
-            PoTokens::PREVIOUS,
-            PoTokens::OBSOLETE,
-        );
+        $output = $this->dumpEntryComments();
 
-        $output = '';
-
-        foreach ($commentKeys as $type) {
-            $section = $this->entry[$type];
-            if (is_array($section)) {
-                foreach ($section as $comment) {
-                    $output .= $type . ' ' . $comment . "\n";
-                }
-            } elseif (!($section === null)) {
-                $output .= $type . ' ' . $section . "\n";
-            }
-        }
         $key = PoTokens::CONTEXT;
         if (!($this->entry[$key] === null)) {
             $output .= $key . $this->formatQuotedString($this->entry[$key]);
@@ -206,6 +187,37 @@ class PoEntry
         }
 
         $output .= "\n";
+        return $output;
+    }
+
+    /**
+     * Dump the comments for this entry as a po/pot file fragment
+     * @return string
+     */
+    protected function dumpEntryComments()
+    {
+        $commentKeys = array(
+            PoTokens::TRANSLATOR_COMMENTS,
+            PoTokens::EXTRACTED_COMMENTS,
+            PoTokens::REFERENCE,
+            PoTokens::FLAG,
+            PoTokens::PREVIOUS,
+            PoTokens::OBSOLETE,
+        );
+
+        $output = '';
+
+        foreach ($commentKeys as $type) {
+            $section = $this->entry[$type];
+            if (is_array($section)) {
+                foreach ($section as $comment) {
+                    $output .= $type . ' ' . $comment . "\n";
+                }
+            } elseif (!($section === null)) {
+                $output .= $type . ' ' . $section . "\n";
+            }
+        }
+
         return $output;
     }
 
@@ -238,17 +250,42 @@ class PoEntry
     /**
      * hasFlag - check for presence of a flag
      * @param string $name flag to check
-     * @return string|false line containing the flag, or false if not found
+     * @return boolean true if flag is set, otherwise false
      */
     public function hasFlag($name)
     {
-        $flags = $this->entry[PoTokens::FLAG];
-        $flags = is_array($flags) ? $flags : array();
-        foreach ($flags as $flag) {
-            if (false !== stripos($flag, $name)) {
-                return $flag;
+        $flags = array();
+        $flagEntry = $this->entry[PoTokens::FLAG];
+        if (!empty($flagEntry)) {
+            foreach ((array) $flagEntry as $csv) {
+                $temp = str_getcsv($csv, ',');
+                foreach ($temp as $flag) {
+                    $flag = strtolower(trim($flag));
+                    $flags[$flag] = $flag;
+                }
             }
+            return isset($flags[strtolower(trim($name))]);
         }
         return false;
+    }
+
+    /**
+     * addFlag - add a flag to the entry
+     * @param string $name flag to check
+     * @return void
+     */
+    public function addFlag($name)
+    {
+        if (!$this->hasFlag($name)) {
+            $flagEntry = $this->entry[PoTokens::FLAG];
+            if ($flagEntry === null) {
+                $this->set(PoTokens::FLAG, $name);
+            } elseif (is_array($flagEntry)) {
+                $flagEntry[] = $name;
+                $this->set(PoTokens::FLAG, implode(',', $flagEntry));
+            } else {
+                $this->set(PoTokens::FLAG, $flagEntry . ',' . $name);
+            }
+        }
     }
 }

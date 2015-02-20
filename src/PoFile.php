@@ -323,7 +323,9 @@ class PoFile
      */
     public function readPoFile($file, resource $context = null)
     {
+        $oldEr = error_reporting(E_ALL ^ E_WARNING);
         $source = file_get_contents($file, false, $context);
+        error_reporting($oldEr);
         if (false===$source) {
             throw new FileNotReadableException($file);
         }
@@ -411,8 +413,8 @@ class PoFile
                             if ($currentKey==PoTokens::TRANSLATED_PLURAL) {
                                 $entry->addQuotedAtPosition(
                                     PoTokens::TRANSLATED,
-                                    '"' . $matches[5],
-                                    $currentPlural
+                                    $currentPlural,
+                                    '"' . $matches[5]
                                 );
                             } else {
                                 $entry->addQuoted($currentKey, '"' . $matches[5]);
@@ -422,8 +424,8 @@ class PoFile
                             $currentPlural = $matches[3];
                             $entry->addQuotedAtPosition(
                                 PoTokens::TRANSLATED,
-                                $matches[5],
-                                $currentPlural
+                                $currentPlural,
+                                $matches[5]
                             );
                         } elseif (isset($matches[6][0])
                             && $matches[6][0]==PoTokens::TRANSLATOR_COMMENTS) {

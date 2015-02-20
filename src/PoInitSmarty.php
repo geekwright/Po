@@ -70,6 +70,16 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
+     * getMsgctxtArgNames - get argument name(s) used for the msgctxt
+     *
+     * @return array
+     */
+    public function getMsgctxtArgNames()
+    {
+        return $this->msgctxtArgNames;
+    }
+
+    /**
      * setMsgctxtArgNames - set argument name(s) used for the msgctxt
      * @param string[] $argNames array of argument names to set
      *
@@ -88,8 +98,17 @@ class PoInitSmarty extends PoInitAbstract
      */
     public function addMsgctxtArgNames($argNames)
     {
-        $argNames = is_scalar($argNames) ? array($argNames) : $argNames;
-        $this->msgctxtArgNames = array_merge($this->msgctxtArgNames, $argNames);
+        $this->msgctxtArgNames = array_merge($this->msgctxtArgNames, (array) $argNames);
+    }
+
+    /**
+     * getMsgidArgNames - get argument name(s) used for the msgid
+     *
+     * @return array
+     */
+    public function getMsgidArgNames()
+    {
+        return $this->msgidArgNames;
     }
 
     /**
@@ -111,8 +130,17 @@ class PoInitSmarty extends PoInitAbstract
      */
     public function addMsgidArgNames($argNames)
     {
-        $argNames = is_scalar($argNames) ? array($argNames) : $argNames;
-        $this->msgidArgNames = array_merge($this->msgidArgNames, $argNames);
+        $this->msgidArgNames = array_merge($this->msgidArgNames, (array) $argNames);
+    }
+
+    /**
+     * getMsgidPluralArgNames - get argument name(s) used for the msgid_plural
+     *
+     * @return array
+     */
+    public function getMsgidPluralArgNames()
+    {
+        return $this->msgidPluralArgNames;
     }
 
     /**
@@ -134,8 +162,7 @@ class PoInitSmarty extends PoInitAbstract
      */
     public function addMsgidPluralArgNames($argNames)
     {
-        $argNames = is_scalar($argNames) ? array($argNames) : $argNames;
-        $this->msgidPluralArgNames = array_merge($this->msgidPluralArgNames, $argNames);
+        $this->msgidPluralArgNames = array_merge($this->msgidPluralArgNames, (array) $argNames);
     }
 
     /**

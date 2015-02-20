@@ -39,6 +39,16 @@ abstract class PoInitAbstract
     protected $ngettextTags = array('ngettext');
 
     /**
+     * getPoFile - set the PoFile object to used in msginit
+     *
+     * @return PoFile
+     */
+    public function getPoFile()
+    {
+        return $this->poFile;
+    }
+
+    /**
      * setPoFile
      * @param PoFile $poFile set the PoFile object to be used in msginit
      *
@@ -47,6 +57,16 @@ abstract class PoInitAbstract
     public function setPoFile(PoFile $poFile)
     {
         $this->poFile = $poFile;
+    }
+
+    /**
+     * getGettextTags - get tags used for gettext like functions
+     *
+     * @return void
+     */
+    public function getGettextTags()
+    {
+        return $this->gettextTags;
     }
 
     /**
@@ -68,8 +88,17 @@ abstract class PoInitAbstract
      */
     public function addGettextTags($tags)
     {
-        $tags = is_scalar($tags) ? array($tags) : $tags;
-        $this->gettextTags = array_merge($this->gettextTags, $tags);
+        $this->gettextTags = array_merge($this->gettextTags, (array) $tags);
+    }
+
+    /**
+     * getNgettextTags - get tags used for ngettext like functions
+     *
+     * @return void
+     */
+    public function getNgettextTags()
+    {
+        return $this->ngettextTags;
     }
 
     /**
@@ -91,8 +120,17 @@ abstract class PoInitAbstract
      */
     public function addNgettextTags($tags)
     {
-        $tags = is_scalar($tags) ? array($tags) : $tags;
-        $this->ngettextTags = array_merge($this->ngettextTags, $tags);
+        $this->ngettextTags = array_merge($this->ngettextTags, (array) $tags);
+    }
+
+    /**
+     * getPgettextTags - get tags used for pgettext like functions
+     *
+     * @return void
+     */
+    public function getPgettextTags()
+    {
+        return $this->pgettextTags;
     }
 
     /**
@@ -114,10 +152,8 @@ abstract class PoInitAbstract
      */
     public function addPgettextTags($tags)
     {
-        $tags = is_scalar($tags) ? array($tags) : $tags;
-        $this->pgettextTags = array_merge($this->pgettextTags, $tags);
+        $this->pgettextTags = array_merge($this->pgettextTags, (array) $tags);
     }
-
 
     /**
      * msginitFile - inspect the supplied source file, capture gettext references

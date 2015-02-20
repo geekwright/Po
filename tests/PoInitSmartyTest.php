@@ -35,159 +35,141 @@ class PoInitSmartyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Geekwright\Po\PoInitSmarty::getPoFile
      * @covers Geekwright\Po\PoInitSmarty::setPoFile
-     * @todo   Implement testSetPoFile().
      */
-    public function testSetPoFile()
+    public function testGetSetPoFile()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $pofile = new PoFile();
+        $this->object->setPoFile($pofile);
+        $actual = $this->object->getPoFile();
+        $this->assertSame($pofile, $actual);
     }
 
     /**
+     * @covers Geekwright\Po\PoInitSmarty::getMsgctxtArgNames
      * @covers Geekwright\Po\PoInitSmarty::setMsgctxtArgNames
-     * @todo   Implement testSetMsgctxtArgNames().
-     */
-    public function testSetMsgctxtArgNames()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
      * @covers Geekwright\Po\PoInitSmarty::addMsgctxtArgNames
-     * @todo   Implement testAddMsgctxtArgNames().
      */
-    public function testAddMsgctxtArgNames()
+    public function testAddGetSetMsgctxtArgNames()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $value = array();
+        $this->object->setMsgctxtArgNames($value);
+        $actual = $this->object->getMsgctxtArgNames();
+        $this->assertEquals($value, $actual);
+
+        $tag1 = 'tag1';
+        $tag2 = 'tag2';
+        $value = array($tag1, $tag2);
+        $this->object->addMsgctxtArgNames($tag1);
+        $this->object->addMsgctxtArgNames($tag2);
+        $actual = $this->object->getMsgctxtArgNames();
+        $this->assertEquals($value, $actual);
     }
 
     /**
+     * @covers Geekwright\Po\PoInitSmarty::getMsgidArgNames
      * @covers Geekwright\Po\PoInitSmarty::setMsgidArgNames
-     * @todo   Implement testSetMsgidArgNames().
-     */
-    public function testSetMsgidArgNames()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
      * @covers Geekwright\Po\PoInitSmarty::addMsgidArgNames
-     * @todo   Implement testAddMsgidArgNames().
      */
-    public function testAddMsgidArgNames()
+    public function testAddGetSetMsgidArgNames()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $value = array();
+        $this->object->setMsgidArgNames($value);
+        $actual = $this->object->getMsgidArgNames();
+        $this->assertEquals($value, $actual);
+
+        $tag1 = 'tag1';
+        $tag2 = 'tag2';
+        $value = array($tag1, $tag2);
+        $this->object->addMsgidArgNames($tag1);
+        $this->object->addMsgidArgNames($tag2);
+        $actual = $this->object->getMsgidArgNames();
+        $this->assertEquals($value, $actual);
     }
 
     /**
+     * @covers Geekwright\Po\PoInitSmarty::getMsgidPluralArgNames
      * @covers Geekwright\Po\PoInitSmarty::setMsgidPluralArgNames
-     * @todo   Implement testSetMsgidPluralArgNames().
-     */
-    public function testSetMsgidPluralArgNames()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
      * @covers Geekwright\Po\PoInitSmarty::addMsgidPluralArgNames
-     * @todo   Implement testAddMsgidPluralArgNames().
      */
-    public function testAddMsgidPluralArgNames()
+    public function testAddGetSetMsgidPluralArgNames()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
+        $value = array();
+        $this->object->setMsgidPluralArgNames($value);
+        $actual = $this->object->getMsgidPluralArgNames();
+        $this->assertEquals($value, $actual);
 
-    /**
-     * @covers Geekwright\Po\PoInitSmarty::setGettextTags
-     * @todo   Implement testSetGettextTags().
-     */
-    public function testSetGettextTags()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $tag1 = 'tag1';
+        $tag2 = 'tag2';
+        $value = array($tag1, $tag2);
+        $this->object->addMsgidPluralArgNames($tag1);
+        $this->object->addMsgidPluralArgNames($tag2);
+        $actual = $this->object->getMsgidPluralArgNames();
+        $this->assertEquals($value, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoInitSmarty::addGettextTags
-     * @todo   Implement testAddGettextTags().
+     * @covers Geekwright\Po\PoInitSmarty::getGettextTags
+     * @covers Geekwright\Po\PoInitSmarty::setGettextTags
      */
-    public function testAddGettextTags()
+    public function testAddGetSetGettextTags()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
+        $value = array();
+        $this->object->setGettextTags($value);
+        $actual = $this->object->getGettextTags();
+        $this->assertEquals($value, $actual);
 
-    /**
-     * @covers Geekwright\Po\PoInitSmarty::setNgettextTags
-     * @todo   Implement testSetNgettextTags().
-     */
-    public function testSetNgettextTags()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $tag1 = 'tag1';
+        $tag2 = 'tag2';
+        $value = array($tag1, $tag2);
+        $this->object->addGettextTags($tag1);
+        $this->object->addGettextTags($tag2);
+        $actual = $this->object->getGettextTags();
+        $this->assertEquals($value, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoInitSmarty::addNgettextTags
-     * @todo   Implement testAddNgettextTags().
+     * @covers Geekwright\Po\PoInitSmarty::getNgettextTags
+     * @covers Geekwright\Po\PoInitSmarty::setNgettextTags
      */
-    public function testAddNgettextTags()
+    public function testAddGetSetNgettextTags()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
+        $value = array();
+        $this->object->setNgettextTags($value);
+        $actual = $this->object->getNgettextTags();
+        $this->assertEquals($value, $actual);
 
-    /**
-     * @covers Geekwright\Po\PoInitSmarty::setPgettextTags
-     * @todo   Implement testSetPgettextTags().
-     */
-    public function testSetPgettextTags()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $tag1 = 'tag1';
+        $tag2 = 'tag2';
+        $value = array($tag1, $tag2);
+        $this->object->addNgettextTags($tag1);
+        $this->object->addNgettextTags($tag2);
+        $actual = $this->object->getNgettextTags();
+        $this->assertEquals($value, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoInitSmarty::addPgettextTags
-     * @todo   Implement testAddPgettextTags().
+     * @covers Geekwright\Po\PoInitSmarty::getPgettextTags
+     * @covers Geekwright\Po\PoInitSmarty::setPgettextTags
      */
-    public function testAddPgettextTags()
+    public function testAddGetSetPgettextTags()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $value = array();
+        $this->object->setPgettextTags($value);
+        $actual = $this->object->getPgettextTags();
+        $this->assertEquals($value, $actual);
+
+        $tag1 = 'tag1';
+        $tag2 = 'tag2';
+        $value = array($tag1, $tag2);
+        $this->object->addPgettextTags($tag1);
+        $this->object->addPgettextTags($tag2);
+        $actual = $this->object->getPgettextTags();
+        $this->assertEquals($value, $actual);
     }
 
     /**

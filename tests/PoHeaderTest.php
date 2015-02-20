@@ -18,6 +18,7 @@ class PoHeaderTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new PoHeader;
+        $this->object->buildDefaultHeader();
     }
 
     /**
@@ -30,73 +31,65 @@ class PoHeaderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Geekwright\Po\PoHeader::getHeader
-     * @todo   Implement testGetHeader().
-     */
-    public function testGetHeader()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
      * @covers Geekwright\Po\PoHeader::setHeader
-     * @todo   Implement testSetHeader().
      */
-    public function testSetHeader()
+    public function testGetSetHeader()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $value = 'nplurals=1; plural=0;';
+        $this->object->setHeader('plural-forms', $value);
+        $actual = $this->object->getHeader('Plural-Forms');
+        $this->assertEquals($value, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoHeader::setCreateDate
-     * @todo   Implement testSetCreateDate().
      */
     public function testSetCreateDate()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $time = time();
+        $expected = gmdate('Y-m-d H:iO', $time);
+        $this->object->setCreateDate($time);
+        $actual = $this->object->getHeader('POT-Creation-Date');
+        $this->assertEquals($expected, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoHeader::setRevisionDate
-     * @todo   Implement testSetRevisionDate().
      */
     public function testSetRevisionDate()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $time = time();
+        $expected = gmdate('Y-m-d H:iO', $time);
+        $this->object->setRevisionDate($time);
+        $actual = $this->object->getHeader('PO-Revision-Date');
+        $this->assertEquals($expected, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoHeader::buildDefaultHeader
-     * @todo   Implement testBuildDefaultHeader().
      */
     public function testBuildDefaultHeader()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $header = new PoHeader;
+        $header->buildDefaultHeader();
+        $actual = $header->getHeader('Content-Type');
+        $expected = 'text/plain; charset=UTF-8';
+        $this->assertEquals($expected, $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoHeader::dumpEntry
-     * @todo   Implement testDumpEntry().
      */
     public function testDumpEntry()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $output = $this->object->dumpEntry();
+        $actual = substr($output, -2);
+        $expected = "\n\n";
+        $this->assertEquals($expected, $actual);
+        $actual = substr($output, 0, 1);
+        $expected = "#";
+        $this->assertEquals($expected, $actual);
+        $this->assertTrue(false !== strpos($output, 'Content-Type'));
+        $this->assertTrue(false !== strpos($output, 'PO-Revision-Date'));
     }
 }
