@@ -26,6 +26,11 @@ class PoHeader extends PoEntry
         $this->entry[PoTokens::MESSAGE] = "";
     }
 
+    /**
+     * buildStructuredHeaders - populate structuredHeaders property with contents
+     * of this entry
+     * @return void
+     */
     protected function buildStructuredHeaders()
     {
         $this->structuredHeaders = array();
@@ -45,6 +50,11 @@ class PoHeader extends PoEntry
         }
     }
 
+    /**
+     * storeStructuredHeader - rebuild the PoTokens::TRANSLATED entry using
+     * contents of the structuredHeaders property
+     * @return boolean true if set, false if not
+     */
     protected function storeStructuredHeader()
     {
         if (empty($this->structuredHeaders)) {
@@ -59,6 +69,11 @@ class PoHeader extends PoEntry
         return true;
     }
 
+    /**
+     * getHeader - get a header string by case insensitive key
+     * @param string $key name of header to return
+     * @return string|false header string for key or false if not set
+     */
     public function getHeader($key)
     {
         $this->buildStructuredHeaders();
@@ -70,6 +85,12 @@ class PoHeader extends PoEntry
         return $header;
     }
 
+    /**
+     * setHeader - set a header string for a key
+     * @param string $key   name of header to set
+     * @param string $value value to set
+     * @return void
+     */
     public function setHeader($key, $value)
     {
         $this->buildStructuredHeaders();
@@ -83,16 +104,31 @@ class PoHeader extends PoEntry
         $this->storeStructuredHeader();
     }
 
+    /**
+     * setCreateDate - set the POT-Creation-Date header
+     * @param integer $time unix timestamp, null to use current
+     * @return void
+     */
     public function setCreateDate($time = null)
     {
         $this->setHeader('POT-Creation-Date', $this->formatTimestamp($time));
     }
 
+    /**
+     * setRevisionDate - set the PO-Revision-Date header
+     * @param integer $time unix timestamp, null to use current
+     * @return void
+     */
     public function setRevisionDate($time = null)
     {
         $this->setHeader('PO-Revision-Date', $this->formatTimestamp($time));
     }
 
+    /**
+     * formatTimestamp - format a timestamp following PO file conventions
+     * @param integer $time unix timestamp, null to use current
+     * @return string formatted timestamp
+     */
     protected function formatTimestamp($time = null)
     {
         if (empty($time)) {
@@ -101,16 +137,21 @@ class PoHeader extends PoEntry
         return gmdate('Y-m-d H:iO', $time);
     }
 
+    /**
+     * buildDefaultHeader - create a default header entry
+     * @return void
+     */
     public function buildDefaultHeader()
     {
         $this->set(PoTokens::MESSAGE, "");
-        $this->add(PoTokens::TRANSLATOR_COMMENTS, 'SOME DESCRIPTIVE TITLE');
+        $this->set(PoTokens::TRANSLATOR_COMMENTS, 'SOME DESCRIPTIVE TITLE');
         $this->add(PoTokens::TRANSLATOR_COMMENTS, 'Copyright (C) YEAR HOLDER');
         $this->add(PoTokens::TRANSLATOR_COMMENTS, 'LICENSE');
         $this->add(PoTokens::TRANSLATOR_COMMENTS, 'FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.');
         $this->add(PoTokens::TRANSLATOR_COMMENTS, '');
-        $this->add(PoTokens::FLAG, 'fuzzy');
+        $this->set(PoTokens::FLAG, 'fuzzy');
         $this->setHeader('Project-Id-Version', 'PACKAGE VERSION');
+        $this->setHeader('Report-Msgid-Bugs-To', 'FULL NAME <EMAIL@ADDRESS>');
         $this->setCreateDate();
         $this->setHeader('PO-Revision-Date', 'YEAR-MO-DA HO:MI+ZONE');
         $this->setHeader('Last-Translator', 'FULL NAME <EMAIL@ADDRESS>');

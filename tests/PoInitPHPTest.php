@@ -105,23 +105,26 @@ class PoInitPHPTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Geekwright\Po\PoInitPHP::msginitFile
-     * @todo   Implement testMsginitFile().
-     */
-    public function testMsginitFile()
-    {
-        $result = $this->object->msginitFile(__FILE__);
-        $this->assertInstanceOf('Geekwright\Po\PoFile', $result);
-    }
-
-    /**
      * @covers Geekwright\Po\PoInitPHP::msginitString
-     * @todo   Implement testMsginitString().
      */
-    public function testMsginitString()
+    public function testMsginit()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $poinit = new PoInitPHP;
+        $pofile = $poinit->msginitFile(__DIR__ . '/files/inittest.php');
+        $this->assertInstanceOf('Geekwright\Po\PoFile', $pofile);
+        $entries = $pofile->getEntries();
+        $this->assertEquals(10, count($entries));
+        $entry = $pofile->findEntry('File', 'menu');
+        $this->assertInstanceOf('Geekwright\Po\PoEntry', $entry);
+        $actual = $entry->getAsString(PoTokens:: EXTRACTED_COMMENTS);
+        $this->assertEquals('menu entry', $actual);
+        $entry = $pofile->findEntry("%d pig went to the market.", null, "%d pigs went to the market.");
+        $this->assertInstanceOf('Geekwright\Po\PoEntry', $entry);
+        $refs = $entry->get(PoTokens:: REFERENCE);
+        $this->assertTrue(is_array($refs));
+        $this->assertEquals(2, count($refs));
+        $this->assertTrue($entry->hasFlag('php-format'));
+        $entry = $pofile->findEntry('Control Panel\nwith a lot of options\n');
+        $this->assertInstanceOf('Geekwright\Po\PoEntry', $entry);
     }
 }

@@ -62,7 +62,7 @@ abstract class PoInitAbstract
     /**
      * getGettextTags - get tags used for gettext like functions
      *
-     * @return void
+     * @return string[]
      */
     public function getGettextTags()
     {
@@ -94,7 +94,7 @@ abstract class PoInitAbstract
     /**
      * getNgettextTags - get tags used for ngettext like functions
      *
-     * @return void
+     * @return string[]
      */
     public function getNgettextTags()
     {
@@ -126,7 +126,7 @@ abstract class PoInitAbstract
     /**
      * getPgettextTags - get tags used for pgettext like functions
      *
-     * @return void
+     * @return string[]
      */
     public function getPgettextTags()
     {
@@ -193,6 +193,7 @@ abstract class PoInitAbstract
         if ($string[0]=='"' || $string[0]=="'") {
             $string = substr($string, 1, -1);
         }
+        $string = str_replace("\r\n", "\n", $string);
         $string = stripcslashes($string);
         return addcslashes($string, "\0..\37\"");
     }

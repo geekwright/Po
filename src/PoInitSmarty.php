@@ -72,7 +72,7 @@ class PoInitSmarty extends PoInitAbstract
     /**
      * getMsgctxtArgNames - get argument name(s) used for the msgctxt
      *
-     * @return array
+     * @return string[]
      */
     public function getMsgctxtArgNames()
     {
@@ -104,7 +104,7 @@ class PoInitSmarty extends PoInitAbstract
     /**
      * getMsgidArgNames - get argument name(s) used for the msgid
      *
-     * @return array
+     * @return string[]
      */
     public function getMsgidArgNames()
     {
@@ -136,7 +136,7 @@ class PoInitSmarty extends PoInitAbstract
     /**
      * getMsgidPluralArgNames - get argument name(s) used for the msgid_plural
      *
-     * @return array
+     * @return string[]
      */
     public function getMsgidPluralArgNames()
     {
