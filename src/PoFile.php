@@ -10,8 +10,8 @@ use Geekwright\Po\Exceptions\FileNotWriteableException;
  * PoFile - represent all entries in a GNU gettext style PO or POT file as a
  * collection of PoHeader and PoEntry objects.
  *
- * @category  Po
- * @package   Po\PoFile
+ * @category  File
+ * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
  * @copyright 2015 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -45,11 +45,13 @@ class PoFile
     public $unrecognizedInput = array();
 
     /**
-     * __construct
+     * Build a PoFile, empty or with provided entries
      *
      * @param PoHeader|null $header         header object
      * @param PoEntry[]     $entries        associative array po entries
-     * @param PoEntry[]     $unkeyedEntries indexed array of po entries
+     * @param PoEntry[]     $unkeyedEntries indexed array of po entries. Unkeyed entries
+     *                                      are usually comment only entries, such as for
+     *                                      obsolete entries.
      */
     public function __construct($header = null, $entries = array(), $unkeyedEntries = array())
     {
@@ -59,10 +61,12 @@ class PoFile
     }
 
     /**
-     * createKey - build the internal entries array key from id, context and plural id
+     * Build the internal entries array key from id, context and plural id
+     *
      * @param string $msgid        the untranslated message of the entry
      * @param string $msgctxt      the context of the entry, if any
      * @param string $msgid_plural the untranslated plural message of the entry, if any
+     *
      * @return string
      */
     public static function createKey($msgid, $msgctxt = null, $msgid_plural = null)
@@ -79,8 +83,10 @@ class PoFile
     }
 
     /**
-     * createKeyFromEntry - build the internal entries array key from a PoEntry
-     * @param PoEntry $entry the PoEntry to build key for
+     * Build an internal entries array key from a PoEntry
+     *
+     * @param PoEntry $entry the PoEntry to build key from
+     *
      * @return string
      */
     public function createKeyFromEntry(PoEntry $entry)
@@ -93,9 +99,10 @@ class PoFile
     }
 
     /**
-     * setHeaderEntry replace any existing header with new PoHeader
+     * Replace any existing header with the provided PoHeader
      *
      * @param PoHeader $header header object
+     *
      * @return void
      */
     public function setHeaderEntry(PoHeader $header)
@@ -104,7 +111,7 @@ class PoFile
     }
 
     /**
-     * getHeaderEntry get current PoHeader object
+     * Get the current header entry
      *
      * @return PoHeader
      */
@@ -114,7 +121,7 @@ class PoFile
     }
 
     /**
-     * getEntries get current array of PoEntry objects
+     * Get an array of current entries
      *
      * @return PoEntry[]
      */
@@ -124,9 +131,10 @@ class PoFile
     }
 
     /**
-     * setUnkeyedEntries replace any existing unkeyedEntries with new array of PoEntry objects
+     * Replace any existing unkeyedEntries with new array of PoEntry objects
      *
      * @param PoEntry[] $entries po entries
+     *
      * @return void
      */
     public function setUnkeyedEntries($entries)
@@ -135,7 +143,7 @@ class PoFile
     }
 
     /**
-     * getUnkeyedEntries get current array of unkeyed PoEntry objects
+     * Get current array of unkeyed PoEntry objects
      *
      * @return PoEntry[]
      */
@@ -145,10 +153,12 @@ class PoFile
     }
 
     /**
-     * addEntry - add an entry to the PoFile using internal key
+     * Add an entry to the PoFile using internal key
+     *
      * @param PoEntry $entry   the PoEntry to add
      * @param boolean $replace true to replace any existing entry matching this key,
-     *                         false to not add if duplicate
+     *                         false to not change the PoFile for a duplicated key
+     *
      * @return boolean true if added, false if not
      */
     public function addEntry(PoEntry $entry, $replace = true)
@@ -171,14 +181,14 @@ class PoFile
     }
 
     /**
-     * mergeEntry - merge an entry with any existing entry with the same key.
-     * If the key does not exist, add the entry, otherwise merge comments, references,
-     * and flags.
+     * Merge an entry with any existing entry with the same key. If the key does
+     * not exist, add the entry, otherwise merge comments, references, and flags.
      *
      * This is intended for use in building a POT, where the handling of translated
      * strings is not a factor.
      *
      * @param PoEntry $newEntry the PoEntry to merge
+     *
      * @return boolean true if merged or added, false if not
      */
     public function mergeEntry(PoEntry $newEntry)
@@ -209,11 +219,12 @@ class PoFile
     }
 
     /**
-     * findEntry - get entry based on key - msgid, msgctxt and msgid_plural
+     * Get an entry based on key values - msgid, msgctxt and msgid_plural
      *
      * @param string $msgid        the untranslated message of the entry
      * @param string $msgctxt      the context of the entry, if any
      * @param string $msgid_plural the untranslated plural message of the entry, if any
+     *
      * @return PoEntry|null matching entry, or null if not found
      */
     public function findEntry($msgid, $msgctxt = null, $msgid_plural = null)
@@ -229,7 +240,7 @@ class PoFile
     }
 
     /**
-     * removeEntry - remove an entry from the PoFile
+     * Remove an entry from the PoFile
      *
      * In simple cases, the entry can be found by key. There are several cases
      * where it is not that easy to locate the PoEntry to be removed:
@@ -240,6 +251,7 @@ class PoFile
      * exact object match, so the cost of the remove goes up
      *
      * @param PoEntry $entry the PoEntry to merge
+     *
      * @return boolean true if remove, false if not
      */
     public function removeEntry(PoEntry $entry)
@@ -274,10 +286,12 @@ class PoFile
     }
 
     /**
-     * writePoFile write any current contents to a po file
+     * Write any current contents to a po file
      *
      * @param string $file po file to write
+     *
      * @return void
+     *
      * @throws FileNotWriteableException
      */
     public function writePoFile($file)
@@ -289,7 +303,8 @@ class PoFile
     }
 
     /**
-     * dump po to string
+     * Dump the current contents in PO format to a string
+     *
      * @return string
      */
     public function dumpString()
@@ -314,11 +329,13 @@ class PoFile
 
 
     /**
-     * readPoFile replace any current contents with entries from file
+     * Replace any current contents with entries from a file
      *
      * @param string   $file    po file/stream to read
      * @param resource $context context for stream if required
+     *
      * @return void
+     *
      * @throws FileNotReadableException
      */
     public function readPoFile($file, resource $context = null)
@@ -333,10 +350,12 @@ class PoFile
     }
 
     /**
-     * parsePoSource replace any current contents with header and entries from file
+     * Replace any current contents with header and entries from PO souce string
      *
      * @param string $source po formatted string to parse
+     *
      * @return void
+     *
      * @throws UnrecognizedInputException
      */
     public function parsePoSource($source)

@@ -3,10 +3,13 @@
 namespace Geekwright\Po;
 
 /**
- * PoHeader - represent the header entry of a GNU gettext style PO or POT file
+ * A special PoEntry that represents the header of a GNU gettext style PO or POT file.
+ * The header is the first entry of a PO file. It has an empty string as the "msgid"
+ * value, and a set of structured strings compose the "msgstr" value. PoHeader exposes
+ * these structured strings so that the individual values can be fetched or set by name.
  *
- * @category  Po
- * @package   Po\PoHeader
+ * @category  Entries
+ * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
  * @copyright 2015 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -18,7 +21,7 @@ class PoHeader extends PoEntry
 
 
     /**
-     * __construct
+     * Create an empty header entry
      */
     public function __construct()
     {
@@ -27,8 +30,9 @@ class PoHeader extends PoEntry
     }
 
     /**
-     * buildStructuredHeaders - populate structuredHeaders property with contents
-     * of this entry
+     * Populate the internal structuredHeaders property with contents
+     * of this entry's "msgstr" value.
+     *
      * @return void
      */
     protected function buildStructuredHeaders()
@@ -51,9 +55,10 @@ class PoHeader extends PoEntry
     }
 
     /**
-     * storeStructuredHeader - rebuild the PoTokens::TRANSLATED entry using
-     * contents of the structuredHeaders property
-     * @return boolean true if set, false if not
+     * Rebuild the this entry's "msgstr" value using contents of the internal
+     * structuredHeaders property.
+     *
+     * @return boolean true if rebuilt, false if not
      */
     protected function storeStructuredHeader()
     {
@@ -70,8 +75,10 @@ class PoHeader extends PoEntry
     }
 
     /**
-     * getHeader - get a header string by case insensitive key
-     * @param string $key name of header to return
+     * Get a header value string by key
+     *
+     * @param string $key case insensitive name of header to return
+     *
      * @return string|false header string for key or false if not set
      */
     public function getHeader($key)
@@ -86,9 +93,12 @@ class PoHeader extends PoEntry
     }
 
     /**
-     * setHeader - set a header string for a key
-     * @param string $key   name of header to set
+     * Set the value of a header string for a key.
+     *
+     * @param string $key   name of header to set. If the header exists, the name is
+     *                      case insensitive. If it is new the given case will be used
      * @param string $value value to set
+     *
      * @return void
      */
     public function setHeader($key, $value)
@@ -105,8 +115,10 @@ class PoHeader extends PoEntry
     }
 
     /**
-     * setCreateDate - set the POT-Creation-Date header
+     * Set the POT-Creation-Date header
+     *
      * @param integer $time unix timestamp, null to use current
+     *
      * @return void
      */
     public function setCreateDate($time = null)
@@ -115,8 +127,10 @@ class PoHeader extends PoEntry
     }
 
     /**
-     * setRevisionDate - set the PO-Revision-Date header
+     * Set the PO-Revision-Date header
+     *
      * @param integer $time unix timestamp, null to use current
+     *
      * @return void
      */
     public function setRevisionDate($time = null)
@@ -125,8 +139,10 @@ class PoHeader extends PoEntry
     }
 
     /**
-     * formatTimestamp - format a timestamp following PO file conventions
+     * Format a timestamp following PO file conventions
+     *
      * @param integer $time unix timestamp, null to use current
+     *
      * @return string formatted timestamp
      */
     protected function formatTimestamp($time = null)
@@ -138,7 +154,8 @@ class PoHeader extends PoEntry
     }
 
     /**
-     * buildDefaultHeader - create a default header entry
+     * Create a default header entry
+     *
      * @return void
      */
     public function buildDefaultHeader()
@@ -165,6 +182,7 @@ class PoHeader extends PoEntry
 
     /**
      * Dump this entry as a po/pot file fragment
+     *
      * @return string
      */
     public function dumpEntry()

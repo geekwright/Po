@@ -12,10 +12,10 @@ namespace Geekwright\Po;
  * The specifics of the function ('funcname') and the argument names ('msgid',
  * 'msgid_plural', and 'msgctxt') can be specified.
  *
- * Smarty3 is required.
+ * A properly initialized Smarty v3 object  is required.
  *
- * @category  Po
- * @package   Po\PoInitSmarty
+ * @category  Extractors
+ * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
  * @copyright 2015 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -59,8 +59,9 @@ class PoInitSmarty extends PoInitAbstract
     protected $msgctxtArgNames = array('msgctxt');
 
     /**
-     * __construct
-     * @param \Smarty     $smarty a Smarty 3 instance
+     * Set the Smarty and PoObjects to use in the Init process
+     *
+     * @param \Smarty     $smarty a fully initialize Smarty 3 instance
      * @param PoFile|null $poFile a PoFile object to be used in msginit
      */
     public function __construct(\Smarty $smarty, PoFile $poFile = null)
@@ -80,7 +81,8 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
-     * setMsgctxtArgNames - set argument name(s) used for the msgctxt
+     * Set argument name(s) used for the msgctxt
+     *
      * @param string[] $argNames array of argument names to set
      *
      * @return void
@@ -91,7 +93,8 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
-     * addMsgctxtArgNames - add argument name(s) used for the msgctxt
+     * Add argument name(s) used for the msgctxt
+     *
      * @param string|string[] $argNames argument name(s) to add
      *
      * @return void
@@ -102,7 +105,7 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
-     * getMsgidArgNames - get argument name(s) used for the msgid
+     * Get argument name(s) used for the msgid
      *
      * @return string[]
      */
@@ -112,7 +115,8 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
-     * setMsgidArgNames - set argument name(s) used for the msgid
+     * Set argument name(s) used for the msgid
+     *
      * @param string[] $argNames array of argument names to set
      *
      * @return void
@@ -123,7 +127,8 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
-     * addMsgidArgNames - add argument name(s) used for the msgid
+     * Add argument name(s) used for the msgid
+     *
      * @param string|string[] $argNames argument name(s) to add
      *
      * @return void
@@ -134,7 +139,7 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
-     * getMsgidPluralArgNames - get argument name(s) used for the msgid_plural
+     * Get argument name(s) used for the msgid_plural
      *
      * @return string[]
      */
@@ -144,7 +149,8 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
-     * setMsgidPluralArgNames - set argument name(s) used for the msgid_plural
+     * Set argument name(s) used for the msgid_plural
+     *
      * @param string[] $argNames array of argument names to set
      *
      * @return void
@@ -155,7 +161,8 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
-     * addMsgidPluralArgNames - add argument name(s) used for the msgid_plural
+     * Add argument name(s) used for the msgid_plural
+     *
      * @param string|string[] $argNames argument name(s) to add
      *
      * @return void
@@ -166,11 +173,11 @@ class PoInitSmarty extends PoInitAbstract
     }
 
     /**
-     * msginitString - inspect the supplied source, capture gettext references
-     * as a PoFile object.
+     * Inspect the supplied source, capture gettext references as a PoFile object.
      *
      * @param string $source  php source code
      * @param string $refname source identification used for PO reference comments
+     *
      * @return PoFile
      */
     public function msginitString($source, $refname)

@@ -5,12 +5,12 @@ namespace Geekwright\Po;
 use Geekwright\Po\Exceptions\FileNotReadableException;
 
 /**
- * PoInitPHP provides 'msginit' like logic which can take a source PHP file,
- * recognize gettext like function tokens, and capture the translatable strings
- * in a PoFile object.
+ * PoInitAbstract provides a structure for 'msginit' like logic which can take
+ * a source PHP file, recognize gettext like function tokens, and capture the
+ * translatable strings in a PoFile object.
  *
- * @category  Po
- * @package   Po\PoInitPHP
+ * @category  Extractors
+ * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
  * @copyright 2015 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -39,7 +39,7 @@ abstract class PoInitAbstract
     protected $ngettextTags = array('ngettext');
 
     /**
-     * getPoFile - set the PoFile object to used in msginit
+     * Get the PoFile object used in msginit process
      *
      * @return PoFile
      */
@@ -49,8 +49,9 @@ abstract class PoInitAbstract
     }
 
     /**
-     * setPoFile
-     * @param PoFile $poFile set the PoFile object to be used in msginit
+     * Set the PoFile object to use in msginit process
+     *
+     * @param PoFile $poFile a PoFile object
      *
      * @return void
      */
@@ -60,7 +61,7 @@ abstract class PoInitAbstract
     }
 
     /**
-     * getGettextTags - get tags used for gettext like functions
+     * Get tags used for gettext like functions
      *
      * @return string[]
      */
@@ -70,7 +71,8 @@ abstract class PoInitAbstract
     }
 
     /**
-     * setGettextTags - set tags used for gettext like functions
+     * Set tags used for gettext like functions
+     *
      * @param string[] $tags array of tags to set
      *
      * @return void
@@ -81,7 +83,8 @@ abstract class PoInitAbstract
     }
 
     /**
-     * addGettextTags - add tags used for gettext like functions
+     * Add tags used for gettext like functions
+     *
      * @param string|string[] $tags tag, or array of tags to add
      *
      * @return void
@@ -92,7 +95,7 @@ abstract class PoInitAbstract
     }
 
     /**
-     * getNgettextTags - get tags used for ngettext like functions
+     * Get tags used for ngettext like functions
      *
      * @return string[]
      */
@@ -113,7 +116,8 @@ abstract class PoInitAbstract
     }
 
     /**
-     * addNgettextTags - add tags used for ngettext like functions
+     * Add tags used for ngettext like functions
+     *
      * @param string|string[] $tags tag, or array of tags to add
      *
      * @return void
@@ -124,7 +128,7 @@ abstract class PoInitAbstract
     }
 
     /**
-     * getPgettextTags - get tags used for pgettext like functions
+     * Get tags used for pgettext like functions
      *
      * @return string[]
      */
@@ -134,7 +138,8 @@ abstract class PoInitAbstract
     }
 
     /**
-     * setPgettextTags - set tags used for pgettext like functions
+     * Set tags used for pgettext like functions
+     *
      * @param string[] $tags array of tags to set
      *
      * @return void
@@ -145,7 +150,8 @@ abstract class PoInitAbstract
     }
 
     /**
-     * addPgettextTags - add tags used for pgettext like functions
+     * Add tags used for pgettext like functions
+     *
      * @param string|string[] $tags tag, or array of tags to add
      *
      * @return void
@@ -156,11 +162,12 @@ abstract class PoInitAbstract
     }
 
     /**
-     * msginitFile - inspect the supplied source file, capture gettext references
-     * as a PoFile object
+     * Inspect the supplied source file, capture gettext references as a PoFile object
      *
      * @param string $filename name of source file
+     *
      * @return PoFile
+     *
      * @throws FileNotReadableException
      */
     public function msginitFile($filename)
@@ -173,19 +180,21 @@ abstract class PoInitAbstract
     }
 
     /**
-     * msginitString - inspect the supplied source, capture gettext references
-     * as a PoFile object.
+     * Inspect the supplied source, capture gettext references as a PoFile object
      *
      * @param string $source  php source code
      * @param string $refname source identification used for PO reference comments
+     *
      * @return PoFile
      */
     abstract public function msginitString($source, $refname);
 
     /**
-     * escapeForPo prepare a string from tokenized output for use in a po file.
-     * Remove any surrounding quotes, escape control characters and double qoutes
+     * Prepare a string from tokenized output for use in a po file. Remove any
+     * surrounding quotes, escape control characters and double qoutes.
+     *
      * @param string $string raw string (T_STRING) identified by php token_get_all
+     *
      * @return string
      */
     protected function escapeForPo($string)

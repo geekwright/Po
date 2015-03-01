@@ -3,17 +3,17 @@
 namespace Geekwright\Po;
 
 /**
- * PoTokens - constants representing line indentification tokens found in a
- * GNU gettext style PO or POT file
+ * Constants representing line indentification tokens found in a GNU gettext
+ * style PO or POT file
  *
- * @category  Po
- * @package   Po\PoTokens
+ * @category  Tokens
+ * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
  * @copyright 2015 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @link      https://github.com/geekwright/Po
  */
-class PoTokens
+interface PoTokens
 {
     const TRANSLATOR_COMMENTS = '#';
     const EXTRACTED_COMMENTS = '#.';

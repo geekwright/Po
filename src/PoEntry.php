@@ -3,10 +3,12 @@
 namespace Geekwright\Po;
 
 /**
- * PoEntry - represent a single entry in a GNU gettext style PO or POT file
+ * PoEntry represent a single entry in a GNU gettext style PO or POT file.
+ * An entry consists of an associative array of values, indexed by type. These
+ * types are based on PO file line recognition tokens from PoTokens.
  *
- * @category  Po
- * @package   Po\PoEntry
+ * @category  Entries
+ * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
  * @copyright 2015 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -20,7 +22,7 @@ class PoEntry
     protected $entry = array();
 
     /**
-     * __construct
+     * establish an empty entry
      */
     public function __construct()
     {
@@ -37,9 +39,10 @@ class PoEntry
     }
 
     /**
-     * add an entry to an array type entry
+     * add a value to an array 'type' in the entry
+     *
      * @param string $type  PoToken constant
-     * @param string $value entry to store
+     * @param string $value value to store
      * @return void
      */
     public function add($type, $value)
@@ -52,9 +55,10 @@ class PoEntry
     }
 
     /**
-     * add a quoted entry to an array type entry
+     * add a quoted value to the array 'type' in the entry
+     *
      * @param string $type  PoToken constant
-     * @param string $value entry to store
+     * @param string $value value to store
      * @return void
      */
     public function addQuoted($type, $value)
@@ -72,14 +76,14 @@ class PoEntry
     }
 
     /**
-     * add a quoted entry to a nested array
+     * add a quoted value to the nested array 'type' in the entry
      *
      * This is mainly useful for translated plurals. Since any plural msgstr can have
      * continuation lines, the message is stored as an array of arrays.
      *
      * @param string  $type     PoToken constant
      * @param integer $position array position to store
-     * @param string  $value    entry to store
+     * @param string  $value    value to store
      * @return void
      */
     public function addQuotedAtPosition($type, $position, $value)
@@ -101,8 +105,10 @@ class PoEntry
     }
 
     /**
-     * get any entry for a type
+     * get the value for a specified type
+     *
      * @param string $type PoToken constant
+     *
      * @return string|string[]|null
      */
     public function get($type)
@@ -111,7 +117,8 @@ class PoEntry
     }
 
     /**
-     * get the entry for a type as a string
+     * get the value of a specified type as a string
+     *
      * @param string $type PoToken constant
      * @return string|null
      */
@@ -125,10 +132,11 @@ class PoEntry
     }
 
     /**
-     * Get an entry as an array of strings. This is mainly for plural TRANSLATED
-     * messages.
+     * Get the value of a specified type as an array of strings. This is
+     * mainly for plural TRANSLATED messages.
      *
      * @param string $type PoToken constant
+     *
      * @return string|null
      */
     public function getAsStringArray($type)
@@ -146,7 +154,8 @@ class PoEntry
     }
 
     /**
-     * set an entry to value
+     * set the value of a specified type
+     *
      * @param string $type  PoToken constant
      * @param string $value value to set
      * @return void
@@ -158,6 +167,7 @@ class PoEntry
 
     /**
      * Dump this entry as a po/pot file fragment
+     *
      * @return string
      */
     public function dumpEntry()
@@ -192,6 +202,7 @@ class PoEntry
 
     /**
      * Dump the comments for this entry as a po/pot file fragment
+     *
      * @return string
      */
     protected function dumpEntryComments()
@@ -222,12 +233,13 @@ class PoEntry
     }
 
     /**
-     * formatQuotedString - format a string for output by escaping control and
-     * double quote characters, and surrouding with quotes
-     * and double quo
+     * format a string for output by escaping control and double quote
+     * characters, then surrouding with double quotes
+     *
      * @param string|null $value string to prepare
      * @param boolean     $bare  true for bare output, default false adds leading
      *                           space and trailing newline
+     *
      * @return string
      */
     protected function formatQuotedString($value, $bare = false)
@@ -248,8 +260,10 @@ class PoEntry
     }
 
     /**
-     * hasFlag - check for presence of a flag
+     * check for presence of a flag
+     *
      * @param string $name flag to check
+     *
      * @return boolean true if flag is set, otherwise false
      */
     public function hasFlag($name)
@@ -270,8 +284,10 @@ class PoEntry
     }
 
     /**
-     * addFlag - add a flag to the entry
+     * add a flag to the entry
+     *
      * @param string $name flag to check
+     *
      * @return void
      */
     public function addFlag($name)

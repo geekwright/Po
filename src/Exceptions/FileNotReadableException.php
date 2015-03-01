@@ -7,8 +7,8 @@ namespace Geekwright\Po\Exceptions;
  *
  * File could not be read
  *
- * @category  Po\Exceptions
- * @package   Po\Exceptions\FileNotReadableException
+ * @category  Exceptions
+ * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
  * @copyright 2015 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
