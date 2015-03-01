@@ -5,26 +5,19 @@ Objects to assist in reading, manipulating and creating GNU gettext style PO fil
 
 ### Reading a PO File
 ```PHP
-use Geekwright\Po\PoEntry;
-use Geekwright\Po\PoFile;
-use Geekwright\Po\PoTokens;
-use Geekwright\Po\Exceptions\FileNotReadableException;
-use Geekwright\Po\Exceptions\FileNotWriteableException;
-use Geekwright\Po\Exceptions\UnrecognizedInputException;
-
-try {
-    $poFile = new PoFile();
-    $poFile->readPoFile('test.po');
-    // list all the messages in the file
-    $entries = $poFile->getEntries();
-    foreach($entries as $entry) {
-        echo $entry->getAsString(PoTokens::MESSAGE);
+    try {
+        $poFile = new PoFile();
+        $poFile->readPoFile('test.po');
+        // list all the messages in the file
+        $entries = $poFile->getEntries();
+        foreach($entries as $entry) {
+            echo $entry->getAsString(PoTokens::MESSAGE);
+        }
+    } catch (UnrecognizedInputException $e) {
+        // we had unrecognized lines in the file, decide what to do
+    } catch (FileNotReadableException $e) {
+        // the file couldn't be read, nothing happened
     }
-} catch (UnrecognizedInputException $e) {
-    // we had unrecognized lines in the file, decide what to do
-} catch (FileNotReadableException $e) {
-    // the file couldn't be read, nothing happened
-}
 
 ```
 
@@ -55,7 +48,7 @@ try {
     $poInit = new PoInitPHP($poFile);
     foreach (glob("*.php") as $filename) {
         try {
-            $poInit->msginitFile($file);
+            $poInit->msginitFile($filename);
         } catch (FileNotReadableException $e) {
             // the souce file couldn't be read, decide what to do
         }
