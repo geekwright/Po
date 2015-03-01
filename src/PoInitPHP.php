@@ -7,8 +7,8 @@ namespace Geekwright\Po;
  * recognize gettext like function tokens, and capture the translatable strings
  * in a PoFile object.
  *
- * @category  Po
- * @package   Po\PoInitPHP
+ * @category  Extractors
+ * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
  * @copyright 2015 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -32,7 +32,8 @@ class PoInitPHP extends PoInitAbstract
     protected $ngettextTags = array('ngettext');
 
     /**
-     * __construct
+     * Establish the PoFile to use in the Init process
+     *
      * @param PoFile|null $poFile a PoFile object to be used in msginit
      */
     public function __construct(PoFile $poFile = null)
@@ -40,13 +41,12 @@ class PoInitPHP extends PoInitAbstract
         $this->poFile = $poFile;
     }
 
-
     /**
-     * msginitString - inspect the supplied source, capture gettext references
-     * as a PoFile object.
+     * Inspect the supplied source, capture gettext references as a PoFile object.
      *
      * @param string $source  php source code
      * @param string $refname source identification used for PO reference comments
+     *
      * @return PoFile
      */
     public function msginitString($source, $refname)
@@ -114,8 +114,10 @@ class PoInitPHP extends PoInitAbstract
     }
 
     /**
-     * stripComment remove comment tags from string
+     * Remove comment tags from string
+     *
      * @param string $string raw comment string
+     *
      * @return string
      */
     protected function stripComment($string)

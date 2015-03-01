@@ -1,2 +1,2 @@
 # Po
-Objects representing the GNU gettext style PO file.
+Objects to assist in reading, manipulating and creating GNU gettext style PO files.
