@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Geekwright\Po\PoInitSmarty</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Geekwright.html">
+						Geekwright<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Geekwright.Po.html">
+						Po<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Geekwright.Po.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Geekwright.Po.PoEntry.html">PoEntry</a></li>
+				<li><a href="class-Geekwright.Po.PoFile.html">PoFile</a></li>
+				<li><a href="class-Geekwright.Po.PoHeader.html">PoHeader</a></li>
+				<li><a href="class-Geekwright.Po.PoInitAbstract.html">PoInitAbstract</a></li>
+				<li><a href="class-Geekwright.Po.PoInitPHP.html">PoInitPHP</a></li>
+				<li class="active"><a href="class-Geekwright.Po.PoInitSmarty.html">PoInitSmarty</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Geekwright.Po.PoTokens.html">PoTokens</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Geekwright.Po.html" title="Summary of Geekwright\Po"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class PoInitSmarty</h1>
+
+
+	<div class="description">
+	<p>PoInitPHP provides 'msginit' like logic which can take a Smarty template file,
+recognize gettext like function tokens, and capture the translatable strings
+in a PoFile object.</p>
+
+<p>The Smarty functions are expected to be in the format: funcname(msgid="message" msgid_plural="plural message" msgctxt="context")
+The specifics of the function ('funcname') and the argument names ('msgid',
+'msgid_plural', and 'msgctxt') can be specified.</p>
+
+<p>A properly initialized Smarty v3 object  is required.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Geekwright.Po.PoInitAbstract.html"><span>Geekwright\Po\PoInitAbstract</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Geekwright\Po\PoInitSmarty</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Geekwright.html">Geekwright</a>\<a href="namespace-Geekwright.Po.html">Po</a><br>
+		<b>Package:</b> Po<br>
+
+				<b>Category:</b>
+				Extractors<br>
+				<b>Copyright:</b>
+				2015 Richard Griffith<br>
+				<b>License:</b>
+				<a href="GNU">GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)</a><br>
+				<b>Author:</b>
+				Richard Griffith <a href="&#109;a&#x69;l&#x74;&#111;&#x3a;&#114;&#x69;&#99;&#x68;&#97;&#x72;&#100;&#x40;&#103;&#x65;&#101;&#x6b;&#119;&#x72;&#105;&#x67;&#104;&#x74;&#46;c&#x6f;m">&#114;&#x69;&#99;&#x68;&#97;&#x72;&#100;&#x40;&#103;&#x65;&#101;&#x6b;&#119;&#x72;&#105;&#x67;&#104;&#x74;&#46;c&#x6f;m</a><br>
+				<b>Link:</b>
+				<a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+			<b>Located at</b> <a href="source-class-Geekwright.Po.PoInitSmarty.html#5-220" title="Go to source code">PoInitSmarty.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#61-71" title="Go to source code">__construct</a>( <span>Smarty <var>$smarty</var></span>, <span><code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code> <var>$poFile</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Set the Smarty and PoObjects to use in the Init process</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the Smarty and PoObjects to use in the Init process</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$smarty</var></dt>
+					<dd>a fully initialize Smarty 3 instance</dd>
+					<dt><var>$poFile</var></dt>
+					<dd>a PoFile object to be used in msginit</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMsgctxtArgNames" id="_getMsgctxtArgNames">
+
+		<td class="attributes"><code>
+			 public 
+
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMsgctxtArgNames">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#73-81" title="Go to source code">getMsgctxtArgNames</a>( )</code>
+
+		<div class="description short">
+			<p>getMsgctxtArgNames - get argument name(s) used for the msgctxt</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>getMsgctxtArgNames - get argument name(s) used for the msgctxt</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMsgctxtArgNames" id="_setMsgctxtArgNames">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMsgctxtArgNames">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#83-93" title="Go to source code">setMsgctxtArgNames</a>( <span>string[] <var>$argNames</var></span> )</code>
+
+		<div class="description short">
+			<p>Set argument name(s) used for the msgctxt</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set argument name(s) used for the msgctxt</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argNames</var></dt>
+					<dd>array of argument names to set</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addMsgctxtArgNames" id="_addMsgctxtArgNames">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addMsgctxtArgNames">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#95-105" title="Go to source code">addMsgctxtArgNames</a>( <span>string|string[] <var>$argNames</var></span> )</code>
+
+		<div class="description short">
+			<p>Add argument name(s) used for the msgctxt</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add argument name(s) used for the msgctxt</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argNames</var></dt>
+					<dd>argument name(s) to add</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMsgidArgNames" id="_getMsgidArgNames">
+
+		<td class="attributes"><code>
+			 public 
+
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMsgidArgNames">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#107-115" title="Go to source code">getMsgidArgNames</a>( )</code>
+
+		<div class="description short">
+			<p>Get argument name(s) used for the msgid</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get argument name(s) used for the msgid</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMsgidArgNames" id="_setMsgidArgNames">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMsgidArgNames">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#117-127" title="Go to source code">setMsgidArgNames</a>( <span>string[] <var>$argNames</var></span> )</code>
+
+		<div class="description short">
+			<p>Set argument name(s) used for the msgid</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set argument name(s) used for the msgid</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argNames</var></dt>
+					<dd>array of argument names to set</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addMsgidArgNames" id="_addMsgidArgNames">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addMsgidArgNames">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#129-139" title="Go to source code">addMsgidArgNames</a>( <span>string|string[] <var>$argNames</var></span> )</code>
+
+		<div class="description short">
+			<p>Add argument name(s) used for the msgid</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add argument name(s) used for the msgid</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argNames</var></dt>
+					<dd>argument name(s) to add</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMsgidPluralArgNames" id="_getMsgidPluralArgNames">
+
+		<td class="attributes"><code>
+			 public 
+
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMsgidPluralArgNames">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#141-149" title="Go to source code">getMsgidPluralArgNames</a>( )</code>
+
+		<div class="description short">
+			<p>Get argument name(s) used for the msgid_plural</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get argument name(s) used for the msgid_plural</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMsgidPluralArgNames" id="_setMsgidPluralArgNames">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMsgidPluralArgNames">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#151-161" title="Go to source code">setMsgidPluralArgNames</a>( <span>string[] <var>$argNames</var></span> )</code>
+
+		<div class="description short">
+			<p>Set argument name(s) used for the msgid_plural</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set argument name(s) used for the msgid_plural</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argNames</var></dt>
+					<dd>array of argument names to set</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addMsgidPluralArgNames" id="_addMsgidPluralArgNames">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addMsgidPluralArgNames">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#163-173" title="Go to source code">addMsgidPluralArgNames</a>( <span>string|string[] <var>$argNames</var></span> )</code>
+
+		<div class="description short">
+			<p>Add argument name(s) used for the msgid_plural</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add argument name(s) used for the msgid_plural</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argNames</var></dt>
+					<dd>argument name(s) to add</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="msginitString" id="_msginitString">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_msginitString">#</a>
+		<code><a href="source-class-Geekwright.Po.PoInitSmarty.html#175-219" title="Go to source code">msginitString</a>( <span>string <var>$source</var></span>, <span>string <var>$refname</var></span> )</code>
+
+		<div class="description short">
+			<p>Inspect the supplied source, capture gettext references as a PoFile object.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Inspect the supplied source, capture gettext references as a PoFile object.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$source</var></dt>
+					<dd>php source code</dd>
+					<dt><var>$refname</var></dt>
+					<dd>source identification used for PO reference comments</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Geekwright.Po.PoInitAbstract.html#methods">Geekwright\Po\PoInitAbstract</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_addGettextTags">addGettextTags()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_addNgettextTags">addNgettextTags()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_addPgettextTags">addPgettextTags()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_escapeForPo">escapeForPo()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_getGettextTags">getGettextTags()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_getNgettextTags">getNgettextTags()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_getPgettextTags">getPgettextTags()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_getPoFile">getPoFile()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_msginitFile">msginitFile()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_setGettextTags">setGettextTags()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_setNgettextTags">setNgettextTags()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_setPgettextTags">setPgettextTags()</a>, 
+			<a href="class-Geekwright.Po.PoInitAbstract.html#_setPoFile">setPoFile()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="smarty" id="$smarty">
+		<td class="attributes"><code>
+			protected  
+			Smarty
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoInitSmarty.html#26-29" title="Go to source code"><var>$smarty</var></a>
+
+			<div class="description short">
+				<p>$smarty Smarty 3 object</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$smarty Smarty 3 object</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$smarty" class="anchor">#</a>
+				<code><span class="php-keyword1">null</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="gettextTags" id="$gettextTags">
+		<td class="attributes"><code>
+			protected  
+			string[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoInitSmarty.html#31-34" title="Go to source code"><var>$gettextTags</var></a>
+
+			<div class="description short">
+				<p>$gettextTags tags for gettext constructs, i.e. tag($msgid)</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$gettextTags tags for gettext constructs, i.e. tag($msgid)</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$gettextTags" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>(<span class="php-quote">'gettext'</span>, <span class="php-quote">'_'</span>)</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="pgettextTags" id="$pgettextTags">
+		<td class="attributes"><code>
+			protected  
+			string[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoInitSmarty.html#36-39" title="Go to source code"><var>$pgettextTags</var></a>
+
+			<div class="description short">
+				<p>$pgettextTags tags for pgettext constructs, i.e. tag($msgctxt, $msgid)</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$pgettextTags tags for pgettext constructs, i.e. tag($msgctxt, $msgid)</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$pgettextTags" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="ngettextTags" id="$ngettextTags">
+		<td class="attributes"><code>
+			protected  
+			string[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoInitSmarty.html#41-44" title="Go to source code"><var>$ngettextTags</var></a>
+
+			<div class="description short">
+				<p>$ngettextTags tags for ngettext constructs, i.e. tag($msgid, $msgid_plural)</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$ngettextTags tags for ngettext constructs, i.e. tag($msgid, $msgid_plural)</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$ngettextTags" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="msgidArgNames" id="$msgidArgNames">
+		<td class="attributes"><code>
+			protected  
+			string[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoInitSmarty.html#46-49" title="Go to source code"><var>$msgidArgNames</var></a>
+
+			<div class="description short">
+				<p>$msgidArgNames names of Smarty function argments for msgid</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$msgidArgNames names of Smarty function argments for msgid</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$msgidArgNames" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>(<span class="php-quote">'msgid'</span>)</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="msgidPluralArgNames" id="$msgidPluralArgNames">
+		<td class="attributes"><code>
+			protected  
+			string[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoInitSmarty.html#51-54" title="Go to source code"><var>$msgidPluralArgNames</var></a>
+
+			<div class="description short">
+				<p>$msgidPluralArgNames names of Smarty function argments for msgid_plural</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$msgidPluralArgNames names of Smarty function argments for msgid_plural</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$msgidPluralArgNames" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>(<span class="php-quote">'msgid_plural'</span>)</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="msgctxtArgNames" id="$msgctxtArgNames">
+		<td class="attributes"><code>
+			protected  
+			string[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoInitSmarty.html#56-59" title="Go to source code"><var>$msgctxtArgNames</var></a>
+
+			<div class="description short">
+				<p>$msgctxtArgNames names of Smarty function argments for msgctxt</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$msgctxtArgNames names of Smarty function argments for msgctxt</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$msgctxtArgNames" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>(<span class="php-quote">'msgctxt'</span>)</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Geekwright.Po.PoInitAbstract.html#properties">Geekwright\Po\PoInitAbstract</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Geekwright.Po.PoInitAbstract.html#$poFile"><var>$poFile</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

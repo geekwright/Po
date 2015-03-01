@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Geekwright\Po\PoFile</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Geekwright.html">
+						Geekwright<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Geekwright.Po.html">
+						Po<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Geekwright.Po.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Geekwright.Po.PoEntry.html">PoEntry</a></li>
+				<li class="active"><a href="class-Geekwright.Po.PoFile.html">PoFile</a></li>
+				<li><a href="class-Geekwright.Po.PoHeader.html">PoHeader</a></li>
+				<li><a href="class-Geekwright.Po.PoInitAbstract.html">PoInitAbstract</a></li>
+				<li><a href="class-Geekwright.Po.PoInitPHP.html">PoInitPHP</a></li>
+				<li><a href="class-Geekwright.Po.PoInitSmarty.html">PoInitSmarty</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Geekwright.Po.PoTokens.html">PoTokens</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Geekwright.Po.html" title="Summary of Geekwright\Po"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class PoFile</h1>
+
+
+	<div class="description">
+	<p>PoFile - represent all entries in a GNU gettext style PO or POT file as a
+collection of PoHeader and PoEntry objects.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Geekwright.html">Geekwright</a>\<a href="namespace-Geekwright.Po.html">Po</a><br>
+		<b>Package:</b> Po<br>
+
+				<b>Category:</b>
+				File<br>
+				<b>Copyright:</b>
+				2015 Richard Griffith<br>
+				<b>License:</b>
+				<a href="GNU">GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)</a><br>
+				<b>Author:</b>
+				Richard Griffith <a href="&#109;a&#x69;l&#x74;&#111;&#x3a;&#114;&#x69;&#99;&#x68;&#97;&#x72;&#100;&#x40;&#103;&#x65;&#101;&#x6b;&#119;&#x72;&#105;&#x67;&#104;&#x74;&#46;c&#x6f;m">&#114;&#x69;&#99;&#x68;&#97;&#x72;&#100;&#x40;&#103;&#x65;&#101;&#x6b;&#119;&#x72;&#105;&#x67;&#104;&#x74;&#46;c&#x6f;m</a><br>
+				<b>Link:</b>
+				<a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+			<b>Located at</b> <a href="source-class-Geekwright.Po.PoFile.html#9-472" title="Go to source code">PoFile.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#47-61" title="Go to source code">__construct</a>( <span><code><a href="class-Geekwright.Po.PoHeader.html">Geekwright\Po\PoHeader</a></code>|null <var>$header</var> = <span class="php-keyword1">null</span></span>, <span><code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a>[]</code> <var>$entries</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a>[]</code> <var>$unkeyedEntries</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			<p>Build a PoFile, empty or with provided entries</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Build a PoFile, empty or with provided entries</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$header</var></dt>
+					<dd>header object</dd>
+					<dt><var>$entries</var></dt>
+					<dd>associative array po entries</dd>
+					<dt><var>$unkeyedEntries</var></dt>
+					<dd><p>indexed array of po entries. Unkeyed entries
+                                     are usually comment only entries, such as for
+                                     obsolete entries.</p></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createKey" id="_createKey">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createKey">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#63-83" title="Go to source code">createKey</a>( <span>string <var>$msgid</var></span>, <span>string <var>$msgctxt</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$msgid_plural</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Build the internal entries array key from id, context and plural id</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Build the internal entries array key from id, context and plural id</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$msgid</var></dt>
+					<dd>the untranslated message of the entry</dd>
+					<dt><var>$msgctxt</var></dt>
+					<dd>the context of the entry, if any</dd>
+					<dt><var>$msgid_plural</var></dt>
+					<dd>the untranslated plural message of the entry, if any</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createKeyFromEntry" id="_createKeyFromEntry">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createKeyFromEntry">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#85-99" title="Go to source code">createKeyFromEntry</a>( <span><code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a></code> <var>$entry</var></span> )</code>
+
+		<div class="description short">
+			<p>Build an internal entries array key from a PoEntry</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Build an internal entries array key from a PoEntry</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$entry</var></dt>
+					<dd>the PoEntry to build key from</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setHeaderEntry" id="_setHeaderEntry">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setHeaderEntry">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#101-111" title="Go to source code">setHeaderEntry</a>( <span><code><a href="class-Geekwright.Po.PoHeader.html">Geekwright\Po\PoHeader</a></code> <var>$header</var></span> )</code>
+
+		<div class="description short">
+			<p>Replace any existing header with the provided PoHeader</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Replace any existing header with the provided PoHeader</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$header</var></dt>
+					<dd>header object</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getHeaderEntry" id="_getHeaderEntry">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Geekwright.Po.PoHeader.html">Geekwright\Po\PoHeader</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getHeaderEntry">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#113-121" title="Go to source code">getHeaderEntry</a>( )</code>
+
+		<div class="description short">
+			<p>Get the current header entry</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the current header entry</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Geekwright.Po.PoHeader.html">Geekwright\Po\PoHeader</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getEntries" id="_getEntries">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a>[]</code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getEntries">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#123-131" title="Go to source code">getEntries</a>( )</code>
+
+		<div class="description short">
+			<p>Get an array of current entries</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get an array of current entries</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a>[]</code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setUnkeyedEntries" id="_setUnkeyedEntries">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setUnkeyedEntries">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#133-143" title="Go to source code">setUnkeyedEntries</a>( <span><code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a>[]</code> <var>$entries</var></span> )</code>
+
+		<div class="description short">
+			<p>Replace any existing unkeyedEntries with new array of PoEntry objects</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Replace any existing unkeyedEntries with new array of PoEntry objects</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$entries</var></dt>
+					<dd>po entries</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUnkeyedEntries" id="_getUnkeyedEntries">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a>[]</code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUnkeyedEntries">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#145-153" title="Go to source code">getUnkeyedEntries</a>( )</code>
+
+		<div class="description short">
+			<p>Get current array of unkeyed PoEntry objects</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get current array of unkeyed PoEntry objects</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a>[]</code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addEntry" id="_addEntry">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addEntry">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#155-181" title="Go to source code">addEntry</a>( <span><code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a></code> <var>$entry</var></span>, <span>boolean <var>$replace</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			<p>Add an entry to the PoFile using internal key</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add an entry to the PoFile using internal key</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$entry</var></dt>
+					<dd>the PoEntry to add</dd>
+					<dt><var>$replace</var></dt>
+					<dd><p>true to replace any existing entry matching this key,
+                        false to not change the PoFile for a duplicated key</p></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>true if added, false if not
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="mergeEntry" id="_mergeEntry">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_mergeEntry">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#183-219" title="Go to source code">mergeEntry</a>( <span><code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a></code> <var>$newEntry</var></span> )</code>
+
+		<div class="description short">
+			<p>Merge an entry with any existing entry with the same key. If the key does
+not exist, add the entry, otherwise merge comments, references, and flags.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Merge an entry with any existing entry with the same key. If the key does
+not exist, add the entry, otherwise merge comments, references, and flags.</p>
+
+<p>This is intended for use in building a POT, where the handling of translated
+strings is not a factor.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$newEntry</var></dt>
+					<dd>the PoEntry to merge</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>true if merged or added, false if not
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="findEntry" id="_findEntry">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a></code>|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_findEntry">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#221-240" title="Go to source code">findEntry</a>( <span>string <var>$msgid</var></span>, <span>string <var>$msgctxt</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$msgid_plural</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Get an entry based on key values - msgid, msgctxt and msgid_plural</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get an entry based on key values - msgid, msgctxt and msgid_plural</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$msgid</var></dt>
+					<dd>the untranslated message of the entry</dd>
+					<dt><var>$msgctxt</var></dt>
+					<dd>the context of the entry, if any</dd>
+					<dt><var>$msgid_plural</var></dt>
+					<dd>the untranslated plural message of the entry, if any</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a></code>|null<br>matching entry, or null if not found
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="removeEntry" id="_removeEntry">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_removeEntry">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#242-286" title="Go to source code">removeEntry</a>( <span><code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a></code> <var>$entry</var></span> )</code>
+
+		<div class="description short">
+			<p>Remove an entry from the PoFile</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Remove an entry from the PoFile</p>
+
+<p>In simple cases, the entry can be found by key. There are several cases
+where it is not that easy to locate the PoEntry to be removed: - the PoEntry was altered, making the generated and stored key different - the entry is not keyed and is in unkeyedEntries</p>
+
+<p>In any of these cases, we must loop thru the entry arrays looking for an
+exact object match, so the cost of the remove goes up</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$entry</var></dt>
+					<dd>the PoEntry to merge</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>true if remove, false if not
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="writePoFile" id="_writePoFile">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_writePoFile">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#288-303" title="Go to source code">writePoFile</a>( <span>string <var>$file</var></span> )</code>
+
+		<div class="description short">
+			<p>Write any current contents to a po file</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Write any current contents to a po file</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>po file to write</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Geekwright.Po.Exceptions.FileNotWriteableException.html">Geekwright\Po\Exceptions\FileNotWriteableException</a></code>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="dumpString" id="_dumpString">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_dumpString">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#305-328" title="Go to source code">dumpString</a>( )</code>
+
+		<div class="description short">
+			<p>Dump the current contents in PO format to a string</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Dump the current contents in PO format to a string</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="readPoFile" id="_readPoFile">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_readPoFile">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#331-350" title="Go to source code">readPoFile</a>( <span>string <var>$file</var></span>, <span>Geekwright\Po\resource <var>$context</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Replace any current contents with entries from a file</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Replace any current contents with entries from a file</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>po file/stream to read</dd>
+					<dt><var>$context</var></dt>
+					<dd>context for stream if required</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Geekwright.Po.Exceptions.FileNotReadableException.html">Geekwright\Po\Exceptions\FileNotReadableException</a></code>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parsePoSource" id="_parsePoSource">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parsePoSource">#</a>
+		<code><a href="source-class-Geekwright.Po.PoFile.html#352-471" title="Go to source code">parsePoSource</a>( <span>string <var>$source</var></span> )</code>
+
+		<div class="description short">
+			<p>Replace any current contents with header and entries from PO souce string</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Replace any current contents with header and entries from PO souce string</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$source</var></dt>
+					<dd>po formatted string to parse</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Geekwright.Po.Exceptions.UnrecognizedInputException.html">Geekwright\Po\Exceptions\UnrecognizedInputException</a></code>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="header" id="$header">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Geekwright.Po.PoHeader.html">Geekwright\Po\PoHeader</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoFile.html#22-25" title="Go to source code"><var>$header</var></a>
+
+			<div class="description short">
+				<p>$header</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$header</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$header" class="anchor">#</a>
+				<code><span class="php-keyword1">null</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="entries" id="$entries">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a>[]</code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoFile.html#27-30" title="Go to source code"><var>$entries</var></a>
+
+			<div class="description short">
+				<p>$entries</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$entries</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$entries" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="unkeyedEntries" id="$unkeyedEntries">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a>[]</code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoFile.html#32-35" title="Go to source code"><var>$unkeyedEntries</var></a>
+
+			<div class="description short">
+				<p>$unkeyedEntries</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$unkeyedEntries</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$unkeyedEntries" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="unrecognizedInput" id="$unrecognizedInput">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Geekwright.Po.PoFile.html#37-45" title="Go to source code"><var>$unrecognizedInput</var></a>
+
+			<div class="description short">
+				<p>$var array() $unrecognizedInput</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$var array() $unrecognizedInput</p>
+
+<p>If any lines that cannot be processed are found when reading a po file, the
+unrecognized input will be recorded here, and an exception will be thrown.
+No interface is supplied, but this debug data is an array in the form:
+line number => input line</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$unrecognizedInput" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
