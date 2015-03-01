@@ -10,7 +10,7 @@
   ],
   "homepage": "https://github.com/geekwright/Po",
   "type": "library",
-  "license": "BSD-3-Clause",
+  "license": "GPL-2.0+",
   "authors": [
     {
       "name": "Richard Griffith",
