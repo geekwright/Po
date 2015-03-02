@@ -1,6 +1,6 @@
 {
   "name": "geekwright/po",
-  "description": "Objects representing the GNU gettext style PO file.",
+  "description": "Objects to assist in reading, manipulating and creating GNU gettext style PO files",
   "keywords": [
     "gettext",
     "po",
