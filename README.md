@@ -1,7 +1,16 @@
 # Po
-Objects to assist in reading, manipulating and creating GNU gettext style PO files.
+__Po__ is a set of objects to assist in reading, manipulating and creating GNU gettext style PO files.
+
+## Installing
+The recommended installation method is using composer. Include _"geekwright/po"_ in the _"require"_ section of your project's _composer.json_.
+```
+"require": {
+  "geekwright/po": "1.0.*"
+}
+```
 
 ## Examples
+__Po__ provides the capability to create, read, and modify PO and POT files, including the ability to scan PHP sources for gettext style calls to build a POT file. You can connect the pieces however you need, but here are a few examples for common situations.
 
 ### Reading a PO File
 ```PHP
@@ -42,6 +51,7 @@ Objects to assist in reading, manipulating and creating GNU gettext style PO fil
         // the file couldn't be written
     }
 ```
+
 ### Create a POT File from PHP sources
 ```PHP
     $poFile = new PoFile();
