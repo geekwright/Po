@@ -63,9 +63,9 @@ class PoFile
     /**
      * Build the internal entries array key from id, context and plural id
      *
-     * @param string $msgid        the untranslated message of the entry
-     * @param string $msgctxt      the context of the entry, if any
-     * @param string $msgid_plural the untranslated plural message of the entry, if any
+     * @param string      $msgid        the untranslated message of the entry
+     * @param string|null $msgctxt      the context of the entry, if any
+     * @param string|null $msgid_plural the untranslated plural message of the entry, if any
      *
      * @return string
      */
@@ -221,9 +221,9 @@ class PoFile
     /**
      * Get an entry based on key values - msgid, msgctxt and msgid_plural
      *
-     * @param string $msgid        the untranslated message of the entry
-     * @param string $msgctxt      the context of the entry, if any
-     * @param string $msgid_plural the untranslated plural message of the entry, if any
+     * @param string      $msgid        the untranslated message of the entry
+     * @param string|null $msgctxt      the context of the entry, if any
+     * @param string|null $msgid_plural the untranslated plural message of the entry, if any
      *
      * @return PoEntry|null matching entry, or null if not found
      */
@@ -335,8 +335,8 @@ class PoFile
     /**
      * Replace any current contents with entries from a file
      *
-     * @param string   $file    po file/stream to read
-     * @param resource $context context for stream if required
+     * @param string        $file    po file/stream to read
+     * @param resource|null $context context for stream if required
      *
      * @return void
      *

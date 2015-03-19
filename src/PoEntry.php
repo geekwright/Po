@@ -137,7 +137,7 @@ class PoEntry
      *
      * @param string $type PoToken constant
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getAsStringArray($type)
     {

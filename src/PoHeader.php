@@ -117,7 +117,7 @@ class PoHeader extends PoEntry
     /**
      * Set the POT-Creation-Date header
      *
-     * @param integer $time unix timestamp, null to use current
+     * @param integer|null $time unix timestamp, null to use current
      *
      * @return void
      */
@@ -129,7 +129,7 @@ class PoHeader extends PoEntry
     /**
      * Set the PO-Revision-Date header
      *
-     * @param integer $time unix timestamp, null to use current
+     * @param integer|null $time unix timestamp, null to use current
      *
      * @return void
      */
@@ -141,7 +141,7 @@ class PoHeader extends PoEntry
     /**
      * Format a timestamp following PO file conventions
      *
-     * @param integer $time unix timestamp, null to use current
+     * @param integer|null $time unix timestamp, null to use current
      *
      * @return string formatted timestamp
      */
