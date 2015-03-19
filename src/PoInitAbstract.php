@@ -172,7 +172,11 @@ abstract class PoInitAbstract
      */
     public function msginitFile($filename)
     {
-        $source = file_get_contents($filename);
+        if (!is_readable($filename)) {
+            $source = false;
+        } else {
+            $source = file_get_contents($filename);
+        }
         if (false===$source) {
             throw new FileNotReadableException($filename);
         }
@@ -197,7 +201,7 @@ abstract class PoInitAbstract
      *
      * @return string
      */
-    protected function escapeForPo($string)
+    public function escapeForPo($string)
     {
         if ($string[0]=='"' || $string[0]=="'") {
             $string = substr($string, 1, -1);

@@ -29,6 +29,7 @@ class PoEntryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Geekwright\Po\PoEntry::__construct
      * @covers Geekwright\Po\PoEntry::add
      * @covers Geekwright\Po\PoEntry::set
      * @covers Geekwright\Po\PoEntry::get
@@ -49,6 +50,11 @@ class PoEntryTest extends \PHPUnit_Framework_TestCase
         $expected = array($value, $value2);
         $actual = $entry->get(PoTokens::TRANSLATOR_COMMENTS);
         $this->assertEquals($expected, $actual);
+
+        $entry->add(PoTokens::REFERENCE, 'ref');
+        $actual = $entry->get(PoTokens::REFERENCE);
+        $expected = array('ref');
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -57,11 +63,11 @@ class PoEntryTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddQuoted()
     {
-        $this->object->set(PoTokens:: MESSAGE, null);
-        $this->object->addQuoted(PoTokens:: MESSAGE, '""');
-        $this->object->addQuoted(PoTokens:: MESSAGE, '"First\n"');
-        $this->object->addQuoted(PoTokens:: MESSAGE, '"Second\n"');
-        $actual = $this->object->getAsString(PoTokens:: MESSAGE);
+        $this->object->set(PoTokens::MESSAGE, null);
+        $this->object->addQuoted(PoTokens::MESSAGE, '""');
+        $this->object->addQuoted(PoTokens::MESSAGE, '"First\n"');
+        $this->object->addQuoted(PoTokens::MESSAGE, '"Second\n"');
+        $actual = $this->object->getAsString(PoTokens::MESSAGE);
         $this->assertEquals("First\nSecond\n", $actual);
     }
 
@@ -71,27 +77,60 @@ class PoEntryTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddQuotedAtPosition()
     {
-        $this->object->set(PoTokens:: TRANSLATED, null);
-        $this->object->addQuotedAtPosition(PoTokens:: TRANSLATED, 1, '""');
-        $this->object->addQuotedAtPosition(PoTokens:: TRANSLATED, 1, '"First\n"');
-        $this->object->addQuotedAtPosition(PoTokens:: TRANSLATED, 1, '"Second\n"');
-        $actual = $this->object->getAsStringArray(PoTokens:: TRANSLATED);
+        $this->object->set(PoTokens::TRANSLATED, null);
+        $this->object->addQuotedAtPosition(PoTokens::TRANSLATED, 1, '""');
+        $this->object->addQuotedAtPosition(PoTokens::TRANSLATED, 1, '"First\n"');
+        $this->object->addQuotedAtPosition(PoTokens::TRANSLATED, 1, '"Second\n"');
+        $actual = $this->object->getAsStringArray(PoTokens::TRANSLATED);
         $this->assertEquals(array(1=>"First\nSecond\n"), $actual);
+
+        $this->object->set(PoTokens::TRANSLATED, null);
+        $this->object->set(PoTokens::TRANSLATED, array("First\n"));
+        $this->object->addQuotedAtPosition(PoTokens::TRANSLATED, 0, '"Second\n"');
+        $actual = $this->object->getAsStringArray(PoTokens::TRANSLATED);
+        $this->assertEquals(array(0=>"First\nSecond\n"), $actual);
     }
 
     /**
      * @covers Geekwright\Po\PoEntry::dumpEntry
+     * @covers Geekwright\Po\PoEntry::dumpEntryComments
+     * @covers Geekwright\Po\PoEntry::formatQuotedString
      */
     public function testDumpEntry()
     {
         $entry = new PoEntry;
-        $entry->set(PoTokens:: MESSAGE, 'Hello.');
-        $entry->set(PoTokens:: TRANSLATED, 'Bonjour!');
-        $entry->set(PoTokens:: TRANSLATOR_COMMENTS, 'Just saying hello');
+        $entry->set(PoTokens::MESSAGE, 'Hello.');
+        $entry->set(PoTokens::TRANSLATED, 'Bonjour!');
+        $entry->set(PoTokens::TRANSLATOR_COMMENTS, 'Just saying');
+        $entry->add(PoTokens::TRANSLATOR_COMMENTS, 'hello');
+        $entry->set(PoTokens::REFERENCE, 'ref');
 
         $actual = $entry->dumpEntry();
 
-        $expected = "# Just saying hello\nmsgid \"Hello.\"\nmsgstr \"Bonjour!\"\n\n";
+        $expected = "# Just saying\n# hello\n#: ref\nmsgid \"Hello.\"\nmsgstr \"Bonjour!\"\n\n";
+        $this->assertEquals($expected, $actual);
+
+        $entry = new PoEntry;
+        $entry->set(PoTokens::MESSAGE, '');
+        $entry->add(PoTokens::MESSAGE, 'Hello.');
+        $entry->set(PoTokens::TRANSLATED, '');
+        $entry->add(PoTokens::TRANSLATED, 'Bonjour!');
+        $entry->add(PoTokens::CONTEXT, 'context');
+
+        $actual = $entry->dumpEntry();
+
+        $expected = "msgctxt \"context\"\nmsgid \"\"\n\"Hello.\"\nmsgstr \"\"\n\"Bonjour!\"\n\n";
+        $this->assertEquals($expected, $actual);
+
+        $entry = new PoEntry;
+        $entry->add(PoTokens::MESSAGE, 'One');
+        $entry->add(PoTokens::PLURAL, 'Several');
+        $entry->addQuotedAtPosition(PoTokens::TRANSLATED, 0, 'Onewa');
+        $entry->addQuotedAtPosition(PoTokens::TRANSLATED, 1, 'Everalsa');
+
+        $actual = $entry->dumpEntry();
+
+        $expected = "msgid \"One\"\nmsgid_plural \"Several\"\nmsgstr[0] \"Onewa\"\nmsgstr[1] \"Everalsa\"\n\n";
         $this->assertEquals($expected, $actual);
     }
 
@@ -101,19 +140,28 @@ class PoEntryTest extends \PHPUnit_Framework_TestCase
      */
     public function testHasFlag()
     {
-        $this->object->set(PoTokens:: FLAG, null);
-        $this->object->set(PoTokens:: FLAG, 'fuzzy');
+        $this->object->set(PoTokens::FLAG, null);
+        $this->assertFalse($this->object->hasFlag('fuzzy'));
+        $this->object->set(PoTokens::FLAG, 'fuzzy');
 
         $this->assertTrue($this->object->hasFlag('fuzzy'));
         $this->assertFalse($this->object->hasFlag('futzy'));
 
-        $this->object->set(PoTokens:: FLAG, null);
-        $this->object->set(PoTokens:: FLAG, ' php-format , fuzzy, OdD-StUfF');
+        $this->object->set(PoTokens::FLAG, null);
+        $this->assertFalse($this->object->hasFlag('fuzzy'));
+        $this->object->addFlag('fuzzy');
+        $this->assertTrue($this->object->hasFlag('fuzzy'));
+        $this->assertFalse($this->object->hasFlag('futzy'));
+        $this->object->addFlag('futzy');
+        $this->assertTrue($this->object->hasFlag('futzy'));
+
+        $this->object->set(PoTokens::FLAG, null);
+        $this->object->set(PoTokens::FLAG, ' php-format , fuzzy, OdD-StUfF');
         $this->assertTrue($this->object->hasFlag('php-format'));
         $this->assertTrue($this->object->hasFlag('fuzzy'));
         $this->assertTrue($this->object->hasFlag('odd-stuff'));
         $this->assertFalse($this->object->hasFlag('futzy'));
-        $this->object->add(PoTokens:: FLAG, 'separate');
+        $this->object->add(PoTokens::FLAG, 'separate');
         $this->assertTrue($this->object->hasFlag('separate'));
         $this->object->addFlag('futzy');
         $this->assertTrue($this->object->hasFlag('fuzzy'));

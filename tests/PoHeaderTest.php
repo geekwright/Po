@@ -30,8 +30,20 @@ class PoHeaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Geekwright\Po\PoHeader::__construct
+     */
+    public function test__construct()
+    {
+        $poheader = new PoHeader;
+        $actual = $poheader->get(PoTokens::MESSAGE);
+        $this->assertSame("", $actual);
+    }
+
+    /**
      * @covers Geekwright\Po\PoHeader::getHeader
      * @covers Geekwright\Po\PoHeader::setHeader
+     * @covers Geekwright\Po\PoHeader::buildStructuredHeaders
+     * @covers Geekwright\Po\PoHeader::storeStructuredHeader
      */
     public function testGetSetHeader()
     {
@@ -43,6 +55,7 @@ class PoHeaderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Geekwright\Po\PoHeader::setCreateDate
+     * @covers Geekwright\Po\PoHeader::formatTimestamp
      */
     public function testSetCreateDate()
     {
@@ -55,6 +68,7 @@ class PoHeaderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Geekwright\Po\PoHeader::setRevisionDate
+     * @covers Geekwright\Po\PoHeader::formatTimestamp
      */
     public function testSetRevisionDate()
     {

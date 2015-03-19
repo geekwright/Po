@@ -4,7 +4,7 @@ namespace Geekwright\Po;
 
 use Geekwright\Po\Exceptions\UnrecognizedInputException;
 use Geekwright\Po\Exceptions\FileNotReadableException;
-use Geekwright\Po\Exceptions\FileNotWriteableException;
+use Geekwright\Po\Exceptions\FileNotWritableException;
 
 /**
  * PoFile - represent all entries in a GNU gettext style PO or POT file as a
@@ -292,13 +292,17 @@ class PoFile
      *
      * @return void
      *
-     * @throws FileNotWriteableException
+     * @throws FileNotWritableException
      */
     public function writePoFile($file)
     {
         $source = $this->dumpString();
-        if (false===file_put_contents($file, $source)) {
-            throw new FileNotWriteableException($file);
+        $status = is_writable($file);
+        if ($status === true) {
+            $status = file_put_contents($file, $source);
+        }
+        if (false === $status) {
+            throw new FileNotWritableException($file);
         }
     }
 

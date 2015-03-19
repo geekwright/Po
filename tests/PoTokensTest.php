@@ -43,17 +43,17 @@ class PoTokensTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull(PoTokens::TRANSLATED_PLURAL);
         $this->assertNotNull(PoTokens::CONTINUED_DATA);
 
-        $this->assertEquals(PoTokens:: TRANSLATOR_COMMENTS, '#');
-        $this->assertEquals(PoTokens:: EXTRACTED_COMMENTS, '#.');
-        $this->assertEquals(PoTokens:: REFERENCE, '#:');
-        $this->assertEquals(PoTokens:: FLAG, '#,');
-        $this->assertEquals(PoTokens:: PREVIOUS, '#|');
-        $this->assertEquals(PoTokens:: OBSOLETE, '#~');
-        $this->assertEquals(PoTokens:: CONTEXT, 'msgctxt');
-        $this->assertEquals(PoTokens:: MESSAGE, 'msgid');
-        $this->assertEquals(PoTokens:: PLURAL, 'msgid_plural');
-        $this->assertEquals(PoTokens:: TRANSLATED, 'msgstr');
-        $this->assertEquals(PoTokens:: TRANSLATED_PLURAL, 'msgstr[');
-        $this->assertEquals(PoTokens:: CONTINUED_DATA, '"');
+        $this->assertEquals(PoTokens::TRANSLATOR_COMMENTS, '#');
+        $this->assertEquals(PoTokens::EXTRACTED_COMMENTS, '#.');
+        $this->assertEquals(PoTokens::REFERENCE, '#:');
+        $this->assertEquals(PoTokens::FLAG, '#,');
+        $this->assertEquals(PoTokens::PREVIOUS, '#|');
+        $this->assertEquals(PoTokens::OBSOLETE, '#~');
+        $this->assertEquals(PoTokens::CONTEXT, 'msgctxt');
+        $this->assertEquals(PoTokens::MESSAGE, 'msgid');
+        $this->assertEquals(PoTokens::PLURAL, 'msgid_plural');
+        $this->assertEquals(PoTokens::TRANSLATED, 'msgstr');
+        $this->assertEquals(PoTokens::TRANSLATED_PLURAL, 'msgstr[');
+        $this->assertEquals(PoTokens::CONTINUED_DATA, '"');
     }
 }

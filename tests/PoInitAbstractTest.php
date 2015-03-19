@@ -115,4 +115,22 @@ class PoInitAbstractTest extends \PHPUnit_Framework_TestCase
         $result = $this->object->msginitFile(__FILE__);
         $this->assertInstanceOf('Geekwright\Po\PoFile', $result);
     }
+
+    /**
+     * @covers Geekwright\Po\PoInitAbstract::msginitFile
+     */
+    public function testMsginitFileException()
+    {
+        $this->setExpectedException('Geekwright\Po\Exceptions\FileNotReadableException');
+        $result = $this->object->msginitFile(__DIR__ . '/notavalidfile');
+    }
+
+    /**
+     * @covers Geekwright\Po\PoInitAbstract::escapeForPo
+     */
+    public function testEscapeForPo()
+    {
+        $actual = $this->object->escapeForPo("'test\r\n'");
+        $this->assertEquals('test\n', $actual);
+    }
 }

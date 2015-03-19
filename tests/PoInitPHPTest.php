@@ -29,6 +29,7 @@ class PoInitPHPTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Geekwright\Po\PoInitPHP::__construct
      * @covers Geekwright\Po\PoInitPHP::getPoFile
      * @covers Geekwright\Po\PoInitPHP::setPoFile
      */
@@ -37,6 +38,10 @@ class PoInitPHPTest extends \PHPUnit_Framework_TestCase
         $pofile = new PoFile();
         $this->object->setPoFile($pofile);
         $actual = $this->object->getPoFile();
+        $this->assertSame($pofile, $actual);
+
+        $init = new PoInitPHP($pofile);
+        $actual = $init->getPoFile();
         $this->assertSame($pofile, $actual);
     }
 
@@ -106,6 +111,7 @@ class PoInitPHPTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Geekwright\Po\PoInitPHP::msginitFile
      * @covers Geekwright\Po\PoInitPHP::msginitString
+     * @covers Geekwright\Po\PoInitPHP::stripComment
      */
     public function testMsginit()
     {

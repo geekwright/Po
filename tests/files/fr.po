@@ -12,12 +12,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Language: fr\n"
 
+# this is a translator comment
 #: ../poread/index.php:38
 msgid "This is how the story goes."
 msgstr "C'est la narration de l'histoire."
 
+#this is a malformed translator comment
 #: ../poread/index.php:42
 msgid "%d pig went to the market"
 msgid_plural "%d pigs went to the market"
 msgstr[0] "%d cochon est allé au marché."
-msgstr[1] "%d cochons se sont rendus au marché."
+msgstr[1] ""
+"%d cochons se sont rendus au marché."

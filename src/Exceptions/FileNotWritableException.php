@@ -3,7 +3,7 @@
 namespace Geekwright\Po\Exceptions;
 
 /**
- * FileNotWriteableException
+ * FileNotWritableException
  *
  * File could not be written
  *
@@ -14,6 +14,6 @@ namespace Geekwright\Po\Exceptions;
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @link      https://github.com/geekwright/Po
  */
-class FileNotWriteableException extends \Exception
+class FileNotWritableException extends \Exception
 {
 }
