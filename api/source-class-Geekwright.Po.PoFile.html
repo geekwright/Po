@@ -48,7 +48,7 @@
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-Geekwright.Po.Exceptions.FileNotReadableException.html">Geekwright\Po\Exceptions\FileNotReadableException</a></li>
-				<li><a href="class-Geekwright.Po.Exceptions.FileNotWriteableException.html">Geekwright\Po\Exceptions\FileNotWriteableException</a></li>
+				<li><a href="class-Geekwright.Po.Exceptions.FileNotWritableException.html">Geekwright\Po\Exceptions\FileNotWritableException</a></li>
 				<li class="active"><a href="class-Geekwright.Po.Exceptions.UnrecognizedInputException.html">Geekwright\Po\Exceptions\UnrecognizedInputException</a></li>
 			</ul>
 
@@ -92,7 +92,7 @@
 </span><span id="4" class="l"><a href="#4">  4: </a>
 </span><span id="5" class="l"><a href="#5">  5: </a><span class="php-keyword1">use</span> Geekwright\Po\Exceptions\UnrecognizedInputException;
 </span><span id="6" class="l"><a href="#6">  6: </a><span class="php-keyword1">use</span> Geekwright\Po\Exceptions\FileNotReadableException;
-</span><span id="7" class="l"><a href="#7">  7: </a><span class="php-keyword1">use</span> Geekwright\Po\Exceptions\FileNotWriteableException;
+</span><span id="7" class="l"><a href="#7">  7: </a><span class="php-keyword1">use</span> Geekwright\Po\Exceptions\FileNotWritableException;
 </span><span id="8" class="l"><a href="#8">  8: </a>
 </span><span id="9" class="l"><a href="#9">  9: </a><span class="php-comment">/**
 </span></span><span id="10" class="l"><a href="#10"> 10: </a><span class="php-comment"> * PoFile - represent all entries in a GNU gettext style PO or POT file as a
@@ -151,9 +151,9 @@
 </span><span id="63" class="l"><a href="#63"> 63: </a>    <span class="php-comment">/**
 </span></span><span id="64" class="l"><a href="#64"> 64: </a><span class="php-comment">     * Build the internal entries array key from id, context and plural id
 </span></span><span id="65" class="l"><a href="#65"> 65: </a><span class="php-comment">     *
-</span></span><span id="66" class="l"><a href="#66"> 66: </a><span class="php-comment">     * @param string $msgid        the untranslated message of the entry
-</span></span><span id="67" class="l"><a href="#67"> 67: </a><span class="php-comment">     * @param string $msgctxt      the context of the entry, if any
-</span></span><span id="68" class="l"><a href="#68"> 68: </a><span class="php-comment">     * @param string $msgid_plural the untranslated plural message of the entry, if any
+</span></span><span id="66" class="l"><a href="#66"> 66: </a><span class="php-comment">     * @param string      $msgid        the untranslated message of the entry
+</span></span><span id="67" class="l"><a href="#67"> 67: </a><span class="php-comment">     * @param string|null $msgctxt      the context of the entry, if any
+</span></span><span id="68" class="l"><a href="#68"> 68: </a><span class="php-comment">     * @param string|null $msgid_plural the untranslated plural message of the entry, if any
 </span></span><span id="69" class="l"><a href="#69"> 69: </a><span class="php-comment">     *
 </span></span><span id="70" class="l"><a href="#70"> 70: </a><span class="php-comment">     * @return string
 </span></span><span id="71" class="l"><a href="#71"> 71: </a><span class="php-comment">     */</span>
@@ -309,9 +309,9 @@
 </span><span id="221" class="l"><a href="#221">221: </a>    <span class="php-comment">/**
 </span></span><span id="222" class="l"><a href="#222">222: </a><span class="php-comment">     * Get an entry based on key values - msgid, msgctxt and msgid_plural
 </span></span><span id="223" class="l"><a href="#223">223: </a><span class="php-comment">     *
-</span></span><span id="224" class="l"><a href="#224">224: </a><span class="php-comment">     * @param string $msgid        the untranslated message of the entry
-</span></span><span id="225" class="l"><a href="#225">225: </a><span class="php-comment">     * @param string $msgctxt      the context of the entry, if any
-</span></span><span id="226" class="l"><a href="#226">226: </a><span class="php-comment">     * @param string $msgid_plural the untranslated plural message of the entry, if any
+</span></span><span id="224" class="l"><a href="#224">224: </a><span class="php-comment">     * @param string      $msgid        the untranslated message of the entry
+</span></span><span id="225" class="l"><a href="#225">225: </a><span class="php-comment">     * @param string|null $msgctxt      the context of the entry, if any
+</span></span><span id="226" class="l"><a href="#226">226: </a><span class="php-comment">     * @param string|null $msgid_plural the untranslated plural message of the entry, if any
 </span></span><span id="227" class="l"><a href="#227">227: </a><span class="php-comment">     *
 </span></span><span id="228" class="l"><a href="#228">228: </a><span class="php-comment">     * @return PoEntry|null matching entry, or null if not found
 </span></span><span id="229" class="l"><a href="#229">229: </a><span class="php-comment">     */</span>
@@ -380,185 +380,189 @@
 </span></span><span id="292" class="l"><a href="#292">292: </a><span class="php-comment">     *
 </span></span><span id="293" class="l"><a href="#293">293: </a><span class="php-comment">     * @return void
 </span></span><span id="294" class="l"><a href="#294">294: </a><span class="php-comment">     *
-</span></span><span id="295" class="l"><a href="#295">295: </a><span class="php-comment">     * @throws FileNotWriteableException
+</span></span><span id="295" class="l"><a href="#295">295: </a><span class="php-comment">     * @throws FileNotWritableException
 </span></span><span id="296" class="l"><a href="#296">296: </a><span class="php-comment">     */</span>
 </span><span id="297" class="l"><a href="#297">297: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> writePoFile(<span class="php-var">$file</span>)
 </span><span id="298" class="l"><a href="#298">298: </a>    {
 </span><span id="299" class="l"><a href="#299">299: </a>        <span class="php-var">$source</span> = <span class="php-var">$this</span>-&gt;dumpString();
-</span><span id="300" class="l"><a href="#300">300: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">false</span>===<span class="php-keyword2">file_put_contents</span>(<span class="php-var">$file</span>, <span class="php-var">$source</span>)) {
-</span><span id="301" class="l"><a href="#301">301: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> FileNotWriteableException(<span class="php-var">$file</span>);
-</span><span id="302" class="l"><a href="#302">302: </a>        }
-</span><span id="303" class="l"><a href="#303">303: </a>    }
-</span><span id="304" class="l"><a href="#304">304: </a>
-</span><span id="305" class="l"><a href="#305">305: </a>    <span class="php-comment">/**
-</span></span><span id="306" class="l"><a href="#306">306: </a><span class="php-comment">     * Dump the current contents in PO format to a string
-</span></span><span id="307" class="l"><a href="#307">307: </a><span class="php-comment">     *
-</span></span><span id="308" class="l"><a href="#308">308: </a><span class="php-comment">     * @return string
-</span></span><span id="309" class="l"><a href="#309">309: </a><span class="php-comment">     */</span>
-</span><span id="310" class="l"><a href="#310">310: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> dumpString()
-</span><span id="311" class="l"><a href="#311">311: </a>    {
-</span><span id="312" class="l"><a href="#312">312: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;<span class="php-keyword2">header</span> === <span class="php-keyword1">null</span>) {
-</span><span id="313" class="l"><a href="#313">313: </a>            <span class="php-var">$this</span>-&gt;<span class="php-keyword2">header</span> = <span class="php-keyword1">new</span> PoHeader;
-</span><span id="314" class="l"><a href="#314">314: </a>            <span class="php-var">$this</span>-&gt;<span class="php-keyword2">header</span>-&gt;buildDefaultHeader();
-</span><span id="315" class="l"><a href="#315">315: </a>        }
-</span><span id="316" class="l"><a href="#316">316: </a>        <span class="php-var">$output</span> = <span class="php-quote">''</span>;
-</span><span id="317" class="l"><a href="#317">317: </a>
-</span><span id="318" class="l"><a href="#318">318: </a>        <span class="php-var">$output</span> .= <span class="php-var">$this</span>-&gt;<span class="php-keyword2">header</span>-&gt;dumpEntry();
-</span><span id="319" class="l"><a href="#319">319: </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$this</span>-&gt;entries <span class="php-keyword1">as</span> <span class="php-var">$entry</span>) {
-</span><span id="320" class="l"><a href="#320">320: </a>            <span class="php-var">$output</span> .= <span class="php-var">$entry</span>-&gt;dumpEntry();
-</span><span id="321" class="l"><a href="#321">321: </a>        }
-</span><span id="322" class="l"><a href="#322">322: </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$this</span>-&gt;unkeyedEntries <span class="php-keyword1">as</span> <span class="php-var">$entry</span>) {
-</span><span id="323" class="l"><a href="#323">323: </a>            <span class="php-var">$output</span> .= <span class="php-var">$entry</span>-&gt;dumpEntry();
-</span><span id="324" class="l"><a href="#324">324: </a>        }
-</span><span id="325" class="l"><a href="#325">325: </a>        <span class="php-var">$output</span> .= <span class="php-quote">&quot;\n&quot;</span>;
-</span><span id="326" class="l"><a href="#326">326: </a>
-</span><span id="327" class="l"><a href="#327">327: </a>        <span class="php-keyword1">return</span> <span class="php-var">$output</span>;
-</span><span id="328" class="l"><a href="#328">328: </a>    }
-</span><span id="329" class="l"><a href="#329">329: </a>
+</span><span id="300" class="l"><a href="#300">300: </a>        <span class="php-var">$status</span> = <span class="php-keyword2">is_writable</span>(<span class="php-var">$file</span>);
+</span><span id="301" class="l"><a href="#301">301: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$status</span> === <span class="php-keyword1">true</span>) {
+</span><span id="302" class="l"><a href="#302">302: </a>            <span class="php-var">$status</span> = <span class="php-keyword2">file_put_contents</span>(<span class="php-var">$file</span>, <span class="php-var">$source</span>);
+</span><span id="303" class="l"><a href="#303">303: </a>        }
+</span><span id="304" class="l"><a href="#304">304: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">false</span> === <span class="php-var">$status</span>) {
+</span><span id="305" class="l"><a href="#305">305: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> FileNotWritableException(<span class="php-var">$file</span>);
+</span><span id="306" class="l"><a href="#306">306: </a>        }
+</span><span id="307" class="l"><a href="#307">307: </a>    }
+</span><span id="308" class="l"><a href="#308">308: </a>
+</span><span id="309" class="l"><a href="#309">309: </a>    <span class="php-comment">/**
+</span></span><span id="310" class="l"><a href="#310">310: </a><span class="php-comment">     * Dump the current contents in PO format to a string
+</span></span><span id="311" class="l"><a href="#311">311: </a><span class="php-comment">     *
+</span></span><span id="312" class="l"><a href="#312">312: </a><span class="php-comment">     * @return string
+</span></span><span id="313" class="l"><a href="#313">313: </a><span class="php-comment">     */</span>
+</span><span id="314" class="l"><a href="#314">314: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> dumpString()
+</span><span id="315" class="l"><a href="#315">315: </a>    {
+</span><span id="316" class="l"><a href="#316">316: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;<span class="php-keyword2">header</span> === <span class="php-keyword1">null</span>) {
+</span><span id="317" class="l"><a href="#317">317: </a>            <span class="php-var">$this</span>-&gt;<span class="php-keyword2">header</span> = <span class="php-keyword1">new</span> PoHeader;
+</span><span id="318" class="l"><a href="#318">318: </a>            <span class="php-var">$this</span>-&gt;<span class="php-keyword2">header</span>-&gt;buildDefaultHeader();
+</span><span id="319" class="l"><a href="#319">319: </a>        }
+</span><span id="320" class="l"><a href="#320">320: </a>        <span class="php-var">$output</span> = <span class="php-quote">''</span>;
+</span><span id="321" class="l"><a href="#321">321: </a>
+</span><span id="322" class="l"><a href="#322">322: </a>        <span class="php-var">$output</span> .= <span class="php-var">$this</span>-&gt;<span class="php-keyword2">header</span>-&gt;dumpEntry();
+</span><span id="323" class="l"><a href="#323">323: </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$this</span>-&gt;entries <span class="php-keyword1">as</span> <span class="php-var">$entry</span>) {
+</span><span id="324" class="l"><a href="#324">324: </a>            <span class="php-var">$output</span> .= <span class="php-var">$entry</span>-&gt;dumpEntry();
+</span><span id="325" class="l"><a href="#325">325: </a>        }
+</span><span id="326" class="l"><a href="#326">326: </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$this</span>-&gt;unkeyedEntries <span class="php-keyword1">as</span> <span class="php-var">$entry</span>) {
+</span><span id="327" class="l"><a href="#327">327: </a>            <span class="php-var">$output</span> .= <span class="php-var">$entry</span>-&gt;dumpEntry();
+</span><span id="328" class="l"><a href="#328">328: </a>        }
+</span><span id="329" class="l"><a href="#329">329: </a>        <span class="php-var">$output</span> .= <span class="php-quote">&quot;\n&quot;</span>;
 </span><span id="330" class="l"><a href="#330">330: </a>
-</span><span id="331" class="l"><a href="#331">331: </a>    <span class="php-comment">/**
-</span></span><span id="332" class="l"><a href="#332">332: </a><span class="php-comment">     * Replace any current contents with entries from a file
-</span></span><span id="333" class="l"><a href="#333">333: </a><span class="php-comment">     *
-</span></span><span id="334" class="l"><a href="#334">334: </a><span class="php-comment">     * @param string   $file    po file/stream to read
-</span></span><span id="335" class="l"><a href="#335">335: </a><span class="php-comment">     * @param resource $context context for stream if required
-</span></span><span id="336" class="l"><a href="#336">336: </a><span class="php-comment">     *
-</span></span><span id="337" class="l"><a href="#337">337: </a><span class="php-comment">     * @return void
-</span></span><span id="338" class="l"><a href="#338">338: </a><span class="php-comment">     *
-</span></span><span id="339" class="l"><a href="#339">339: </a><span class="php-comment">     * @throws FileNotReadableException
-</span></span><span id="340" class="l"><a href="#340">340: </a><span class="php-comment">     */</span>
-</span><span id="341" class="l"><a href="#341">341: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> readPoFile(<span class="php-var">$file</span>, resource <span class="php-var">$context</span> = <span class="php-keyword1">null</span>)
-</span><span id="342" class="l"><a href="#342">342: </a>    {
-</span><span id="343" class="l"><a href="#343">343: </a>        <span class="php-var">$oldEr</span> = <span class="php-keyword2">error_reporting</span>(E_ALL ^ E_WARNING);
-</span><span id="344" class="l"><a href="#344">344: </a>        <span class="php-var">$source</span> = <span class="php-keyword2">file_get_contents</span>(<span class="php-var">$file</span>, <span class="php-keyword1">false</span>, <span class="php-var">$context</span>);
-</span><span id="345" class="l"><a href="#345">345: </a>        <span class="php-keyword2">error_reporting</span>(<span class="php-var">$oldEr</span>);
-</span><span id="346" class="l"><a href="#346">346: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">false</span>===<span class="php-var">$source</span>) {
-</span><span id="347" class="l"><a href="#347">347: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> FileNotReadableException(<span class="php-var">$file</span>);
-</span><span id="348" class="l"><a href="#348">348: </a>        }
-</span><span id="349" class="l"><a href="#349">349: </a>        <span class="php-var">$this</span>-&gt;parsePoSource(<span class="php-var">$source</span>);
-</span><span id="350" class="l"><a href="#350">350: </a>    }
-</span><span id="351" class="l"><a href="#351">351: </a>
-</span><span id="352" class="l"><a href="#352">352: </a>    <span class="php-comment">/**
-</span></span><span id="353" class="l"><a href="#353">353: </a><span class="php-comment">     * Replace any current contents with header and entries from PO souce string
-</span></span><span id="354" class="l"><a href="#354">354: </a><span class="php-comment">     *
-</span></span><span id="355" class="l"><a href="#355">355: </a><span class="php-comment">     * @param string $source po formatted string to parse
-</span></span><span id="356" class="l"><a href="#356">356: </a><span class="php-comment">     *
-</span></span><span id="357" class="l"><a href="#357">357: </a><span class="php-comment">     * @return void
+</span><span id="331" class="l"><a href="#331">331: </a>        <span class="php-keyword1">return</span> <span class="php-var">$output</span>;
+</span><span id="332" class="l"><a href="#332">332: </a>    }
+</span><span id="333" class="l"><a href="#333">333: </a>
+</span><span id="334" class="l"><a href="#334">334: </a>
+</span><span id="335" class="l"><a href="#335">335: </a>    <span class="php-comment">/**
+</span></span><span id="336" class="l"><a href="#336">336: </a><span class="php-comment">     * Replace any current contents with entries from a file
+</span></span><span id="337" class="l"><a href="#337">337: </a><span class="php-comment">     *
+</span></span><span id="338" class="l"><a href="#338">338: </a><span class="php-comment">     * @param string        $file    po file/stream to read
+</span></span><span id="339" class="l"><a href="#339">339: </a><span class="php-comment">     * @param resource|null $context context for stream if required
+</span></span><span id="340" class="l"><a href="#340">340: </a><span class="php-comment">     *
+</span></span><span id="341" class="l"><a href="#341">341: </a><span class="php-comment">     * @return void
+</span></span><span id="342" class="l"><a href="#342">342: </a><span class="php-comment">     *
+</span></span><span id="343" class="l"><a href="#343">343: </a><span class="php-comment">     * @throws FileNotReadableException
+</span></span><span id="344" class="l"><a href="#344">344: </a><span class="php-comment">     */</span>
+</span><span id="345" class="l"><a href="#345">345: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> readPoFile(<span class="php-var">$file</span>, resource <span class="php-var">$context</span> = <span class="php-keyword1">null</span>)
+</span><span id="346" class="l"><a href="#346">346: </a>    {
+</span><span id="347" class="l"><a href="#347">347: </a>        <span class="php-var">$oldEr</span> = <span class="php-keyword2">error_reporting</span>(E_ALL ^ E_WARNING);
+</span><span id="348" class="l"><a href="#348">348: </a>        <span class="php-var">$source</span> = <span class="php-keyword2">file_get_contents</span>(<span class="php-var">$file</span>, <span class="php-keyword1">false</span>, <span class="php-var">$context</span>);
+</span><span id="349" class="l"><a href="#349">349: </a>        <span class="php-keyword2">error_reporting</span>(<span class="php-var">$oldEr</span>);
+</span><span id="350" class="l"><a href="#350">350: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">false</span>===<span class="php-var">$source</span>) {
+</span><span id="351" class="l"><a href="#351">351: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> FileNotReadableException(<span class="php-var">$file</span>);
+</span><span id="352" class="l"><a href="#352">352: </a>        }
+</span><span id="353" class="l"><a href="#353">353: </a>        <span class="php-var">$this</span>-&gt;parsePoSource(<span class="php-var">$source</span>);
+</span><span id="354" class="l"><a href="#354">354: </a>    }
+</span><span id="355" class="l"><a href="#355">355: </a>
+</span><span id="356" class="l"><a href="#356">356: </a>    <span class="php-comment">/**
+</span></span><span id="357" class="l"><a href="#357">357: </a><span class="php-comment">     * Replace any current contents with header and entries from PO souce string
 </span></span><span id="358" class="l"><a href="#358">358: </a><span class="php-comment">     *
-</span></span><span id="359" class="l"><a href="#359">359: </a><span class="php-comment">     * @throws UnrecognizedInputException
-</span></span><span id="360" class="l"><a href="#360">360: </a><span class="php-comment">     */</span>
-</span><span id="361" class="l"><a href="#361">361: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> parsePoSource(<span class="php-var">$source</span>)
-</span><span id="362" class="l"><a href="#362">362: </a>    {
-</span><span id="363" class="l"><a href="#363">363: </a>        <span class="php-comment">/**
-</span></span><span id="364" class="l"><a href="#364">364: </a><span class="php-comment">         * This is an incredibly ugly regex pattern that breaks a line of a po file into
-</span></span><span id="365" class="l"><a href="#365">365: </a><span class="php-comment">         * pieces that can be analyzed and acted upon.
-</span></span><span id="366" class="l"><a href="#366">366: </a><span class="php-comment">         *
-</span></span><span id="367" class="l"><a href="#367">367: </a><span class="php-comment">         * The matches array in preg_match will break out like this:
-</span></span><span id="368" class="l"><a href="#368">368: </a><span class="php-comment">         *  [0] full string
-</span></span><span id="369" class="l"><a href="#369">369: </a><span class="php-comment">         *  [1] mostly useless broad match of initial token, including trailing space
-</span></span><span id="370" class="l"><a href="#370">370: </a><span class="php-comment">         *  [2] bare token, or full msgstr[n] clause
-</span></span><span id="371" class="l"><a href="#371">371: </a><span class="php-comment">         *  [3] 'n' of a msgstr[n] line
-</span></span><span id="372" class="l"><a href="#372">372: </a><span class="php-comment">         *  [4] '&quot;' if a data line
-</span></span><span id="373" class="l"><a href="#373">373: </a><span class="php-comment">         *  [5] remaining line
-</span></span><span id="374" class="l"><a href="#374">374: </a><span class="php-comment">         *  [6] a bare or malformed comment
-</span></span><span id="375" class="l"><a href="#375">375: </a><span class="php-comment">         */</span>
-</span><span id="376" class="l"><a href="#376">376: </a>        <span class="php-var">$pattern</span> = <span class="php-quote">'/(^(#|#.|#;|#,|#\||msgid|msgid_plural|msgctxt|msgstr|msgstr\[([0-9]+)\])\s|(^&quot;))(.+)|(^#.*)/'</span>;
-</span><span id="377" class="l"><a href="#377">377: </a>
-</span><span id="378" class="l"><a href="#378">378: </a>        <span class="php-var">$source_lines</span> = <span class="php-keyword2">explode</span>(<span class="php-quote">&quot;\n&quot;</span>, <span class="php-var">$source</span>);
-</span><span id="379" class="l"><a href="#379">379: </a>
-</span><span id="380" class="l"><a href="#380">380: </a>        <span class="php-var">$wsBreak</span> = <span class="php-keyword1">false</span>;
-</span><span id="381" class="l"><a href="#381">381: </a>        <span class="php-var">$inHeader</span> = <span class="php-keyword1">true</span>;
-</span><span id="382" class="l"><a href="#382">382: </a>        <span class="php-var">$headerEntry</span> = <span class="php-keyword1">new</span> PoHeader;
-</span><span id="383" class="l"><a href="#383">383: </a>        <span class="php-var">$entry</span> = <span class="php-var">$headerEntry</span>;
-</span><span id="384" class="l"><a href="#384">384: </a>        <span class="php-var">$unrecognized</span> = <span class="php-keyword1">array</span>();
-</span><span id="385" class="l"><a href="#385">385: </a>        <span class="php-var">$lastKey</span> = <span class="php-quote">''</span>;
-</span><span id="386" class="l"><a href="#386">386: </a>        <span class="php-var">$currentPlural</span> = <span class="php-num">0</span>;
-</span><span id="387" class="l"><a href="#387">387: </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$source_lines</span> <span class="php-keyword1">as</span> <span class="php-var">$line</span> =&gt; <span class="php-var">$s</span>) {
-</span><span id="388" class="l"><a href="#388">388: </a>            <span class="php-var">$result</span> = <span class="php-keyword2">preg_match</span>(<span class="php-var">$pattern</span>, <span class="php-var">$s</span>, <span class="php-var">$matches</span>);
-</span><span id="389" class="l"><a href="#389">389: </a>            <span class="php-keyword1">if</span> (!<span class="php-var">$result</span>) {
-</span><span id="390" class="l"><a href="#390">390: </a>                <span class="php-var">$lastKey</span> = <span class="php-quote">''</span>;
-</span><span id="391" class="l"><a href="#391">391: </a>                <span class="php-keyword1">if</span> (<span class="php-var">$s</span>==<span class="php-quote">''</span> || <span class="php-keyword2">ctype_space</span>(<span class="php-var">$s</span>)) {
-</span><span id="392" class="l"><a href="#392">392: </a>                    <span class="php-keyword1">if</span> (<span class="php-var">$inHeader</span>) {
-</span><span id="393" class="l"><a href="#393">393: </a>                        <span class="php-var">$this</span>-&gt;setHeaderEntry(<span class="php-var">$headerEntry</span>);
-</span><span id="394" class="l"><a href="#394">394: </a>                        <span class="php-var">$entry</span> = <span class="php-keyword1">null</span>;
-</span><span id="395" class="l"><a href="#395">395: </a>                        <span class="php-var">$inHeader</span> = <span class="php-keyword1">false</span>;
-</span><span id="396" class="l"><a href="#396">396: </a>                    }
-</span><span id="397" class="l"><a href="#397">397: </a>                    <span class="php-keyword1">if</span> (!<span class="php-var">$wsBreak</span>) {
-</span><span id="398" class="l"><a href="#398">398: </a>                        <span class="php-keyword1">if</span> (!(<span class="php-var">$entry</span> === <span class="php-keyword1">null</span>)) {
-</span><span id="399" class="l"><a href="#399">399: </a>                            <span class="php-var">$this</span>-&gt;addEntry(<span class="php-var">$entry</span>);
-</span><span id="400" class="l"><a href="#400">400: </a>                        }
-</span><span id="401" class="l"><a href="#401">401: </a>                        <span class="php-var">$entry</span> = <span class="php-keyword1">null</span>;
-</span><span id="402" class="l"><a href="#402">402: </a>                        <span class="php-var">$wsBreak</span>=<span class="php-keyword1">true</span>;
-</span><span id="403" class="l"><a href="#403">403: </a>                    }
-</span><span id="404" class="l"><a href="#404">404: </a>                } <span class="php-keyword1">else</span> {
-</span><span id="405" class="l"><a href="#405">405: </a>                    <span class="php-var">$wsBreak</span>=<span class="php-keyword1">false</span>;
-</span><span id="406" class="l"><a href="#406">406: </a>                    <span class="php-var">$unrecognized</span>[<span class="php-var">$line</span>+<span class="php-num">1</span>] = <span class="php-var">$s</span>;
-</span><span id="407" class="l"><a href="#407">407: </a>                }
-</span><span id="408" class="l"><a href="#408">408: </a>            } <span class="php-keyword1">else</span> {
-</span><span id="409" class="l"><a href="#409">409: </a>                <span class="php-keyword1">if</span> (<span class="php-var">$entry</span> === <span class="php-keyword1">null</span>) {
-</span><span id="410" class="l"><a href="#410">410: </a>                    <span class="php-var">$entry</span> = <span class="php-keyword1">new</span> PoEntry;
+</span></span><span id="359" class="l"><a href="#359">359: </a><span class="php-comment">     * @param string $source po formatted string to parse
+</span></span><span id="360" class="l"><a href="#360">360: </a><span class="php-comment">     *
+</span></span><span id="361" class="l"><a href="#361">361: </a><span class="php-comment">     * @return void
+</span></span><span id="362" class="l"><a href="#362">362: </a><span class="php-comment">     *
+</span></span><span id="363" class="l"><a href="#363">363: </a><span class="php-comment">     * @throws UnrecognizedInputException
+</span></span><span id="364" class="l"><a href="#364">364: </a><span class="php-comment">     */</span>
+</span><span id="365" class="l"><a href="#365">365: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> parsePoSource(<span class="php-var">$source</span>)
+</span><span id="366" class="l"><a href="#366">366: </a>    {
+</span><span id="367" class="l"><a href="#367">367: </a>        <span class="php-comment">/**
+</span></span><span id="368" class="l"><a href="#368">368: </a><span class="php-comment">         * This is an incredibly ugly regex pattern that breaks a line of a po file into
+</span></span><span id="369" class="l"><a href="#369">369: </a><span class="php-comment">         * pieces that can be analyzed and acted upon.
+</span></span><span id="370" class="l"><a href="#370">370: </a><span class="php-comment">         *
+</span></span><span id="371" class="l"><a href="#371">371: </a><span class="php-comment">         * The matches array in preg_match will break out like this:
+</span></span><span id="372" class="l"><a href="#372">372: </a><span class="php-comment">         *  [0] full string
+</span></span><span id="373" class="l"><a href="#373">373: </a><span class="php-comment">         *  [1] mostly useless broad match of initial token, including trailing space
+</span></span><span id="374" class="l"><a href="#374">374: </a><span class="php-comment">         *  [2] bare token, or full msgstr[n] clause
+</span></span><span id="375" class="l"><a href="#375">375: </a><span class="php-comment">         *  [3] 'n' of a msgstr[n] line
+</span></span><span id="376" class="l"><a href="#376">376: </a><span class="php-comment">         *  [4] '&quot;' if a data line
+</span></span><span id="377" class="l"><a href="#377">377: </a><span class="php-comment">         *  [5] remaining line
+</span></span><span id="378" class="l"><a href="#378">378: </a><span class="php-comment">         *  [6] a bare or malformed comment
+</span></span><span id="379" class="l"><a href="#379">379: </a><span class="php-comment">         */</span>
+</span><span id="380" class="l"><a href="#380">380: </a>        <span class="php-var">$pattern</span> = <span class="php-quote">'/(^(#|#.|#;|#,|#\||msgid|msgid_plural|msgctxt|msgstr|msgstr\[([0-9]+)\])\s|(^&quot;))(.+)|(^#.*)/'</span>;
+</span><span id="381" class="l"><a href="#381">381: </a>
+</span><span id="382" class="l"><a href="#382">382: </a>        <span class="php-var">$source_lines</span> = <span class="php-keyword2">explode</span>(<span class="php-quote">&quot;\n&quot;</span>, <span class="php-var">$source</span>);
+</span><span id="383" class="l"><a href="#383">383: </a>
+</span><span id="384" class="l"><a href="#384">384: </a>        <span class="php-var">$wsBreak</span> = <span class="php-keyword1">false</span>;
+</span><span id="385" class="l"><a href="#385">385: </a>        <span class="php-var">$inHeader</span> = <span class="php-keyword1">true</span>;
+</span><span id="386" class="l"><a href="#386">386: </a>        <span class="php-var">$headerEntry</span> = <span class="php-keyword1">new</span> PoHeader;
+</span><span id="387" class="l"><a href="#387">387: </a>        <span class="php-var">$entry</span> = <span class="php-var">$headerEntry</span>;
+</span><span id="388" class="l"><a href="#388">388: </a>        <span class="php-var">$unrecognized</span> = <span class="php-keyword1">array</span>();
+</span><span id="389" class="l"><a href="#389">389: </a>        <span class="php-var">$lastKey</span> = <span class="php-quote">''</span>;
+</span><span id="390" class="l"><a href="#390">390: </a>        <span class="php-var">$currentPlural</span> = <span class="php-num">0</span>;
+</span><span id="391" class="l"><a href="#391">391: </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$source_lines</span> <span class="php-keyword1">as</span> <span class="php-var">$line</span> =&gt; <span class="php-var">$s</span>) {
+</span><span id="392" class="l"><a href="#392">392: </a>            <span class="php-var">$result</span> = <span class="php-keyword2">preg_match</span>(<span class="php-var">$pattern</span>, <span class="php-var">$s</span>, <span class="php-var">$matches</span>);
+</span><span id="393" class="l"><a href="#393">393: </a>            <span class="php-keyword1">if</span> (!<span class="php-var">$result</span>) {
+</span><span id="394" class="l"><a href="#394">394: </a>                <span class="php-var">$lastKey</span> = <span class="php-quote">''</span>;
+</span><span id="395" class="l"><a href="#395">395: </a>                <span class="php-keyword1">if</span> (<span class="php-var">$s</span>==<span class="php-quote">''</span> || <span class="php-keyword2">ctype_space</span>(<span class="php-var">$s</span>)) {
+</span><span id="396" class="l"><a href="#396">396: </a>                    <span class="php-keyword1">if</span> (<span class="php-var">$inHeader</span>) {
+</span><span id="397" class="l"><a href="#397">397: </a>                        <span class="php-var">$this</span>-&gt;setHeaderEntry(<span class="php-var">$headerEntry</span>);
+</span><span id="398" class="l"><a href="#398">398: </a>                        <span class="php-var">$entry</span> = <span class="php-keyword1">null</span>;
+</span><span id="399" class="l"><a href="#399">399: </a>                        <span class="php-var">$inHeader</span> = <span class="php-keyword1">false</span>;
+</span><span id="400" class="l"><a href="#400">400: </a>                    }
+</span><span id="401" class="l"><a href="#401">401: </a>                    <span class="php-keyword1">if</span> (!<span class="php-var">$wsBreak</span>) {
+</span><span id="402" class="l"><a href="#402">402: </a>                        <span class="php-keyword1">if</span> (!(<span class="php-var">$entry</span> === <span class="php-keyword1">null</span>)) {
+</span><span id="403" class="l"><a href="#403">403: </a>                            <span class="php-var">$this</span>-&gt;addEntry(<span class="php-var">$entry</span>);
+</span><span id="404" class="l"><a href="#404">404: </a>                        }
+</span><span id="405" class="l"><a href="#405">405: </a>                        <span class="php-var">$entry</span> = <span class="php-keyword1">null</span>;
+</span><span id="406" class="l"><a href="#406">406: </a>                        <span class="php-var">$wsBreak</span>=<span class="php-keyword1">true</span>;
+</span><span id="407" class="l"><a href="#407">407: </a>                    }
+</span><span id="408" class="l"><a href="#408">408: </a>                } <span class="php-keyword1">else</span> {
+</span><span id="409" class="l"><a href="#409">409: </a>                    <span class="php-var">$wsBreak</span>=<span class="php-keyword1">false</span>;
+</span><span id="410" class="l"><a href="#410">410: </a>                    <span class="php-var">$unrecognized</span>[<span class="php-var">$line</span>+<span class="php-num">1</span>] = <span class="php-var">$s</span>;
 </span><span id="411" class="l"><a href="#411">411: </a>                }
-</span><span id="412" class="l"><a href="#412">412: </a>                <span class="php-var">$wsBreak</span>=<span class="php-keyword1">false</span>;
-</span><span id="413" class="l"><a href="#413">413: </a>                <span class="php-var">$currentKey</span> = <span class="php-var">$matches</span>[<span class="php-num">2</span>];  <span class="php-comment">// will be used to set last key</span>
-</span><span id="414" class="l"><a href="#414">414: </a>                <span class="php-keyword1">switch</span> (<span class="php-var">$matches</span>[<span class="php-num">2</span>]) {
-</span><span id="415" class="l"><a href="#415">415: </a>                    <span class="php-keyword1">case</span> PoTokens::TRANSLATOR_COMMENTS:
-</span><span id="416" class="l"><a href="#416">416: </a>                    <span class="php-keyword1">case</span> PoTokens::EXTRACTED_COMMENTS:
-</span><span id="417" class="l"><a href="#417">417: </a>                    <span class="php-keyword1">case</span> PoTokens::REFERENCE:
-</span><span id="418" class="l"><a href="#418">418: </a>                    <span class="php-keyword1">case</span> PoTokens::FLAG:
-</span><span id="419" class="l"><a href="#419">419: </a>                    <span class="php-keyword1">case</span> PoTokens::OBSOLETE:
-</span><span id="420" class="l"><a href="#420">420: </a>                    <span class="php-keyword1">case</span> PoTokens::PREVIOUS:
-</span><span id="421" class="l"><a href="#421">421: </a>                        <span class="php-var">$entry</span>-&gt;add(<span class="php-var">$matches</span>[<span class="php-num">2</span>], <span class="php-var">$matches</span>[<span class="php-num">5</span>]);
-</span><span id="422" class="l"><a href="#422">422: </a>                        <span class="php-keyword1">break</span>;
-</span><span id="423" class="l"><a href="#423">423: </a>                    <span class="php-keyword1">case</span> PoTokens::CONTEXT:
-</span><span id="424" class="l"><a href="#424">424: </a>                    <span class="php-keyword1">case</span> PoTokens::MESSAGE:
-</span><span id="425" class="l"><a href="#425">425: </a>                    <span class="php-keyword1">case</span> PoTokens::PLURAL:
-</span><span id="426" class="l"><a href="#426">426: </a>                    <span class="php-keyword1">case</span> PoTokens::TRANSLATED:
-</span><span id="427" class="l"><a href="#427">427: </a>                        <span class="php-var">$entry</span>-&gt;addQuoted(<span class="php-var">$matches</span>[<span class="php-num">2</span>], <span class="php-var">$matches</span>[<span class="php-num">5</span>]);
-</span><span id="428" class="l"><a href="#428">428: </a>                        <span class="php-keyword1">break</span>;
-</span><span id="429" class="l"><a href="#429">429: </a>                    <span class="php-keyword1">default</span>:
-</span><span id="430" class="l"><a href="#430">430: </a>                        <span class="php-keyword1">if</span> (<span class="php-var">$matches</span>[<span class="php-num">4</span>]==PoTokens::CONTINUED_DATA) {
-</span><span id="431" class="l"><a href="#431">431: </a>                            <span class="php-var">$currentKey</span> = <span class="php-var">$lastKey</span>; <span class="php-comment">// keep the previous key</span>
-</span><span id="432" class="l"><a href="#432">432: </a>                            <span class="php-keyword1">if</span> (<span class="php-var">$currentKey</span>==PoTokens::TRANSLATED_PLURAL) {
-</span><span id="433" class="l"><a href="#433">433: </a>                                <span class="php-var">$entry</span>-&gt;addQuotedAtPosition(
-</span><span id="434" class="l"><a href="#434">434: </a>                                    PoTokens::TRANSLATED,
-</span><span id="435" class="l"><a href="#435">435: </a>                                    <span class="php-var">$currentPlural</span>,
-</span><span id="436" class="l"><a href="#436">436: </a>                                    <span class="php-quote">'&quot;'</span> . <span class="php-var">$matches</span>[<span class="php-num">5</span>]
-</span><span id="437" class="l"><a href="#437">437: </a>                                );
-</span><span id="438" class="l"><a href="#438">438: </a>                            } <span class="php-keyword1">else</span> {
-</span><span id="439" class="l"><a href="#439">439: </a>                                <span class="php-var">$entry</span>-&gt;addQuoted(<span class="php-var">$currentKey</span>, <span class="php-quote">'&quot;'</span> . <span class="php-var">$matches</span>[<span class="php-num">5</span>]);
-</span><span id="440" class="l"><a href="#440">440: </a>                            }
-</span><span id="441" class="l"><a href="#441">441: </a>                        } <span class="php-keyword1">elseif</span> (<span class="php-keyword2">substr</span>(<span class="php-var">$matches</span>[<span class="php-num">2</span>], <span class="php-num">0</span>, <span class="php-num">7</span>)==PoTokens::TRANSLATED_PLURAL) {
-</span><span id="442" class="l"><a href="#442">442: </a>                            <span class="php-var">$currentKey</span> = PoTokens::TRANSLATED_PLURAL;
-</span><span id="443" class="l"><a href="#443">443: </a>                            <span class="php-var">$currentPlural</span> = <span class="php-var">$matches</span>[<span class="php-num">3</span>];
-</span><span id="444" class="l"><a href="#444">444: </a>                            <span class="php-var">$entry</span>-&gt;addQuotedAtPosition(
-</span><span id="445" class="l"><a href="#445">445: </a>                                PoTokens::TRANSLATED,
-</span><span id="446" class="l"><a href="#446">446: </a>                                <span class="php-var">$currentPlural</span>,
-</span><span id="447" class="l"><a href="#447">447: </a>                                <span class="php-var">$matches</span>[<span class="php-num">5</span>]
-</span><span id="448" class="l"><a href="#448">448: </a>                            );
-</span><span id="449" class="l"><a href="#449">449: </a>                        } <span class="php-keyword1">elseif</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$matches</span>[<span class="php-num">6</span>][<span class="php-num">0</span>])
-</span><span id="450" class="l"><a href="#450">450: </a>                            &amp;&amp; <span class="php-var">$matches</span>[<span class="php-num">6</span>][<span class="php-num">0</span>]==PoTokens::TRANSLATOR_COMMENTS) {
-</span><span id="451" class="l"><a href="#451">451: </a>                            <span class="php-var">$value</span> = <span class="php-keyword2">substr</span>(<span class="php-var">$matches</span>[<span class="php-num">6</span>], <span class="php-num">1</span>);
-</span><span id="452" class="l"><a href="#452">452: </a>                            <span class="php-var">$value</span> = <span class="php-keyword1">empty</span>(<span class="php-var">$value</span>) ? <span class="php-quote">''</span> : <span class="php-var">$value</span>;
-</span><span id="453" class="l"><a href="#453">453: </a>                            <span class="php-var">$entry</span>-&gt;add(PoTokens::TRANSLATOR_COMMENTS, <span class="php-var">$value</span>);
-</span><span id="454" class="l"><a href="#454">454: </a>                        } <span class="php-keyword1">else</span> {
-</span><span id="455" class="l"><a href="#455">455: </a>                            <span class="php-var">$unrecognized</span>[<span class="php-var">$line</span>+<span class="php-num">1</span>] = <span class="php-var">$s</span>;
-</span><span id="456" class="l"><a href="#456">456: </a>                        }
-</span><span id="457" class="l"><a href="#457">457: </a>                        <span class="php-keyword1">break</span>;
-</span><span id="458" class="l"><a href="#458">458: </a>                }
-</span><span id="459" class="l"><a href="#459">459: </a>                <span class="php-var">$lastKey</span> = <span class="php-var">$currentKey</span>;
-</span><span id="460" class="l"><a href="#460">460: </a>            }
-</span><span id="461" class="l"><a href="#461">461: </a>        }
-</span><span id="462" class="l"><a href="#462">462: </a>        <span class="php-keyword1">if</span> (!(<span class="php-var">$entry</span> === <span class="php-keyword1">null</span>)) {
-</span><span id="463" class="l"><a href="#463">463: </a>            <span class="php-var">$this</span>-&gt;addEntry(<span class="php-var">$entry</span>);
-</span><span id="464" class="l"><a href="#464">464: </a>        }
-</span><span id="465" class="l"><a href="#465">465: </a>
-</span><span id="466" class="l"><a href="#466">466: </a>        <span class="php-comment">// throw at the very end, anything recognized has been processed</span>
-</span><span id="467" class="l"><a href="#467">467: </a>        <span class="php-var">$this</span>-&gt;unrecognizedInput = <span class="php-var">$unrecognized</span>;
-</span><span id="468" class="l"><a href="#468">468: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">count</span>(<span class="php-var">$unrecognized</span>)) {
-</span><span id="469" class="l"><a href="#469">469: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> UnrecognizedInputException();
-</span><span id="470" class="l"><a href="#470">470: </a>        }
-</span><span id="471" class="l"><a href="#471">471: </a>    }
-</span><span id="472" class="l"><a href="#472">472: </a>}
-</span><span id="473" class="l"><a href="#473">473: </a></span></code></pre>
+</span><span id="412" class="l"><a href="#412">412: </a>            } <span class="php-keyword1">else</span> {
+</span><span id="413" class="l"><a href="#413">413: </a>                <span class="php-keyword1">if</span> (<span class="php-var">$entry</span> === <span class="php-keyword1">null</span>) {
+</span><span id="414" class="l"><a href="#414">414: </a>                    <span class="php-var">$entry</span> = <span class="php-keyword1">new</span> PoEntry;
+</span><span id="415" class="l"><a href="#415">415: </a>                }
+</span><span id="416" class="l"><a href="#416">416: </a>                <span class="php-var">$wsBreak</span>=<span class="php-keyword1">false</span>;
+</span><span id="417" class="l"><a href="#417">417: </a>                <span class="php-var">$currentKey</span> = <span class="php-var">$matches</span>[<span class="php-num">2</span>];  <span class="php-comment">// will be used to set last key</span>
+</span><span id="418" class="l"><a href="#418">418: </a>                <span class="php-keyword1">switch</span> (<span class="php-var">$matches</span>[<span class="php-num">2</span>]) {
+</span><span id="419" class="l"><a href="#419">419: </a>                    <span class="php-keyword1">case</span> PoTokens::TRANSLATOR_COMMENTS:
+</span><span id="420" class="l"><a href="#420">420: </a>                    <span class="php-keyword1">case</span> PoTokens::EXTRACTED_COMMENTS:
+</span><span id="421" class="l"><a href="#421">421: </a>                    <span class="php-keyword1">case</span> PoTokens::REFERENCE:
+</span><span id="422" class="l"><a href="#422">422: </a>                    <span class="php-keyword1">case</span> PoTokens::FLAG:
+</span><span id="423" class="l"><a href="#423">423: </a>                    <span class="php-keyword1">case</span> PoTokens::OBSOLETE:
+</span><span id="424" class="l"><a href="#424">424: </a>                    <span class="php-keyword1">case</span> PoTokens::PREVIOUS:
+</span><span id="425" class="l"><a href="#425">425: </a>                        <span class="php-var">$entry</span>-&gt;add(<span class="php-var">$matches</span>[<span class="php-num">2</span>], <span class="php-var">$matches</span>[<span class="php-num">5</span>]);
+</span><span id="426" class="l"><a href="#426">426: </a>                        <span class="php-keyword1">break</span>;
+</span><span id="427" class="l"><a href="#427">427: </a>                    <span class="php-keyword1">case</span> PoTokens::CONTEXT:
+</span><span id="428" class="l"><a href="#428">428: </a>                    <span class="php-keyword1">case</span> PoTokens::MESSAGE:
+</span><span id="429" class="l"><a href="#429">429: </a>                    <span class="php-keyword1">case</span> PoTokens::PLURAL:
+</span><span id="430" class="l"><a href="#430">430: </a>                    <span class="php-keyword1">case</span> PoTokens::TRANSLATED:
+</span><span id="431" class="l"><a href="#431">431: </a>                        <span class="php-var">$entry</span>-&gt;addQuoted(<span class="php-var">$matches</span>[<span class="php-num">2</span>], <span class="php-var">$matches</span>[<span class="php-num">5</span>]);
+</span><span id="432" class="l"><a href="#432">432: </a>                        <span class="php-keyword1">break</span>;
+</span><span id="433" class="l"><a href="#433">433: </a>                    <span class="php-keyword1">default</span>:
+</span><span id="434" class="l"><a href="#434">434: </a>                        <span class="php-keyword1">if</span> (<span class="php-var">$matches</span>[<span class="php-num">4</span>]==PoTokens::CONTINUED_DATA) {
+</span><span id="435" class="l"><a href="#435">435: </a>                            <span class="php-var">$currentKey</span> = <span class="php-var">$lastKey</span>; <span class="php-comment">// keep the previous key</span>
+</span><span id="436" class="l"><a href="#436">436: </a>                            <span class="php-keyword1">if</span> (<span class="php-var">$currentKey</span>==PoTokens::TRANSLATED_PLURAL) {
+</span><span id="437" class="l"><a href="#437">437: </a>                                <span class="php-var">$entry</span>-&gt;addQuotedAtPosition(
+</span><span id="438" class="l"><a href="#438">438: </a>                                    PoTokens::TRANSLATED,
+</span><span id="439" class="l"><a href="#439">439: </a>                                    <span class="php-var">$currentPlural</span>,
+</span><span id="440" class="l"><a href="#440">440: </a>                                    <span class="php-quote">'&quot;'</span> . <span class="php-var">$matches</span>[<span class="php-num">5</span>]
+</span><span id="441" class="l"><a href="#441">441: </a>                                );
+</span><span id="442" class="l"><a href="#442">442: </a>                            } <span class="php-keyword1">else</span> {
+</span><span id="443" class="l"><a href="#443">443: </a>                                <span class="php-var">$entry</span>-&gt;addQuoted(<span class="php-var">$currentKey</span>, <span class="php-quote">'&quot;'</span> . <span class="php-var">$matches</span>[<span class="php-num">5</span>]);
+</span><span id="444" class="l"><a href="#444">444: </a>                            }
+</span><span id="445" class="l"><a href="#445">445: </a>                        } <span class="php-keyword1">elseif</span> (<span class="php-keyword2">substr</span>(<span class="php-var">$matches</span>[<span class="php-num">2</span>], <span class="php-num">0</span>, <span class="php-num">7</span>)==PoTokens::TRANSLATED_PLURAL) {
+</span><span id="446" class="l"><a href="#446">446: </a>                            <span class="php-var">$currentKey</span> = PoTokens::TRANSLATED_PLURAL;
+</span><span id="447" class="l"><a href="#447">447: </a>                            <span class="php-var">$currentPlural</span> = <span class="php-var">$matches</span>[<span class="php-num">3</span>];
+</span><span id="448" class="l"><a href="#448">448: </a>                            <span class="php-var">$entry</span>-&gt;addQuotedAtPosition(
+</span><span id="449" class="l"><a href="#449">449: </a>                                PoTokens::TRANSLATED,
+</span><span id="450" class="l"><a href="#450">450: </a>                                <span class="php-var">$currentPlural</span>,
+</span><span id="451" class="l"><a href="#451">451: </a>                                <span class="php-var">$matches</span>[<span class="php-num">5</span>]
+</span><span id="452" class="l"><a href="#452">452: </a>                            );
+</span><span id="453" class="l"><a href="#453">453: </a>                        } <span class="php-keyword1">elseif</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$matches</span>[<span class="php-num">6</span>][<span class="php-num">0</span>])
+</span><span id="454" class="l"><a href="#454">454: </a>                            &amp;&amp; <span class="php-var">$matches</span>[<span class="php-num">6</span>][<span class="php-num">0</span>]==PoTokens::TRANSLATOR_COMMENTS) {
+</span><span id="455" class="l"><a href="#455">455: </a>                            <span class="php-var">$value</span> = <span class="php-keyword2">substr</span>(<span class="php-var">$matches</span>[<span class="php-num">6</span>], <span class="php-num">1</span>);
+</span><span id="456" class="l"><a href="#456">456: </a>                            <span class="php-var">$value</span> = <span class="php-keyword1">empty</span>(<span class="php-var">$value</span>) ? <span class="php-quote">''</span> : <span class="php-var">$value</span>;
+</span><span id="457" class="l"><a href="#457">457: </a>                            <span class="php-var">$entry</span>-&gt;add(PoTokens::TRANSLATOR_COMMENTS, <span class="php-var">$value</span>);
+</span><span id="458" class="l"><a href="#458">458: </a>                        } <span class="php-keyword1">else</span> {
+</span><span id="459" class="l"><a href="#459">459: </a>                            <span class="php-var">$unrecognized</span>[<span class="php-var">$line</span>+<span class="php-num">1</span>] = <span class="php-var">$s</span>;
+</span><span id="460" class="l"><a href="#460">460: </a>                        }
+</span><span id="461" class="l"><a href="#461">461: </a>                        <span class="php-keyword1">break</span>;
+</span><span id="462" class="l"><a href="#462">462: </a>                }
+</span><span id="463" class="l"><a href="#463">463: </a>                <span class="php-var">$lastKey</span> = <span class="php-var">$currentKey</span>;
+</span><span id="464" class="l"><a href="#464">464: </a>            }
+</span><span id="465" class="l"><a href="#465">465: </a>        }
+</span><span id="466" class="l"><a href="#466">466: </a>        <span class="php-keyword1">if</span> (!(<span class="php-var">$entry</span> === <span class="php-keyword1">null</span>)) {
+</span><span id="467" class="l"><a href="#467">467: </a>            <span class="php-var">$this</span>-&gt;addEntry(<span class="php-var">$entry</span>);
+</span><span id="468" class="l"><a href="#468">468: </a>        }
+</span><span id="469" class="l"><a href="#469">469: </a>
+</span><span id="470" class="l"><a href="#470">470: </a>        <span class="php-comment">// throw at the very end, anything recognized has been processed</span>
+</span><span id="471" class="l"><a href="#471">471: </a>        <span class="php-var">$this</span>-&gt;unrecognizedInput = <span class="php-var">$unrecognized</span>;
+</span><span id="472" class="l"><a href="#472">472: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">count</span>(<span class="php-var">$unrecognized</span>)) {
+</span><span id="473" class="l"><a href="#473">473: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> UnrecognizedInputException();
+</span><span id="474" class="l"><a href="#474">474: </a>        }
+</span><span id="475" class="l"><a href="#475">475: </a>    }
+</span><span id="476" class="l"><a href="#476">476: </a>}
+</span><span id="477" class="l"><a href="#477">477: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
@@ -566,6 +570,6 @@
 </div>
 </div>
 <script src="resources/combined.js?44e93de8fc3b749f55d0fae2da59a38c45b15f0b"></script>
-<script src="elementlist.js?5253c62cfa0d48644b3b87733bdc252a62ff9319"></script>
+<script src="elementlist.js?0125139c439c9ba335192d1be42dc9961e5f8e27"></script>
 </body>
 </html>
