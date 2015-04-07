@@ -1,5 +1,5 @@
 # Po
-[![Build Status](https://travis-ci.org/geekwright/Po.svg?branch=master)](https://travis-ci.org/geekwright/Po) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/geekwright/Po/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/geekwright/Po/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/geekwright/Po/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/geekwright/Po/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/geekwright/Po/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/geekwright/Po/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/geekwright/Po/badges/build.png?b=master)](https://scrutinizer-ci.com/g/geekwright/Po/build-status/master)
 
 __Po__ is a set of objects to assist in reading, manipulating and creating GNU gettext style PO files.
 
