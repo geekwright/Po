@@ -96,6 +96,12 @@ class PoInitPHP extends PoInitAbstract
                         } elseif (count($gtt['args'])>1 && in_array($gtt['function'], $this->ngettextTags)) {
                             $entry->set(PoTokens::MESSAGE, $this->escapeForPo($gtt['args'][0]));
                             $entry->set(PoTokens::PLURAL, $this->escapeForPo($gtt['args'][1]));
+                        }
+                        // check for sprintf tokens
+                        if (preg_match(
+                            '#(?<!%)%(?:\d+\$)?[+-]?(?:[ 0]|\'.{1})?-?\d*(?:\.\d+)?[bcdeEufFgGosxX]#',
+                            $entry->get(PoTokens::MESSAGE) . $entry->get(PoTokens::PLURAL)
+                        )) {
                             $entry->set(PoTokens::FLAG, 'php-format');
                         }
                         if ($gtt['line']==($commentLine+1)) {
