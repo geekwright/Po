@@ -97,13 +97,7 @@ class PoInitPHP extends PoInitAbstract
                             $entry->set(PoTokens::MESSAGE, $this->escapeForPo($gtt['args'][0]));
                             $entry->set(PoTokens::PLURAL, $this->escapeForPo($gtt['args'][1]));
                         }
-                        // check for sprintf tokens
-                        if (preg_match(
-                            '#(?<!%)%(?:\d+\$)?[+-]?(?:[ 0]|\'.{1})?-?\d*(?:\.\d+)?[bcdeEufFgGosxX]#',
-                            $entry->get(PoTokens::MESSAGE) . $entry->get(PoTokens::PLURAL)
-                        )) {
-                            $entry->set(PoTokens::FLAG, 'php-format');
-                        }
+                        $this->checkPhpFormatFlag($entry);
                         if ($gtt['line']==($commentLine+1)) {
                             $entry->set(PoTokens::EXTRACTED_COMMENTS, $this->stripComment($commentText));
                         }

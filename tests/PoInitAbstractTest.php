@@ -133,4 +133,35 @@ class PoInitAbstractTest extends \PHPUnit_Framework_TestCase
         $actual = $this->object->escapeForPo("'test\r\n'");
         $this->assertEquals('test\n', $actual);
     }
+
+    /**
+     * @covers Geekwright\Po\PoInitAbstract::checkPhpFormatFlag
+     */
+    public function testCheckPhpFormatFlag()
+    {
+        $entry = new PoEntry;
+        $entry->set(PoTokens::MESSAGE, 'This %%s should not trigger flag.');
+        $this->object->checkPhpFormatFlag($entry);
+        $this->assertFalse($entry->hasFlag('php-format'));
+
+        $entry = new PoEntry;
+        $entry->set(PoTokens::MESSAGE, 'This %s should trigger flag.');
+        $this->object->checkPhpFormatFlag($entry);
+        $this->assertTrue($entry->hasFlag('php-format'));
+
+        $entry = new PoEntry;
+        $entry->set(PoTokens::PLURAL, 'This %2$d should trigger flag.');
+        $this->object->checkPhpFormatFlag($entry);
+        $this->assertTrue($entry->hasFlag('php-format'));
+
+        $entry = new PoEntry;
+        $entry->set(PoTokens::PLURAL, 'This %\'.9d should trigger flag.');
+        $this->object->checkPhpFormatFlag($entry);
+        $this->assertTrue($entry->hasFlag('php-format'));
+
+        $entry = new PoEntry;
+        $entry->set(PoTokens::MESSAGE, 'This %V should not trigger flag.');
+        $this->object->checkPhpFormatFlag($entry);
+        $this->assertFalse($entry->hasFlag('php-format'));
+    }
 }

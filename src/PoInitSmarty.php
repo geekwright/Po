@@ -203,7 +203,6 @@ class PoInitSmarty extends PoInitAbstract
                                 $haveEntry = true;
                             } elseif (in_array($key, $this->msgidPluralArgNames)) {
                                 $entry->set(PoTokens::PLURAL, $this->escapeForPo($value));
-                                $entry->set(PoTokens::FLAG, 'php-format');
                             } elseif (in_array($key, $this->msgctxtArgNames)) {
                                 $entry->set(PoTokens::CONTEXT, $this->escapeForPo($value));
                             }
@@ -211,6 +210,7 @@ class PoInitSmarty extends PoInitAbstract
                     }
                 }
                 if ($haveEntry) {
+                    $this->checkPhpFormatFlag($entry);
                     $this->poFile->mergeEntry($entry);
                 }
             }

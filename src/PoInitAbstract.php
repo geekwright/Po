@@ -210,4 +210,21 @@ abstract class PoInitAbstract
         $string = stripcslashes($string);
         return addcslashes($string, "\0..\37\"");
     }
+
+    /**
+     * Check the supplied entry for sprintf directives and set php-format flag if found
+     *
+     * @param PoEntry $entry entry to check
+     *
+     * @return void
+     */
+    public function checkPhpFormatFlag(PoEntry $entry)
+    {
+        if (preg_match(
+            '#(?<!%)%(?:\d+\$)?[+-]?(?:[ 0]|\'.{1})?-?\d*(?:\.\d+)?[bcdeEufFgGosxX]#',
+            $entry->get(PoTokens::MESSAGE) . $entry->get(PoTokens::PLURAL)
+        )) {
+            $entry->addFlag('php-format');
+        }
+    }
 }

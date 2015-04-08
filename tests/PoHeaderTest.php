@@ -106,4 +106,17 @@ class PoHeaderTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(false !== strpos($output, 'Content-Type'));
         $this->assertTrue(false !== strpos($output, 'PO-Revision-Date'));
     }
+
+    /**
+     * @covers Geekwright\Po\PoHeader::storeStructuredHeader
+     */
+    public function testStoreStructuredHeaderDumpEntry()
+    {
+        $header = new PoHeader;
+        $reflection = new \ReflectionClass(get_class($header));
+        $method = $reflection->getMethod('storeStructuredHeader');
+        $method->setAccessible(true);
+
+        $this->assertFalse($method->invoke($header));
+    }
 }
