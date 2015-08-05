@@ -10,6 +10,8 @@ The recommended installation method is using composer. Include _"geekwright/po"_
   "geekwright/po": "1.0.*"
 }
 ```
+## Namespace
+All __Po__ classes are in the Geekwright\Po namespace.
 
 ## Examples
 __Po__ provides the capability to create, read, and modify PO and POT files, including the ability to scan PHP sources for gettext style calls to build a POT file. You can connect the pieces however you need, but here are a few examples for common situations.
@@ -43,6 +45,17 @@ __Po__ provides the capability to create, read, and modify PO and POT files, inc
     $entry->set(PoTokens::MESSAGE, 'This is a message.');
     $entry->set(PoTokens::FLAG, 'fuzzy');
     $poFile->addEntry($entry);
+```
+
+### Get the Translation for an Entry
+The translation for an entry can be a string, or an array of strings if the Entry is a plural form. This code fragment will assign the translation to ```$msgstr``` appropriate for either case.
+```PHP
+    $msgid_plural = $entry->get(PoTokens::PLURAL);
+    if (empty($msgid_plural)) {
+        $msgstr = $entry->getAsString(PoTokens::TRANSLATED);
+    } else {
+        $msgstr = $entry->getAsStringArray(PoTokens::TRANSLATED);
+    }
 ```
 
 ### Writing a PO File

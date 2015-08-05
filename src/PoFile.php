@@ -297,7 +297,8 @@ class PoFile
     public function writePoFile($file)
     {
         $source = $this->dumpString();
-        $status = is_writable($file);
+        $testName = file_exists($file) ? $file : dirname($file);
+        $status = is_writable($testName);
         if ($status === true) {
             $status = file_put_contents($file, $source);
         }
