@@ -234,7 +234,7 @@ class PoEntry
 
     /**
      * format a string for output by escaping control and double quote
-     * characters, then surrouding with double quotes
+     * characters, then surrounding with double quotes
      *
      * @param string|null $value string to prepare
      * @param boolean     $bare  true for bare output, default false adds leading

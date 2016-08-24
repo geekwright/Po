@@ -3,7 +3,7 @@
 namespace Geekwright\Po;
 
 /**
- * Constants representing line indentification tokens found in a GNU gettext
+ * Constants representing line identification tokens found in a GNU gettext
  * style PO or POT file
  *
  * @category  Tokens

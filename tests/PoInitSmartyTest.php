@@ -18,9 +18,7 @@ class PoInitSmartyTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         if (!class_exists('\Smarty')) {
-            $this->markTestSkipped(
-              'Smarty is not available.'
-            );
+            $this->markTestSkipped('Smarty is not available.');
         }
         $smarty = new \Smarty;
         $this->object = new PoInitSmarty($smarty, new PoFile);

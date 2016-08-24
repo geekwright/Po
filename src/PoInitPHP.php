@@ -122,6 +122,6 @@ class PoInitPHP extends PoInitAbstract
      */
     protected function stripComment($string)
     {
-        return trim(str_replace(array('//','/*','*/'), '', $string));
+        return trim(str_replace(array('//', '/*', '*/'), '', $string));
     }
 }

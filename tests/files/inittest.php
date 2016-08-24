@@ -35,7 +35,7 @@ EOT
     this comment should be ignored
     */
     gettext_noop("Select a file or a folder"),
-    /* refering to floppy disk drive */
+    /* referring to floppy disk drive */
     gettext_noop("When ejecting the drive, close the apps that are locking it"),
     gettext_noop("You do not have sufficient privileges for this operation."),
 );

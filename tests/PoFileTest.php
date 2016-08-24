@@ -207,7 +207,6 @@ class PoFileTest extends \PHPUnit_Framework_TestCase
         $entry3->add(PoTokens::OBSOLETE, 'msgid "Hello."');
         $entry3->add(PoTokens::OBSOLETE, 'msgstr "Bonjour!"');
         $this->assertFalse($pofile->mergeEntry($entry3));
-
     }
 
     /**

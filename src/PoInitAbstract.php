@@ -195,7 +195,7 @@ abstract class PoInitAbstract
 
     /**
      * Prepare a string from tokenized output for use in a po file. Remove any
-     * surrounding quotes, escape control characters and double qoutes.
+     * surrounding quotes, escape control characters and double quotes.
      *
      * @param string $string raw string (T_STRING) identified by php token_get_all
      *

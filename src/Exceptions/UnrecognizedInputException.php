@@ -6,7 +6,7 @@ namespace Geekwright\Po\Exceptions;
  * UnrecognizedInputException
  *
  * When parsing input expected to be in po format, one or more lines that could not
- * be recognized were encoutered.
+ * be recognized were encountered.
  *
  * @category  Exceptions
  * @package   Po
