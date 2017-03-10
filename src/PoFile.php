@@ -45,6 +45,12 @@ class PoFile
     public $unrecognizedInput = array();
 
     /**
+     * The character encoding type that will be used when writing the file
+     * @var string
+     */
+    public $encoding = "UTF-8";
+
+    /**
      * Build a PoFile, empty or with provided entries
      *
      * @param PoHeader|null $header         header object
@@ -300,6 +306,8 @@ class PoFile
         $testName = file_exists($file) ? $file : dirname($file);
         $status = is_writable($testName);
         if ($status === true) {
+            $source = iconv("CP1257", $this->encoding, $source);
+
             $status = file_put_contents($file, $source);
         }
         if (false === $status) {
@@ -352,6 +360,19 @@ class PoFile
             throw new FileNotReadableException($file);
         }
         $this->parsePoSource($source);
+    }
+
+    /**
+     * Setter method to set the encoding type prior to writing the PoFile
+     * @param string $encoding e.g. UTF-8 or US-ASCII etc..
+     */
+    public function setEncoding($encoding = null)
+    {
+        if (empty($encoding)) {
+            return false;
+        }
+
+        $this->encoding = $encoding;
     }
 
     /**
