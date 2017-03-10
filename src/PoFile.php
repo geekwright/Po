@@ -363,19 +363,6 @@ class PoFile
     }
 
     /**
-     * Setter method to set the encoding type prior to writing the PoFile
-     * @param string $encoding e.g. UTF-8 or US-ASCII etc..
-     */
-    public function setEncoding($encoding = null)
-    {
-        if (empty($encoding)) {
-            return false;
-        }
-
-        $this->encoding = $encoding;
-    }
-
-    /**
      * Replace any current contents with header and entries from PO souce string
      *
      * @param string $source po formatted string to parse
