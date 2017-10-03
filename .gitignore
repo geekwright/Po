@@ -4,3 +4,5 @@
 *.bak
 .idea/
 coverage.clover
+composer.lock
+vendor/
