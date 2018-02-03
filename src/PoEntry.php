@@ -10,7 +10,7 @@ namespace Geekwright\Po;
  * @category  Entries
  * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
- * @copyright 2015 Richard Griffith
+ * @copyright 2015-2018 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @link      https://github.com/geekwright/Po
  */
@@ -45,7 +45,7 @@ class PoEntry
      * @param string $value value to store
      * @return void
      */
-    public function add($type, $value)
+    public function add(string $type, string $value): void
     {
         if ($this->entry[$type] === null) {
             $this->entry[$type] = array();
@@ -61,7 +61,7 @@ class PoEntry
      * @param string $value value to store
      * @return void
      */
-    public function addQuoted($type, $value)
+    public function addQuoted(string $type, string $value): void
     {
         if ($value[0]=='"') {
             $value = substr($value, 1, -1);
@@ -86,7 +86,7 @@ class PoEntry
      * @param string  $value    value to store
      * @return void
      */
-    public function addQuotedAtPosition($type, $position, $value)
+    public function addQuotedAtPosition(string $type, int $position, string $value): void
     {
         if ($value[0]=='"') {
             $value = substr($value, 1, -1);
@@ -111,7 +111,7 @@ class PoEntry
      *
      * @return string|string[]|null
      */
-    public function get($type)
+    public function get(string $type)
     {
         return $this->entry[$type];
     }
@@ -122,7 +122,7 @@ class PoEntry
      * @param string $type PoToken constant
      * @return string|null
      */
-    public function getAsString($type)
+    public function getAsString(string $type): ?string
     {
         $ret = $this->entry[$type];
         if (is_array($ret)) {
@@ -139,7 +139,7 @@ class PoEntry
      *
      * @return string[]|null
      */
-    public function getAsStringArray($type)
+    public function getAsStringArray(string $type): ?array
     {
         $plurals = $this->entry[$type];
         $plurals = is_array($plurals) ? $plurals : array('', '');
@@ -156,11 +156,11 @@ class PoEntry
     /**
      * set the value of a specified type
      *
-     * @param string $type  PoToken constant
-     * @param string $value value to set
+     * @param string               $type  PoToken constant
+     * @param string|string[]|null $value value to set
      * @return void
      */
-    public function set($type, $value)
+    public function set(string $type, $value): void
     {
         $this->entry[$type] = $value;
     }
@@ -170,7 +170,7 @@ class PoEntry
      *
      * @return string
      */
-    public function dumpEntry()
+    public function dumpEntry(): string
     {
         $output = $this->dumpEntryComments();
 
@@ -205,7 +205,7 @@ class PoEntry
      *
      * @return string
      */
-    protected function dumpEntryComments()
+    protected function dumpEntryComments(): string
     {
         $commentKeys = array(
             PoTokens::TRANSLATOR_COMMENTS,
@@ -236,13 +236,13 @@ class PoEntry
      * format a string for output by escaping control and double quote
      * characters, then surrounding with double quotes
      *
-     * @param string|null $value string to prepare
-     * @param boolean     $bare  true for bare output, default false adds leading
-     *                           space and trailing newline
+     * @param string|string[]|null $value string to prepare
+     * @param boolean              $bare  true for bare output, default false adds leading
+     *                                    space and trailing newline
      *
      * @return string
      */
-    protected function formatQuotedString($value, $bare = false)
+    protected function formatQuotedString($value, bool $bare = false): string
     {
         if (is_array($value)) {
             $string = '';
@@ -266,7 +266,7 @@ class PoEntry
      *
      * @return boolean true if flag is set, otherwise false
      */
-    public function hasFlag($name)
+    public function hasFlag(string $name): bool
     {
         $flags = array();
         $flagEntry = $this->entry[PoTokens::FLAG];
@@ -290,7 +290,7 @@ class PoEntry
      *
      * @return void
      */
-    public function addFlag($name)
+    public function addFlag(string $name): void
     {
         if (!$this->hasFlag($name)) {
             $flagEntry = $this->entry[PoTokens::FLAG];

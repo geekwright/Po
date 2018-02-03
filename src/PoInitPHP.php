@@ -10,7 +10,7 @@ namespace Geekwright\Po;
  * @category  Extractors
  * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
- * @copyright 2015 Richard Griffith
+ * @copyright 2015-2018 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @link      https://github.com/geekwright/Po
  */
@@ -36,7 +36,7 @@ class PoInitPHP extends PoInitAbstract
      *
      * @param PoFile|null $poFile a PoFile object to be used in msginit
      */
-    public function __construct(PoFile $poFile = null)
+    public function __construct(?PoFile $poFile = null)
     {
         $this->poFile = $poFile;
     }
@@ -49,7 +49,7 @@ class PoInitPHP extends PoInitAbstract
      *
      * @return PoFile
      */
-    public function msginitString($source, $refname)
+    public function msginitString(string $source, string $refname): PoFile
     {
         if (!($this->poFile instanceof PoFile)) {
             $this->poFile = new PoFile;
@@ -120,7 +120,7 @@ class PoInitPHP extends PoInitAbstract
      *
      * @return string
      */
-    protected function stripComment($string)
+    protected function stripComment(string $string): string
     {
         return trim(str_replace(array('//', '/*', '*/'), '', $string));
     }

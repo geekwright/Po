@@ -11,7 +11,7 @@ namespace Geekwright\Po;
  * @category  Entries
  * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
- * @copyright 2015 Richard Griffith
+ * @copyright 2015-2018 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @link      https://github.com/geekwright/Po
  */
@@ -35,7 +35,7 @@ class PoHeader extends PoEntry
      *
      * @return void
      */
-    protected function buildStructuredHeaders()
+    protected function buildStructuredHeaders(): void
     {
         $this->structuredHeaders = array();
         $headers = $this->entry[PoTokens::TRANSLATED];
@@ -60,9 +60,9 @@ class PoHeader extends PoEntry
      *
      * @return boolean true if rebuilt, false if not
      */
-    protected function storeStructuredHeader()
+    protected function storeStructuredHeader(): bool
     {
-        if (empty($this->structuredHeaders)) {
+        if (is_null($this->structuredHeaders)) {
             return false;
         }
         $headers = array("");
@@ -79,13 +79,13 @@ class PoHeader extends PoEntry
      *
      * @param string $key case insensitive name of header to return
      *
-     * @return string|false header string for key or false if not set
+     * @return string|null header string for key or false if not set
      */
-    public function getHeader($key)
+    public function getHeader(string $key): ?string
     {
         $this->buildStructuredHeaders();
         $lkey = strtolower($key);
-        $header = false;
+        $header = null;
         if (isset($this->structuredHeaders[$lkey]['value'])) {
             $header = $this->structuredHeaders[$lkey]['value'];
         }
@@ -101,7 +101,7 @@ class PoHeader extends PoEntry
      *
      * @return void
      */
-    public function setHeader($key, $value)
+    public function setHeader(string $key, string $value): void
     {
         $this->buildStructuredHeaders();
         $lkey = strtolower($key);
@@ -121,7 +121,7 @@ class PoHeader extends PoEntry
      *
      * @return void
      */
-    public function setCreateDate($time = null)
+    public function setCreateDate(?int $time = null): void
     {
         $this->setHeader('POT-Creation-Date', $this->formatTimestamp($time));
     }
@@ -133,7 +133,7 @@ class PoHeader extends PoEntry
      *
      * @return void
      */
-    public function setRevisionDate($time = null)
+    public function setRevisionDate(?int $time = null): void
     {
         $this->setHeader('PO-Revision-Date', $this->formatTimestamp($time));
     }
@@ -145,7 +145,7 @@ class PoHeader extends PoEntry
      *
      * @return string formatted timestamp
      */
-    protected function formatTimestamp($time = null)
+    protected function formatTimestamp(?int $time = null): string
     {
         if (empty($time)) {
             $time = time();
@@ -158,7 +158,7 @@ class PoHeader extends PoEntry
      *
      * @return void
      */
-    public function buildDefaultHeader()
+    public function buildDefaultHeader(): void
     {
         $this->set(PoTokens::MESSAGE, "");
         $this->set(PoTokens::TRANSLATOR_COMMENTS, 'SOME DESCRIPTIVE TITLE');
@@ -185,7 +185,7 @@ class PoHeader extends PoEntry
      *
      * @return string
      */
-    public function dumpEntry()
+    public function dumpEntry(): string
     {
         $this->set(PoTokens::MESSAGE, "");
         return parent::dumpEntry();

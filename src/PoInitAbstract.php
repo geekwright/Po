@@ -12,7 +12,7 @@ use Geekwright\Po\Exceptions\FileNotReadableException;
  * @category  Extractors
  * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
- * @copyright 2015 Richard Griffith
+ * @copyright 2015-2018 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @link      https://github.com/geekwright/Po
  */
@@ -43,7 +43,7 @@ abstract class PoInitAbstract
      *
      * @return PoFile
      */
-    public function getPoFile()
+    public function getPoFile(): PoFile
     {
         return $this->poFile;
     }
@@ -55,7 +55,7 @@ abstract class PoInitAbstract
      *
      * @return void
      */
-    public function setPoFile(PoFile $poFile)
+    public function setPoFile(PoFile $poFile): void
     {
         $this->poFile = $poFile;
     }
@@ -65,7 +65,7 @@ abstract class PoInitAbstract
      *
      * @return string[]
      */
-    public function getGettextTags()
+    public function getGettextTags(): array
     {
         return $this->gettextTags;
     }
@@ -77,7 +77,7 @@ abstract class PoInitAbstract
      *
      * @return void
      */
-    public function setGettextTags($tags)
+    public function setGettextTags(array $tags): void
     {
         $this->gettextTags = $tags;
     }
@@ -89,7 +89,7 @@ abstract class PoInitAbstract
      *
      * @return void
      */
-    public function addGettextTags($tags)
+    public function addGettextTags($tags): void
     {
         $this->gettextTags = array_merge($this->gettextTags, (array) $tags);
     }
@@ -99,7 +99,7 @@ abstract class PoInitAbstract
      *
      * @return string[]
      */
-    public function getNgettextTags()
+    public function getNgettextTags(): array
     {
         return $this->ngettextTags;
     }
@@ -110,7 +110,7 @@ abstract class PoInitAbstract
      *
      * @return void
      */
-    public function setNgettextTags($tags)
+    public function setNgettextTags(array $tags): void
     {
         $this->ngettextTags = $tags;
     }
@@ -122,7 +122,7 @@ abstract class PoInitAbstract
      *
      * @return void
      */
-    public function addNgettextTags($tags)
+    public function addNgettextTags($tags): void
     {
         $this->ngettextTags = array_merge($this->ngettextTags, (array) $tags);
     }
@@ -132,7 +132,7 @@ abstract class PoInitAbstract
      *
      * @return string[]
      */
-    public function getPgettextTags()
+    public function getPgettextTags(): array
     {
         return $this->pgettextTags;
     }
@@ -144,7 +144,7 @@ abstract class PoInitAbstract
      *
      * @return void
      */
-    public function setPgettextTags($tags)
+    public function setPgettextTags(array $tags): void
     {
         $this->pgettextTags = $tags;
     }
@@ -156,7 +156,7 @@ abstract class PoInitAbstract
      *
      * @return void
      */
-    public function addPgettextTags($tags)
+    public function addPgettextTags($tags): void
     {
         $this->pgettextTags = array_merge($this->pgettextTags, (array) $tags);
     }
@@ -170,7 +170,7 @@ abstract class PoInitAbstract
      *
      * @throws FileNotReadableException
      */
-    public function msginitFile($filename)
+    public function msginitFile(string $filename): PoFile
     {
         if (!is_readable($filename)) {
             $source = false;
@@ -191,7 +191,7 @@ abstract class PoInitAbstract
      *
      * @return PoFile
      */
-    abstract public function msginitString($source, $refname);
+    abstract public function msginitString(string $source, string $refname): PoFile;
 
     /**
      * Prepare a string from tokenized output for use in a po file. Remove any
@@ -201,7 +201,7 @@ abstract class PoInitAbstract
      *
      * @return string
      */
-    public function escapeForPo($string)
+    public function escapeForPo(string $string): string
     {
         if ($string[0]=='"' || $string[0]=="'") {
             $string = substr($string, 1, -1);
@@ -218,7 +218,7 @@ abstract class PoInitAbstract
      *
      * @return void
      */
-    public function checkPhpFormatFlag(PoEntry $entry)
+    public function checkPhpFormatFlag(PoEntry $entry): void
     {
         if (preg_match(
             '#(?<!%)%(?:\d+\$)?[+-]?(?:[ 0]|\'.{1})?-?\d*(?:\.\d+)?[bcdeEufFgGosxX]#',

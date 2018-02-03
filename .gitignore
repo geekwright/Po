@@ -3,6 +3,6 @@
 \#*
 *.bak
 .idea/
-coverage.clover
-composer.lock
 vendor/
+composer.lock
+coverage.clover

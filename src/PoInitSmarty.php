@@ -17,7 +17,7 @@ namespace Geekwright\Po;
  * @category  Extractors
  * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
- * @copyright 2015 Richard Griffith
+ * @copyright 2015-2018 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @link      https://github.com/geekwright/Po
  */
@@ -44,12 +44,12 @@ class PoInitSmarty extends PoInitAbstract
     protected $ngettextTags = array();
 
     /**
-     * @var string[] $msgidArgNames names of Smarty function argments for msgid
+     * @var string[] $msgidArgNames names of Smarty function arguments for msgid
      */
     protected $msgidArgNames = array('msgid');
 
     /**
-     * @var string[] $msgidPluralArgNames names of Smarty function argments for msgid_plural
+     * @var string[] $msgidPluralArgNames names of Smarty function arguments for msgid_plural
      */
     protected $msgidPluralArgNames = array('msgid_plural');
 
@@ -75,7 +75,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return string[]
      */
-    public function getMsgctxtArgNames()
+    public function getMsgctxtArgNames(): array
     {
         return $this->msgctxtArgNames;
     }
@@ -87,7 +87,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return void
      */
-    public function setMsgctxtArgNames($argNames)
+    public function setMsgctxtArgNames(array $argNames): void
     {
         $this->msgctxtArgNames = $argNames;
     }
@@ -99,7 +99,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return void
      */
-    public function addMsgctxtArgNames($argNames)
+    public function addMsgctxtArgNames($argNames): void
     {
         $this->msgctxtArgNames = array_merge($this->msgctxtArgNames, (array) $argNames);
     }
@@ -109,7 +109,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return string[]
      */
-    public function getMsgidArgNames()
+    public function getMsgidArgNames(): array
     {
         return $this->msgidArgNames;
     }
@@ -121,7 +121,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return void
      */
-    public function setMsgidArgNames($argNames)
+    public function setMsgidArgNames(array $argNames): void
     {
         $this->msgidArgNames = $argNames;
     }
@@ -133,7 +133,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return void
      */
-    public function addMsgidArgNames($argNames)
+    public function addMsgidArgNames($argNames): void
     {
         $this->msgidArgNames = array_merge($this->msgidArgNames, (array) $argNames);
     }
@@ -143,7 +143,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return string[]
      */
-    public function getMsgidPluralArgNames()
+    public function getMsgidPluralArgNames(): array
     {
         return $this->msgidPluralArgNames;
     }
@@ -155,7 +155,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return void
      */
-    public function setMsgidPluralArgNames($argNames)
+    public function setMsgidPluralArgNames(array $argNames): void
     {
         $this->msgidPluralArgNames = $argNames;
     }
@@ -167,7 +167,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return void
      */
-    public function addMsgidPluralArgNames($argNames)
+    public function addMsgidPluralArgNames($argNames): void
     {
         $this->msgidPluralArgNames = array_merge($this->msgidPluralArgNames, (array) $argNames);
     }
@@ -180,7 +180,7 @@ class PoInitSmarty extends PoInitAbstract
      *
      * @return PoFile
      */
-    public function msginitString($source, $refname)
+    public function msginitString(string $source, string $refname): PoFile
     {
         if (!($this->poFile instanceof PoFile)) {
             $this->poFile = new PoFile;

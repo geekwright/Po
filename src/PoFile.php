@@ -13,7 +13,7 @@ use Geekwright\Po\Exceptions\FileNotWritableException;
  * @category  File
  * @package   Po
  * @author    Richard Griffith <richard@geekwright.com>
- * @copyright 2015 Richard Griffith
+ * @copyright 2015-2018 Richard Griffith
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @link      https://github.com/geekwright/Po
  */
@@ -53,7 +53,7 @@ class PoFile
      *                                      are usually comment only entries, such as for
      *                                      obsolete entries.
      */
-    public function __construct($header = null, $entries = array(), $unkeyedEntries = array())
+    public function __construct(?array $header = null, array $entries = array(), array $unkeyedEntries = array())
     {
         $this->header = $header;
         $this->entries = $entries;
@@ -63,19 +63,19 @@ class PoFile
     /**
      * Build the internal entries array key from id, context and plural id
      *
-     * @param string      $msgid        the untranslated message of the entry
+     * @param string|null $msgid        the untranslated message of the entry
      * @param string|null $msgctxt      the context of the entry, if any
      * @param string|null $msgid_plural the untranslated plural message of the entry, if any
      *
      * @return string
      */
-    public static function createKey($msgid, $msgctxt = null, $msgid_plural = null)
+    public static function createKey(?string $msgid, ?string $msgctxt = null, ?string $msgid_plural = null): string
     {
         $key = '';
         if (!empty($msgctxt)) {
             $key .= $msgctxt . '|';
         }
-        $key .= $msgid;
+        $key .= (string) $msgid;
         if (!empty($msgid_plural)) {
             $key .= '|' . $msgid_plural;
         }
@@ -89,7 +89,7 @@ class PoFile
      *
      * @return string
      */
-    public function createKeyFromEntry(PoEntry $entry)
+    public function createKeyFromEntry(PoEntry $entry): string
     {
         return $this->createKey(
             $entry->getAsString(PoTokens::MESSAGE),
@@ -105,7 +105,7 @@ class PoFile
      *
      * @return void
      */
-    public function setHeaderEntry(PoHeader $header)
+    public function setHeaderEntry(PoHeader $header): void
     {
         $this->header = $header;
     }
@@ -115,7 +115,7 @@ class PoFile
      *
      * @return PoHeader
      */
-    public function getHeaderEntry()
+    public function getHeaderEntry(): PoHeader
     {
         return $this->header;
     }
@@ -125,7 +125,7 @@ class PoFile
      *
      * @return PoEntry[]
      */
-    public function getEntries()
+    public function getEntries(): array
     {
         return $this->entries;
     }
@@ -137,7 +137,7 @@ class PoFile
      *
      * @return void
      */
-    public function setUnkeyedEntries($entries)
+    public function setUnkeyedEntries(array $entries): void
     {
         $this->unkeyedEntries = $entries;
     }
@@ -147,7 +147,7 @@ class PoFile
      *
      * @return PoEntry[]
      */
-    public function getUnkeyedEntries()
+    public function getUnkeyedEntries(): array
     {
         return $this->unkeyedEntries;
     }
@@ -161,7 +161,7 @@ class PoFile
      *
      * @return boolean true if added, false if not
      */
-    public function addEntry(PoEntry $entry, $replace = true)
+    public function addEntry(PoEntry $entry, bool $replace = true): bool
     {
         $key = $this->createKeyFromEntry($entry);
 
@@ -191,7 +191,7 @@ class PoFile
      *
      * @return boolean true if merged or added, false if not
      */
-    public function mergeEntry(PoEntry $newEntry)
+    public function mergeEntry(PoEntry $newEntry): bool
     {
         $key = $this->createKeyFromEntry($newEntry);
 
@@ -227,7 +227,7 @@ class PoFile
      *
      * @return PoEntry|null matching entry, or null if not found
      */
-    public function findEntry($msgid, $msgctxt = null, $msgid_plural = null)
+    public function findEntry(string $msgid, ?string $msgctxt = null, ?string $msgid_plural = null): ?PoEntry
     {
         $key = $this->createKey($msgid, $msgctxt, $msgid_plural);
         $entry = null;
@@ -254,7 +254,7 @@ class PoFile
      *
      * @return boolean true if remove, false if not
      */
-    public function removeEntry(PoEntry $entry)
+    public function removeEntry(PoEntry $entry): bool
     {
         $key = $this->createKeyFromEntry($entry);
 
@@ -294,7 +294,7 @@ class PoFile
      *
      * @throws FileNotWritableException
      */
-    public function writePoFile($file)
+    public function writePoFile(string $file): void
     {
         $source = $this->dumpString();
         $testName = file_exists($file) ? $file : dirname($file);
@@ -312,7 +312,7 @@ class PoFile
      *
      * @return string
      */
-    public function dumpString()
+    public function dumpString(): string
     {
         if ($this->header === null) {
             $this->header = new PoHeader;
@@ -343,7 +343,7 @@ class PoFile
      *
      * @throws FileNotReadableException
      */
-    public function readPoFile($file, resource $context = null)
+    public function readPoFile(string $file, ?resource $context = null): void
     {
         $oldEr = error_reporting(E_ALL ^ E_WARNING);
         $source = file_get_contents($file, false, $context);
@@ -363,7 +363,7 @@ class PoFile
      *
      * @throws UnrecognizedInputException
      */
-    public function parsePoSource($source)
+    public function parsePoSource(string $source): void
     {
         /**
          * This is an incredibly ugly regex pattern that breaks a line of a po file into
