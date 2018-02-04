@@ -4,14 +4,16 @@
 __Po__ is a set of objects to assist in reading, manipulating and creating GNU gettext style PO files.
 
 ## Installing
-The recommended installation method is using composer. Include _"geekwright/po"_ in the _"require"_ section of your project's _composer.json_.
+The recommended installation method is using [composer](https://getcomposer.org/). To add _"geekwright/po"_ to your composer managed project, use this command:
 ```
-"require": {
-  "geekwright/po": "1.0.*"
-}
+composer require geekwright/po
 ```
+
+## PHP Support
+__Po__ version 1 supports PHP 5.3 and above. Begining with version 2, __Po__ requires a minimum of __PHP 7.1__.
+
 ## Namespace
-All __Po__ classes are in the Geekwright\Po namespace.
+All __Po__ classes are in the `Geekwright\Po` namespace.
 
 ## Examples
 __Po__ provides the capability to create, read, and modify PO and POT files, including the ability to scan PHP sources for gettext style calls to build a POT file. You can connect the pieces however you need, but here are a few examples for common situations.
