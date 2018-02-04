@@ -198,4 +198,18 @@ class PoInitSmartyTest extends \PHPUnit\Framework\TestCase
         $this->expectException('\SmartyCompilerException');
         $this->object->msginitString($template, basename(__FILE__));
     }
+
+    public function testMsginitString_noPoFile()
+    {
+        $smarty = new \Smarty;
+        $smarty->addPluginsDir(__DIR__ . '/smarty/plugins');
+        $object = new PoInitSmarty($smarty);
+        $template = '{_ msgid="My String"}';
+
+        $object->msginitString($template, basename(__FILE__));
+        $entries = $object->getPoFile()->getEntries();
+        /** @var \Geekwright\Po\PoEntry $entry */
+        $entry = $entries['My String'];
+        $this->assertEquals('My String', $entry->get(PoTokens::MESSAGE));
+    }
 }

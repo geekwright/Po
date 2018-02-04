@@ -320,4 +320,27 @@ class PoFileTest extends \PHPUnit\Framework\TestCase
         $this->expectException('Geekwright\Po\Exceptions\FileNotWritableException');
         $pofile->writePoFile($filename);
     }
+
+    public function testParsePoSourceWithInvalidLines()
+    {
+        $inputData = file_get_contents(__DIR__ . '/files/fr.po');
+        $inputData .=<<<EOT
+
+This is a bogus line.
+
+# what did it do?
+
+EOT;
+        $exceptionOccured = false;
+        try {
+            $this->object->parsePoSource($inputData);
+        } catch (\Geekwright\Po\Exceptions\UnrecognizedInputException $e) {
+            $exceptionOccured = true;
+        }
+        //print_r($this->object);
+        self::assertTrue($exceptionOccured);
+        $badLines = $this->object->unrecognizedInput;
+        self::assertTrue(\is_array($badLines));
+        self::assertTrue(0 < count($badLines));
+    }
 }

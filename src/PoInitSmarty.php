@@ -64,7 +64,7 @@ class PoInitSmarty extends PoInitAbstract
      * @param \Smarty     $smarty a fully initialize Smarty 3 instance
      * @param PoFile|null $poFile a PoFile object to be used in msginit
      */
-    public function __construct(\Smarty $smarty, PoFile $poFile = null)
+    public function __construct(\Smarty $smarty, ?PoFile $poFile = null)
     {
         $this->smarty = $smarty;
         $this->poFile = $poFile;
