@@ -1,687 +1,556 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
 
-	<title>Class Geekwright\Po\PoInitAbstract</title>
+        <link rel="stylesheet" href="resources/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/style.css">
 
-	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+        <title>
+            Class Geekwright\Po\PoInitAbstract
+        </title>
+    </head>
 
-</head>
+    <body>
+<div id="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.html">
+                                Overview
+                            </a>
+                        </li>
 
-<body>
-<div id="left">
-	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+                            <li>
+                                <a href="classes.html">Classes</a>
+                            </li>
 
-
-		<div id="groups">
-				<h3>Namespaces</h3>
-			<ul>
-				<li class="active">
-					<a href="namespace-Geekwright.html">
-						Geekwright<span></span>
-					</a>
-
-						<ul>
-				<li class="active">
-					<a href="namespace-Geekwright.Po.html">
-						Po<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-Geekwright.Po.Exceptions.html">
-						Exceptions					</a>
-
-						</li>
-							</ul></li></ul></li>
-			</ul>
-		</div>
-
-		<hr>
-
-
-		<div id="elements">
-			<h3>Classes</h3>
-			<ul>
-				<li><a href="class-Geekwright.Po.PoEntry.html">PoEntry</a></li>
-				<li><a href="class-Geekwright.Po.PoFile.html">PoFile</a></li>
-				<li><a href="class-Geekwright.Po.PoHeader.html">PoHeader</a></li>
-				<li class="active"><a href="class-Geekwright.Po.PoInitAbstract.html">PoInitAbstract</a></li>
-				<li><a href="class-Geekwright.Po.PoInitPHP.html">PoInitPHP</a></li>
-				<li><a href="class-Geekwright.Po.PoInitSmarty.html">PoInitSmarty</a></li>
-			</ul>
-
-			<h3>Interfaces</h3>
-			<ul>
-				<li><a href="class-Geekwright.Po.PoTokens.html">PoTokens</a></li>
-			</ul>
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
 
 
 
+                            <li>
+                                <a href="exceptions.html">Exceptions</a>
+                            </li>
 
-		</div>
-	</div>
+                    </ul>
+
+                    <form id="search" class="pull-right">
+                        <input type="text" name="q" class="form-control text" placeholder="Search class, function or namespace" autofocus>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+            <div id="breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+<div class="pull-left type">
+    <span class="label label-success">Class</span>
 </div>
 
-<div id="splitter"></div>
+<ol class="breadcrumb pull-left">
+        <li>
+            <a href="namespace-Geekwright.html">Geekwright</a>
+        </li>
+            <li class="backslash">\</li>
+        <li>
+            <a href="namespace-Geekwright.Po.html">Po</a>
+        </li>
 
-<div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="">
-		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text" placeholder="Search">
-	</form>
+        <li class="backslash">\</li>
+        <li class="active">PoInitAbstract</li>
+</ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-Geekwright.Po.html" title="Summary of Geekwright\Po"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-		</ul>
-		<ul>
-		</ul>
-	</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+    <h1>PoInitAbstract</h1>
 
-<div id="content" class="class">
-	<h1>Class PoInitAbstract</h1>
-
-
-	<div class="description">
-	<p>PoInitAbstract provides a structure for 'msginit' like logic which can take
+        <div class="panel panel-default">
+            <div class="panel-body">
+                PoInitAbstract provides a structure for 'msginit' like logic which can take
 a source PHP file, recognize gettext like function tokens, and capture the
-translatable strings in a PoFile object.</p>
-	</div>
+translatable strings in a PoFile object.
+            </div>
+        </div>
 
 
 
-	<div>
-		<h4>Direct known subclasses</h4>
-			<a href="class-Geekwright.Po.PoInitPHP.html">Geekwright\Po\PoInitPHP</a>, 
-			<a href="class-Geekwright.Po.PoInitSmarty.html">Geekwright\Po\PoInitSmarty</a>
-	</div>
+        <div>
+            <h2>Known subclasses</h2>
+            <a href="class-Geekwright.Po.PoInitPHP.html">Geekwright\Po\PoInitPHP</a>, 
+            <a href="class-Geekwright.Po.PoInitSmarty.html">Geekwright\Po\PoInitSmarty</a>
+        </div>
 
+    <div class="info">
+        <strong>Abstract</strong><br>
 
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+            <a href="source-class-Geekwright.Po.PoInitAbstract.html" class="open-source-code">Open source code</a>
+        <br>
+    </div>
 
+        <table class="summary table table-bordered table-responsive table-striped" id="methods">
+            <tr><th colspan="3">Methods Summary</th></tr>
 
 
 
-	<div class="info">
-		<b>Abstract</b><br>
-		
-		<b>Namespace:</b> <a href="namespace-Geekwright.html">Geekwright</a>\<a href="namespace-Geekwright.Po.html">Po</a><br>
-		<b>Package:</b> Po<br>
+<tr id="_getPoFile">
 
-				<b>Category:</b>
-				Extractors<br>
-				<b>Copyright:</b>
-				2015 Richard Griffith<br>
-				<b>License:</b>
-				<a href="GNU">GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)</a><br>
-				<b>Author:</b>
-				Richard Griffith <a href="&#109;a&#x69;l&#x74;&#111;&#x3a;&#114;&#x69;&#99;&#x68;&#97;&#x72;&#100;&#x40;&#103;&#x65;&#101;&#x6b;&#119;&#x72;&#105;&#x67;&#104;&#x74;&#46;c&#x6f;m">&#114;&#x69;&#99;&#x68;&#97;&#x72;&#100;&#x40;&#103;&#x65;&#101;&#x6b;&#119;&#x72;&#105;&#x67;&#104;&#x74;&#46;c&#x6f;m</a><br>
-				<b>Link:</b>
-				<a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
-			<b>Located at</b> <a href="source-class-Geekwright.Po.PoInitAbstract.html#7-230" title="Go to source code">PoInitAbstract.php</a>
-		<br>
-	</div>
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getPoFile">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#46-49">getPoFile</a>( )</code>
 
+            <div class="description">
+                Get the PoFile object used in msginit process
 
-	<table class="summary methods" id="methods">
-	<caption>Methods summary</caption>
-	<tr data-order="getPoFile" id="_getPoFile">
 
-		<td class="attributes"><code>
-			 public 
 
-			<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_getPoFile">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#41-49" title="Go to source code">getPoFile</a>( )</code>
 
-		<div class="description short">
-			<p>Get the PoFile object used in msginit process</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Get the PoFile object used in msginit process</p>
 
 
+            </div>
+        </div>
+    </td>
+</tr>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
-				</div>
 
 
+<tr id="_setPoFile">
 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="setPoFile" id="_setPoFile">
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setPoFile">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#58-61">setPoFile</a>( <span> <a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a> <span class="property-name">$poFile</span> </span> )</code>
 
-		<td class="attributes"><code>
-			 public 
+            <div class="description">
+                Set the PoFile object to use in msginit process
 
-			
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_setPoFile">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#51-61" title="Go to source code">setPoFile</a>( <span><code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code> <var>$poFile</var></span> )</code>
 
-		<div class="description short">
-			<p>Set the PoFile object to use in msginit process</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Set the PoFile object to use in msginit process</p>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$poFile</var></dt>
-					<dd>a PoFile object</dd>
-				</dl></div>
 
 
+            </div>
+        </div>
+    </td>
+</tr>
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getGettextTags" id="_getGettextTags">
+<tr id="_getGettextTags">
 
-		<td class="attributes"><code>
-			 public 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-			string[]
-			
-			</code>
-		</td>
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getGettextTags">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#68-71">getGettextTags</a>( )</code>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_getGettextTags">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#63-71" title="Go to source code">getGettextTags</a>( )</code>
+            <div class="description">
+                Get tags used for gettext like functions
 
-		<div class="description short">
-			<p>Get tags used for gettext like functions</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Get tags used for gettext like functions</p>
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					string[]
-				</div>
 
 
 
+            </div>
+        </div>
+    </td>
+</tr>
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="setGettextTags" id="_setGettextTags">
 
-		<td class="attributes"><code>
-			 public 
 
-			
-			
-			</code>
-		</td>
+<tr id="_setGettextTags">
 
-		<td class="name"><div>
-		<a class="anchor" href="#_setGettextTags">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#73-83" title="Go to source code">setGettextTags</a>( <span>string[] <var>$tags</var></span> )</code>
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-		<div class="description short">
-			<p>Set tags used for gettext like functions</p>
-		</div>
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setGettextTags">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#80-83">setGettextTags</a>( <span> array <span class="property-name">$tags</span> </span> )</code>
 
-		<div class="description detailed hidden">
-			<p>Set tags used for gettext like functions</p>
+            <div class="description">
+                Set tags used for gettext like functions
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$tags</var></dt>
-					<dd>array of tags to set</dd>
-				</dl></div>
 
 
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="addGettextTags" id="_addGettextTags">
 
-		<td class="attributes"><code>
-			 public 
+            </div>
+        </div>
+    </td>
+</tr>
 
-			
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_addGettextTags">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#85-95" title="Go to source code">addGettextTags</a>( <span>string|string[] <var>$tags</var></span> )</code>
 
-		<div class="description short">
-			<p>Add tags used for gettext like functions</p>
-		</div>
+<tr id="_addGettextTags">
 
-		<div class="description detailed hidden">
-			<p>Add tags used for gettext like functions</p>
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_addGettextTags">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#92-95">addGettextTags</a>( <span> string|string[] <span class="property-name">$tags</span> </span> )</code>
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$tags</var></dt>
-					<dd>tag, or array of tags to add</dd>
-				</dl></div>
+            <div class="description">
+                Add tags used for gettext like functions
 
 
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getNgettextTags" id="_getNgettextTags">
 
-		<td class="attributes"><code>
-			 public 
 
-			string[]
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_getNgettextTags">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#97-105" title="Go to source code">getNgettextTags</a>( )</code>
+            </div>
+        </div>
+    </td>
+</tr>
 
-		<div class="description short">
-			<p>Get tags used for ngettext like functions</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Get tags used for ngettext like functions</p>
 
+<tr id="_getNgettextTags">
 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-				<h4>Returns</h4>
-				<div class="list">
-					string[]
-				</div>
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getNgettextTags">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#102-105">getNgettextTags</a>( )</code>
 
+            <div class="description">
+                Get tags used for ngettext like functions
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="setNgettextTags" id="_setNgettextTags">
 
-		<td class="attributes"><code>
-			 public 
 
-			
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_setNgettextTags">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#107-116" title="Go to source code">setNgettextTags</a>( <span>string[] <var>$tags</var></span> )</code>
 
-		<div class="description short">
-			<p>setNgettextTags - set tags used for ngettext like functions</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>setNgettextTags - set tags used for ngettext like functions</p>
+            </div>
+        </div>
+    </td>
+</tr>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$tags</var></dt>
-					<dd>array of tags to set</dd>
-				</dl></div>
 
+<tr id="_setNgettextTags">
 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setNgettextTags">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#113-116">setNgettextTags</a>( <span> array <span class="property-name">$tags</span> </span> )</code>
 
+            <div class="description">
+                setNgettextTags - set tags used for ngettext like functions
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="addNgettextTags" id="_addNgettextTags">
 
-		<td class="attributes"><code>
-			 public 
 
-			
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_addNgettextTags">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#118-128" title="Go to source code">addNgettextTags</a>( <span>string|string[] <var>$tags</var></span> )</code>
 
-		<div class="description short">
-			<p>Add tags used for ngettext like functions</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Add tags used for ngettext like functions</p>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$tags</var></dt>
-					<dd>tag, or array of tags to add</dd>
-				</dl></div>
+            </div>
+        </div>
+    </td>
+</tr>
 
 
 
+<tr id="_addNgettextTags">
 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getPgettextTags" id="_getPgettextTags">
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_addNgettextTags">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#125-128">addNgettextTags</a>( <span> string|string[] <span class="property-name">$tags</span> </span> )</code>
 
-		<td class="attributes"><code>
-			 public 
+            <div class="description">
+                Add tags used for ngettext like functions
 
-			string[]
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_getPgettextTags">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#130-138" title="Go to source code">getPgettextTags</a>( )</code>
 
-		<div class="description short">
-			<p>Get tags used for pgettext like functions</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Get tags used for pgettext like functions</p>
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					string[]
-				</div>
 
+            </div>
+        </div>
+    </td>
+</tr>
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="setPgettextTags" id="_setPgettextTags">
+<tr id="_getPgettextTags">
 
-		<td class="attributes"><code>
-			 public 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-			
-			
-			</code>
-		</td>
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getPgettextTags">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#135-138">getPgettextTags</a>( )</code>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_setPgettextTags">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#140-150" title="Go to source code">setPgettextTags</a>( <span>string[] <var>$tags</var></span> )</code>
+            <div class="description">
+                Get tags used for pgettext like functions
 
-		<div class="description short">
-			<p>Set tags used for pgettext like functions</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Set tags used for pgettext like functions</p>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$tags</var></dt>
-					<dd>array of tags to set</dd>
-				</dl></div>
 
 
 
 
+            </div>
+        </div>
+    </td>
+</tr>
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="addPgettextTags" id="_addPgettextTags">
 
-		<td class="attributes"><code>
-			 public 
 
-			
-			
-			</code>
-		</td>
+<tr id="_setPgettextTags">
 
-		<td class="name"><div>
-		<a class="anchor" href="#_addPgettextTags">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#152-162" title="Go to source code">addPgettextTags</a>( <span>string|string[] <var>$tags</var></span> )</code>
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-		<div class="description short">
-			<p>Add tags used for pgettext like functions</p>
-		</div>
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setPgettextTags">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#147-150">setPgettextTags</a>( <span> array <span class="property-name">$tags</span> </span> )</code>
 
-		<div class="description detailed hidden">
-			<p>Add tags used for pgettext like functions</p>
+            <div class="description">
+                Set tags used for pgettext like functions
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$tags</var></dt>
-					<dd>tag, or array of tags to add</dd>
-				</dl></div>
 
 
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="msginitFile" id="_msginitFile">
 
-		<td class="attributes"><code>
-			 public 
+            </div>
+        </div>
+    </td>
+</tr>
 
-			<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_msginitFile">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#164-184" title="Go to source code">msginitFile</a>( <span>string <var>$filename</var></span> )</code>
 
-		<div class="description short">
-			<p>Inspect the supplied source file, capture gettext references as a PoFile object</p>
-		</div>
+<tr id="_addPgettextTags">
 
-		<div class="description detailed hidden">
-			<p>Inspect the supplied source file, capture gettext references as a PoFile object</p>
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_addPgettextTags">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#159-162">addPgettextTags</a>( <span> string|string[] <span class="property-name">$tags</span> </span> )</code>
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$filename</var></dt>
-					<dd>name of source file</dd>
-				</dl></div>
+            <div class="description">
+                Add tags used for pgettext like functions
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
-				</div>
 
-				<h4>Throws</h4>
-				<div class="list">
-					<code><a href="class-Geekwright.Po.Exceptions.FileNotReadableException.html">Geekwright\Po\Exceptions\FileNotReadableException</a></code>
-				</div>
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="msginitString" id="_msginitString">
 
-		<td class="attributes"><code>
-			abstract public 
 
-			<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_msginitString">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#186-194" title="Go to source code">msginitString</a>( <span>string <var>$source</var></span>, <span>string <var>$refname</var></span> )</code>
+            </div>
+        </div>
+    </td>
+</tr>
 
-		<div class="description short">
-			<p>Inspect the supplied source, capture gettext references as a PoFile object</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Inspect the supplied source, capture gettext references as a PoFile object</p>
 
+<tr id="_msginitFile">
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$source</var></dt>
-					<dd>php source code</dd>
-					<dt><var>$refname</var></dt>
-					<dd>source identification used for PO reference comments</dd>
-				</dl></div>
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
-				</div>
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_msginitFile">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#173-184">msginitFile</a>( <span> string <span class="property-name">$filename</span> </span> )</code>
 
+            <div class="description">
+                Inspect the supplied source file, capture gettext references as a PoFile object
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="escapeForPo" id="_escapeForPo">
 
-		<td class="attributes"><code>
-			 public 
 
-			string
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_escapeForPo">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#196-212" title="Go to source code">escapeForPo</a>( <span>string <var>$string</var></span> )</code>
 
-		<div class="description short">
-			<p>Prepare a string from tokenized output for use in a po file. Remove any
-surrounding quotes, escape control characters and double quotes.</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Prepare a string from tokenized output for use in a po file. Remove any
-surrounding quotes, escape control characters and double quotes.</p>
+            </div>
+        </div>
+    </td>
+</tr>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$string</var></dt>
-					<dd>raw string (T_STRING) identified by php token_get_all</dd>
-				</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
+<tr id="_msginitString">
 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                abstract public 
+                
+                
+        </code>
+    </td>
 
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_msginitString">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#194">msginitString</a>( <span> string <span class="property-name">$source</span> </span>, <span> string <span class="property-name">$refname</span> </span> )</code>
 
+            <div class="description">
+                Inspect the supplied source, capture gettext references as a PoFile object
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="checkPhpFormatFlag" id="_checkPhpFormatFlag">
 
-		<td class="attributes"><code>
-			 public 
 
-			
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_checkPhpFormatFlag">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitAbstract.html#214-229" title="Go to source code">checkPhpFormatFlag</a>( <span><code><a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a></code> <var>$entry</var></span> )</code>
 
-		<div class="description short">
-			<p>Check the supplied entry for sprintf directives and set php-format flag if found</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Check the supplied entry for sprintf directives and set php-format flag if found</p>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$entry</var></dt>
-					<dd>entry to check</dd>
-				</dl></div>
+            </div>
+        </div>
+    </td>
+</tr>
 
 
 
+<tr id="_escapeForPo">
 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-		</div>
-		</div></td>
-	</tr>
-	</table>
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_escapeForPo">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#204-212">escapeForPo</a>( <span> string <span class="property-name">$string</span> </span> )</code>
 
+            <div class="description">
+                Prepare a string from tokenized output for use in a po file. Remove any
+surrounding quotes, escape control characters and double quotes.
 
 
 
@@ -690,126 +559,198 @@ surrounding quotes, escape control characters and double quotes.</p>
 
 
 
+            </div>
+        </div>
+    </td>
+</tr>
 
 
 
-	<table class="summary properties" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="poFile" id="$poFile">
-		<td class="attributes"><code>
-			protected  
-			<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
-		</code></td>
+<tr id="_checkPhpFormatFlag">
 
-		<td class="name">
-				<a href="source-class-Geekwright.Po.PoInitAbstract.html#21-24" title="Go to source code"><var>$poFile</var></a>
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-			<div class="description short">
-				<p>$poFile object to be used in msginit</p>
-			</div>
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_checkPhpFormatFlag">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitAbstract.html#221-229">checkPhpFormatFlag</a>( <span> <a href="class-Geekwright.Po.PoEntry.html">Geekwright\Po\PoEntry</a> <span class="property-name">$entry</span> </span> )</code>
 
-			<div class="description detailed hidden">
-				<p>$poFile object to be used in msginit</p>
+            <div class="description">
+                Check the supplied entry for sprintf directives and set php-format flag if found
 
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$poFile" class="anchor">#</a>
-				<code><span class="php-keyword1">null</span></code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="gettextTags" id="$gettextTags">
-		<td class="attributes"><code>
-			protected  
-			string[]
-		</code></td>
 
-		<td class="name">
-				<a href="source-class-Geekwright.Po.PoInitAbstract.html#26-29" title="Go to source code"><var>$gettextTags</var></a>
 
-			<div class="description short">
-				<p>$gettextTags tags for gettext constructs, i.e. tag($msgid)</p>
-			</div>
 
-			<div class="description detailed hidden">
-				<p>$gettextTags tags for gettext constructs, i.e. tag($msgid)</p>
 
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$gettextTags" class="anchor">#</a>
-				<code><span class="php-keyword1">array</span>(<span class="php-quote">'gettext'</span>, <span class="php-quote">'gettext_noop'</span>, <span class="php-quote">'_'</span>)</code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="pgettextTags" id="$pgettextTags">
-		<td class="attributes"><code>
-			protected  
-			string[]
-		</code></td>
 
-		<td class="name">
-				<a href="source-class-Geekwright.Po.PoInitAbstract.html#31-34" title="Go to source code"><var>$pgettextTags</var></a>
 
-			<div class="description short">
-				<p>$pgettextTags tags for pgettext constructs, i.e. tag($msgctxt, $msgid)</p>
-			</div>
 
-			<div class="description detailed hidden">
-				<p>$pgettextTags tags for pgettext constructs, i.e. tag($msgctxt, $msgid)</p>
+            </div>
+        </div>
+    </td>
+</tr>
+        </table>
 
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$pgettextTags" class="anchor">#</a>
-				<code><span class="php-keyword1">array</span>(<span class="php-quote">'pgettext'</span>)</code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="ngettextTags" id="$ngettextTags">
-		<td class="attributes"><code>
-			protected  
-			string[]
-		</code></td>
 
-		<td class="name">
-				<a href="source-class-Geekwright.Po.PoInitAbstract.html#36-39" title="Go to source code"><var>$ngettextTags</var></a>
 
-			<div class="description short">
-				<p>$ngettextTags tags for ngettext constructs, i.e. tag($msgid, $msgid_plural)</p>
-			</div>
 
-			<div class="description detailed hidden">
-				<p>$ngettextTags tags for ngettext constructs, i.e. tag($msgid, $msgid_plural)</p>
 
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$ngettextTags" class="anchor">#</a>
-				<code><span class="php-keyword1">array</span>(<span class="php-quote">'ngettext'</span>)</code>
-			</div>
-		</td>
-	</tr>
-	</table>
+        <table class="summary table table-bordered table-responsive table-striped" id="properties">
+            <tr><th colspan="3">Properties Summary</th></tr>
+<tr id="$poFile">
+    <td class="attributes">
+        <code class="keyword">
+            protected 
 
+            <a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a>
+        </code>
+    </td>
 
+    <td class="name">
+        <code>
+            <a href="source-class-Geekwright.Po.PoInitAbstract.html#24" class="property-name">$poFile</a>
+        </code>
+        <div class="description">
+            
 
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$poFile" class="anchor pull-right">#</a>
+            <code><span class="php-keyword1">NULL</span></code>
+        </div>
+    </td>
+</tr>
+<tr id="$gettextTags">
+    <td class="attributes">
+        <code class="keyword">
+            protected 
 
+            string[]
+        </code>
+    </td>
 
+    <td class="name">
+        <code>
+            <a href="source-class-Geekwright.Po.PoInitAbstract.html#29" class="property-name">$gettextTags</a>
+        </code>
+        <div class="description">
+            
 
-</div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$gettextTags" class="anchor pull-right">#</a>
+            <code><span class="php-keyword1">array</span> (
+  <span class="php-num">0</span> =&gt; <span class="php-quote">'gettext'</span>,
+  <span class="php-num">1</span> =&gt; <span class="php-quote">'gettext_noop'</span>,
+  <span class="php-num">2</span> =&gt; <span class="php-quote">'_'</span>,
+)</code>
+        </div>
+    </td>
+</tr>
+<tr id="$pgettextTags">
+    <td class="attributes">
+        <code class="keyword">
+            protected 
 
-	<div id="footer">
-		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
-	</div>
-</div>
-</div>
-<script src="resources/combined.js"></script>
-<script src="elementlist.js"></script>
-</body>
+            string[]
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Geekwright.Po.PoInitAbstract.html#34" class="property-name">$pgettextTags</a>
+        </code>
+        <div class="description">
+            
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$pgettextTags" class="anchor pull-right">#</a>
+            <code><span class="php-keyword1">array</span> (
+  <span class="php-num">0</span> =&gt; <span class="php-quote">'pgettext'</span>,
+)</code>
+        </div>
+    </td>
+</tr>
+<tr id="$ngettextTags">
+    <td class="attributes">
+        <code class="keyword">
+            protected 
+
+            string[]
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Geekwright.Po.PoInitAbstract.html#39" class="property-name">$ngettextTags</a>
+        </code>
+        <div class="description">
+            
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$ngettextTags" class="anchor pull-right">#</a>
+            <code><span class="php-keyword1">array</span> (
+  <span class="php-num">0</span> =&gt; <span class="php-quote">'ngettext'</span>,
+)</code>
+        </div>
+    </td>
+</tr>
+        </table>
+
+
+    <div id="footer">
+        Generated by <a href="https://github.com/apigen/apigen">ApiGen</a>
+    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="resources/jquery-3.2.1.min.js"></script>
+        <script src="resources/jquery-ui-1.12.1.min.js"></script>
+
+        <script src="elementlist.js"></script>
+        <script src="resources/main.js"></script>
+    </body>
 </html>
+
+

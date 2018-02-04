@@ -1,402 +1,386 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
 
-	<title>Class Geekwright\Po\PoInitPHP</title>
+        <link rel="stylesheet" href="resources/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/style.css">
 
-	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+        <title>
+            Class Geekwright\Po\PoInitPHP
+        </title>
+    </head>
 
-</head>
+    <body>
+<div id="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.html">
+                                Overview
+                            </a>
+                        </li>
 
-<body>
-<div id="left">
-	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+                            <li>
+                                <a href="classes.html">Classes</a>
+                            </li>
 
-
-		<div id="groups">
-				<h3>Namespaces</h3>
-			<ul>
-				<li class="active">
-					<a href="namespace-Geekwright.html">
-						Geekwright<span></span>
-					</a>
-
-						<ul>
-				<li class="active">
-					<a href="namespace-Geekwright.Po.html">
-						Po<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-Geekwright.Po.Exceptions.html">
-						Exceptions					</a>
-
-						</li>
-							</ul></li></ul></li>
-			</ul>
-		</div>
-
-		<hr>
-
-
-		<div id="elements">
-			<h3>Classes</h3>
-			<ul>
-				<li><a href="class-Geekwright.Po.PoEntry.html">PoEntry</a></li>
-				<li><a href="class-Geekwright.Po.PoFile.html">PoFile</a></li>
-				<li><a href="class-Geekwright.Po.PoHeader.html">PoHeader</a></li>
-				<li><a href="class-Geekwright.Po.PoInitAbstract.html">PoInitAbstract</a></li>
-				<li class="active"><a href="class-Geekwright.Po.PoInitPHP.html">PoInitPHP</a></li>
-				<li><a href="class-Geekwright.Po.PoInitSmarty.html">PoInitSmarty</a></li>
-			</ul>
-
-			<h3>Interfaces</h3>
-			<ul>
-				<li><a href="class-Geekwright.Po.PoTokens.html">PoTokens</a></li>
-			</ul>
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
 
 
 
+                            <li>
+                                <a href="exceptions.html">Exceptions</a>
+                            </li>
 
-		</div>
-	</div>
+                    </ul>
+
+                    <form id="search" class="pull-right">
+                        <input type="text" name="q" class="form-control text" placeholder="Search class, function or namespace" autofocus>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+            <div id="breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+<div class="pull-left type">
+    <span class="label label-success">Class</span>
 </div>
 
-<div id="splitter"></div>
+<ol class="breadcrumb pull-left">
+        <li>
+            <a href="namespace-Geekwright.html">Geekwright</a>
+        </li>
+            <li class="backslash">\</li>
+        <li>
+            <a href="namespace-Geekwright.Po.html">Po</a>
+        </li>
 
-<div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="">
-		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text" placeholder="Search">
-	</form>
+        <li class="backslash">\</li>
+        <li class="active">PoInitPHP</li>
+</ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-Geekwright.Po.html" title="Summary of Geekwright\Po"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-		</ul>
-		<ul>
-		</ul>
-	</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+    <h1>PoInitPHP</h1>
 
-<div id="content" class="class">
-	<h1>Class PoInitPHP</h1>
-
-
-	<div class="description">
-	<p>PoInitPHP provides 'msginit' like logic which can take a source PHP file,
+        <div class="panel panel-default">
+            <div class="panel-body">
+                PoInitPHP provides 'msginit' like logic which can take a source PHP file,
 recognize gettext like function tokens, and capture the translatable strings
-in a PoFile object.</p>
-	</div>
+in a PoFile object.
+            </div>
+        </div>
 
-	<dl class="tree">
-		<dd style="padding-left:0px">
-			<a href="class-Geekwright.Po.PoInitAbstract.html"><span>Geekwright\Po\PoInitAbstract</span></a>
-			
-			
-			
-		</dd>
-		<dd style="padding-left:30px">
-			<img src="resources/inherit.png" alt="Extended by">
-<b><span>Geekwright\Po\PoInitPHP</span></b>			
-			
-			
-		</dd>
-	</dl>
+        <dl class="tree">
+            <dd>
+                    extends
+                    <a href="class-Geekwright.Po.PoInitAbstract.html">
+                        Geekwright\Po\PoInitAbstract
+                    </a>
 
 
+            </dd>
+        </dl>
 
 
 
+    <div class="info">
+        
 
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+            <a href="source-class-Geekwright.Po.PoInitPHP.html" class="open-source-code">Open source code</a>
+        <br>
+    </div>
 
+        <table class="summary table table-bordered table-responsive table-striped" id="methods">
+            <tr><th colspan="3">Methods Summary</th></tr>
 
-	<div class="info">
-		
-		
-		<b>Namespace:</b> <a href="namespace-Geekwright.html">Geekwright</a>\<a href="namespace-Geekwright.Po.html">Po</a><br>
-		<b>Package:</b> Po<br>
 
-				<b>Category:</b>
-				Extractors<br>
-				<b>Copyright:</b>
-				2015 Richard Griffith<br>
-				<b>License:</b>
-				<a href="GNU">GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)</a><br>
-				<b>Author:</b>
-				Richard Griffith <a href="&#109;a&#x69;l&#x74;&#111;&#x3a;&#114;&#x69;&#99;&#x68;&#97;&#x72;&#100;&#x40;&#103;&#x65;&#101;&#x6b;&#119;&#x72;&#105;&#x67;&#104;&#x74;&#46;c&#x6f;m">&#114;&#x69;&#99;&#x68;&#97;&#x72;&#100;&#x40;&#103;&#x65;&#101;&#x6b;&#119;&#x72;&#105;&#x67;&#104;&#x74;&#46;c&#x6f;m</a><br>
-				<b>Link:</b>
-				<a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
-			<b>Located at</b> <a href="source-class-Geekwright.Po.PoInitPHP.html#5-127" title="Go to source code">PoInitPHP.php</a>
-		<br>
-	</div>
 
+<tr id="___construct">
 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-	<table class="summary methods" id="methods">
-	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#___construct">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitPHP.html#39-42">__construct</a>( <span> <a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a> <span class="property-name">$poFile</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
-		<td class="attributes"><code>
-			 public 
+            <div class="description">
+                Establish the PoFile to use in the Init process
 
-			
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitPHP.html#34-42" title="Go to source code">__construct</a>( <span><code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code> <var>$poFile</var> = <span class="php-keyword1">null</span></span> )</code>
 
-		<div class="description short">
-			<p>Establish the PoFile to use in the Init process</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Establish the PoFile to use in the Init process</p>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$poFile</var></dt>
-					<dd>a PoFile object to be used in msginit</dd>
-				</dl></div>
 
 
+            </div>
+        </div>
+    </td>
+</tr>
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="msginitString" id="_msginitString">
+<tr id="_msginitString">
 
-		<td class="attributes"><code>
-			 public 
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
 
-			<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
-			
-			</code>
-		</td>
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_msginitString">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitPHP.html#52-114">msginitString</a>( <span> string <span class="property-name">$source</span> </span>, <span> string <span class="property-name">$refname</span> </span> )</code>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_msginitString">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitPHP.html#44-114" title="Go to source code">msginitString</a>( <span>string <var>$source</var></span>, <span>string <var>$refname</var></span> )</code>
+            <div class="description">
+                Inspect the supplied source, capture gettext references as a PoFile object.
 
-		<div class="description short">
-			<p>Inspect the supplied source, capture gettext references as a PoFile object.</p>
-		</div>
 
-		<div class="description detailed hidden">
-			<p>Inspect the supplied source, capture gettext references as a PoFile object.</p>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$source</var></dt>
-					<dd>php source code</dd>
-					<dt><var>$refname</var></dt>
-					<dd>source identification used for PO reference comments</dd>
-				</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Geekwright.Po.PoFile.html">Geekwright\Po\PoFile</a></code>
-				</div>
 
 
 
+            </div>
+        </div>
+    </td>
+</tr>
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="stripComment" id="_stripComment">
 
-		<td class="attributes"><code>
-			 protected 
 
-			string
-			
-			</code>
-		</td>
+<tr id="_stripComment">
 
-		<td class="name"><div>
-		<a class="anchor" href="#_stripComment">#</a>
-		<code><a href="source-class-Geekwright.Po.PoInitPHP.html#116-126" title="Go to source code">stripComment</a>( <span>string <var>$string</var></span> )</code>
-
-		<div class="description short">
-			<p>Remove comment tags from string</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Remove comment tags from string</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$string</var></dt>
-					<dd>raw comment string</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	</table>
-
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Geekwright.Po.PoInitAbstract.html#methods">Geekwright\Po\PoInitAbstract</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_addGettextTags">addGettextTags()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_addNgettextTags">addNgettextTags()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_addPgettextTags">addPgettextTags()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_checkPhpFormatFlag">checkPhpFormatFlag()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_escapeForPo">escapeForPo()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_getGettextTags">getGettextTags()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_getNgettextTags">getNgettextTags()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_getPgettextTags">getPgettextTags()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_getPoFile">getPoFile()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_msginitFile">msginitFile()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_setGettextTags">setGettextTags()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_setNgettextTags">setNgettextTags()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_setPgettextTags">setPgettextTags()</a>, 
-			<a href="class-Geekwright.Po.PoInitAbstract.html#_setPoFile">setPoFile()</a>
-		</code></td>
-	</tr>
-	</table>
-
-
-
-
-
-
-
-
-
-
-
-	<table class="summary properties" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="gettextTags" id="$gettextTags">
-		<td class="attributes"><code>
-			protected  
-			string[]
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Geekwright.Po.PoInitPHP.html#19-22" title="Go to source code"><var>$gettextTags</var></a>
-
-			<div class="description short">
-				<p>$gettextTags tags for gettext constructs, i.e. tag($msgid)</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>$gettextTags tags for gettext constructs, i.e. tag($msgid)</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$gettextTags" class="anchor">#</a>
-				<code><span class="php-keyword1">array</span>(<span class="php-quote">'gettext'</span>, <span class="php-quote">'gettext_noop'</span>, <span class="php-quote">'_'</span>)</code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="pgettextTags" id="$pgettextTags">
-		<td class="attributes"><code>
-			protected  
-			string[]
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Geekwright.Po.PoInitPHP.html#24-27" title="Go to source code"><var>$pgettextTags</var></a>
-
-			<div class="description short">
-				<p>$pgettextTags tags for pgettext constructs, i.e. tag($msgctxt, $msgid)</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>$pgettextTags tags for pgettext constructs, i.e. tag($msgctxt, $msgid)</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$pgettextTags" class="anchor">#</a>
-				<code><span class="php-keyword1">array</span>(<span class="php-quote">'pgettext'</span>)</code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="ngettextTags" id="$ngettextTags">
-		<td class="attributes"><code>
-			protected  
-			string[]
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Geekwright.Po.PoInitPHP.html#29-32" title="Go to source code"><var>$ngettextTags</var></a>
-
-			<div class="description short">
-				<p>$ngettextTags tags for ngettext constructs, i.e. tag($msgid, $msgid_plural)</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>$ngettextTags tags for ngettext constructs, i.e. tag($msgid, $msgid_plural)</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$ngettextTags" class="anchor">#</a>
-				<code><span class="php-keyword1">array</span>(<span class="php-quote">'ngettext'</span>)</code>
-			</div>
-		</td>
-	</tr>
-	</table>
-
-	<table class="summary inherited">
-	<caption>Properties inherited from <a href="class-Geekwright.Po.PoInitAbstract.html#properties">Geekwright\Po\PoInitAbstract</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Geekwright.Po.PoInitAbstract.html#$poFile"><var>$poFile</var></a>
-		</code></td>
-	</tr>
-	</table>
-
-
-
-
-
-</div>
-
-	<div id="footer">
-		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
-	</div>
-</div>
-</div>
-<script src="resources/combined.js"></script>
-<script src="elementlist.js"></script>
-</body>
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 protected 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_stripComment">#</a>
+            <code><a href="source-class-Geekwright.Po.PoInitPHP.html#123-126">stripComment</a>( <span> string <span class="property-name">$string</span> </span> )</code>
+
+            <div class="description">
+                Remove comment tags from string
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+        </table>
+
+        <table class="summary table table-bordered table-responsive table-striped">
+            <tr>
+                <th>
+                    Methods inherited from <a href="class-Geekwright.Po.PoInitAbstract.html#methods">Geekwright\Po\PoInitAbstract</a>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_getPoFile">getPoFile()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_setPoFile">setPoFile()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_getGettextTags">getGettextTags()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_setGettextTags">setGettextTags()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_addGettextTags">addGettextTags()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_getNgettextTags">getNgettextTags()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_setNgettextTags">setNgettextTags()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_addNgettextTags">addNgettextTags()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_getPgettextTags">getPgettextTags()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_setPgettextTags">setPgettextTags()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_addPgettextTags">addPgettextTags()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_msginitFile">msginitFile()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_msginitString">msginitString()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_escapeForPo">escapeForPo()</a></code>, 
+                        <code><a href="class-Geekwright.Po.PoInitAbstract.html#_checkPhpFormatFlag">checkPhpFormatFlag()</a></code>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+        <table class="summary table table-bordered table-responsive table-striped" id="properties">
+            <tr><th colspan="3">Properties Summary</th></tr>
+<tr id="$gettextTags">
+    <td class="attributes">
+        <code class="keyword">
+            protected 
+
+            string[]
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Geekwright.Po.PoInitPHP.html#22" class="property-name">$gettextTags</a>
+        </code>
+        <div class="description">
+            
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$gettextTags" class="anchor pull-right">#</a>
+            <code><span class="php-keyword1">array</span> (
+  <span class="php-num">0</span> =&gt; <span class="php-quote">'gettext'</span>,
+  <span class="php-num">1</span> =&gt; <span class="php-quote">'gettext_noop'</span>,
+  <span class="php-num">2</span> =&gt; <span class="php-quote">'_'</span>,
+)</code>
+        </div>
+    </td>
+</tr>
+<tr id="$pgettextTags">
+    <td class="attributes">
+        <code class="keyword">
+            protected 
+
+            string[]
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Geekwright.Po.PoInitPHP.html#27" class="property-name">$pgettextTags</a>
+        </code>
+        <div class="description">
+            
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$pgettextTags" class="anchor pull-right">#</a>
+            <code><span class="php-keyword1">array</span> (
+  <span class="php-num">0</span> =&gt; <span class="php-quote">'pgettext'</span>,
+)</code>
+        </div>
+    </td>
+</tr>
+<tr id="$ngettextTags">
+    <td class="attributes">
+        <code class="keyword">
+            protected 
+
+            string[]
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Geekwright.Po.PoInitPHP.html#32" class="property-name">$ngettextTags</a>
+        </code>
+        <div class="description">
+            
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="https://github.com/geekwright/Po">https://github.com/geekwright/Po</a><br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$ngettextTags" class="anchor pull-right">#</a>
+            <code><span class="php-keyword1">array</span> (
+  <span class="php-num">0</span> =&gt; <span class="php-quote">'ngettext'</span>,
+)</code>
+        </div>
+    </td>
+</tr>
+        </table>
+
+            <table class="summary table table-bordered table-responsive table-striped">
+                <tr>
+                    <th>
+                        Properties inherited from <a href="class-Geekwright.Po.PoInitAbstract.html#properties">Geekwright\Po\PoInitAbstract</a>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                            <code><a href="class-Geekwright.Po.PoInitAbstract.html#$poFile" class="property-name">$poFile</a></code>, 
+                            <code><a href="class-Geekwright.Po.PoInitAbstract.html#$gettextTags" class="property-name">$gettextTags</a></code>, 
+                            <code><a href="class-Geekwright.Po.PoInitAbstract.html#$pgettextTags" class="property-name">$pgettextTags</a></code>, 
+                            <code><a href="class-Geekwright.Po.PoInitAbstract.html#$ngettextTags" class="property-name">$ngettextTags</a></code>
+                    </td>
+                </tr>
+            </table>
+
+    <div id="footer">
+        Generated by <a href="https://github.com/apigen/apigen">ApiGen</a>
+    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="resources/jquery-3.2.1.min.js"></script>
+        <script src="resources/jquery-ui-1.12.1.min.js"></script>
+
+        <script src="elementlist.js"></script>
+        <script src="resources/main.js"></script>
+    </body>
 </html>
+
+
