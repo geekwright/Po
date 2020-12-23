@@ -343,7 +343,7 @@ class PoFile
      *
      * @throws FileNotReadableException
      */
-    public function readPoFile(string $file, ?resource $context = null): void
+    public function readPoFile(string $file, $context = null): void
     {
         $oldEr = error_reporting(E_ALL ^ E_WARNING);
         $source = file_get_contents($file, false, $context);
