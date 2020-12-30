@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/geekwright.html"><abbr title="\Geekwright">Geekwright</abbr></a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-423732570"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-423732570" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-263224139"></a>
+                                <a href="../namespaces/geekwright.html" style="margin-left: 30px; padding-left: 0">Geekwright</a>
+            </div>
+            <div id="namespace-263224139" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-704935955"></a>
+                                <a href="../namespaces/geekwright-po.html" style="margin-left: 30px; padding-left: 0">Po</a>
+            </div>
+            <div id="namespace-704935955" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-865340553"></a>
+                                <a href="../namespaces/geekwright-po-exceptions.html" style="margin-left: 30px; padding-left: 0">Exceptions</a>
+            </div>
+            <div id="namespace-865340553" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Geekwright-Po-Exceptions-FileNotReadableException.html"><abbr title="\Geekwright\Po\Exceptions\FileNotReadableException">FileNotReadableException</abbr></a></li>
+                                                    <li class="class"><a href="../classes/Geekwright-Po-Exceptions-FileNotWritableException.html"><abbr title="\Geekwright\Po\Exceptions\FileNotWritableException">FileNotWritableException</abbr></a></li>
+                                                    <li class="class"><a href="../classes/Geekwright-Po-Exceptions-UnrecognizedInputException.html"><abbr title="\Geekwright\Po\Exceptions\UnrecognizedInputException">UnrecognizedInputException</abbr></a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Geekwright-Po-PoTokens.html"><abbr title="\Geekwright\Po\PoTokens">PoTokens</abbr></a></li>
+                                                                                                    <li class="class"><a href="../classes/Geekwright-Po-PoEntry.html"><abbr title="\Geekwright\Po\PoEntry">PoEntry</abbr></a></li>
+                                                    <li class="class"><a href="../classes/Geekwright-Po-PoFile.html"><abbr title="\Geekwright\Po\PoFile">PoFile</abbr></a></li>
+                                                    <li class="class"><a href="../classes/Geekwright-Po-PoHeader.html"><abbr title="\Geekwright\Po\PoHeader">PoHeader</abbr></a></li>
+                                                    <li class="class"><a href="../classes/Geekwright-Po-PoInitAbstract.html"><abbr title="\Geekwright\Po\PoInitAbstract">PoInitAbstract</abbr></a></li>
+                                                    <li class="class"><a href="../classes/Geekwright-Po-PoInitPHP.html"><abbr title="\Geekwright\Po\PoInitPHP">PoInitPHP</abbr></a></li>
+                                                    <li class="class"><a href="../classes/Geekwright-Po-PoInitSmarty.html"><abbr title="\Geekwright\Po\PoInitSmarty">PoInitSmarty</abbr></a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/geekwright-po.html"><abbr title="\Geekwright\Po">Po</abbr></a> <i class="icon-level-up"></i>
+                                            </nav>
+                                        <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    
+                    <h1><small>\Geekwright\Po</small>PoInitSmarty</h1>
+                    <p><em>PoInitPHP provides &#039;msginit&#039; like logic which can take a Smarty template file,
+recognize gettext like function tokens, and capture the translatable strings
+in a PoFile object.</em></p>
+                    <p>The Smarty functions are expected to be in the format:
+funcname(msgid=&quot;message&quot; msgid_plural=&quot;plural message&quot; msgctxt=&quot;context&quot;)
+The specifics of the function ('funcname') and the argument names ('msgid',
+'msgid_plural', and 'msgctxt') can be specified.</p>
+<p>A properly initialized Smarty v3 object  is required.</p>
+
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_getPoFile" class="">getPoFile()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_setPoFile" class="">setPoFile()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_getGettextTags" class="">getGettextTags()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_setGettextTags" class="">setGettextTags()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_addGettextTags" class="">addGettextTags()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_getNgettextTags" class="">getNgettextTags()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_setNgettextTags" class="">setNgettextTags()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_addNgettextTags" class="">addNgettextTags()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_getPgettextTags" class="">getPgettextTags()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_setPgettextTags" class="">setPgettextTags()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_addPgettextTags" class="">addPgettextTags()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_msginitFile" class="">msginitFile()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_msginitString" class="">msginitString()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_escapeForPo" class="">escapeForPo()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#method_checkPhpFormatFlag" class="">checkPhpFormatFlag()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_getMsgctxtArgNames" class="">getMsgctxtArgNames()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_setMsgctxtArgNames" class="">setMsgctxtArgNames()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_addMsgctxtArgNames" class="">addMsgctxtArgNames()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_getMsgidArgNames" class="">getMsgidArgNames()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_setMsgidArgNames" class="">setMsgidArgNames()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_addMsgidArgNames" class="">addMsgidArgNames()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_getMsgidPluralArgNames" class="">getMsgidPluralArgNames()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_setMsgidPluralArgNames" class="">setMsgidPluralArgNames()</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#method_addMsgidPluralArgNames" class="">addMsgidPluralArgNames()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Geekwright-Po-PoInitAbstract.html#property_poFile" class="">$poFile</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#property_gettextTags" class="">$gettextTags</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#property_pgettextTags" class="">$pgettextTags</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#property_ngettextTags" class="">$ngettextTags</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#property_smarty" class="">$smarty</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#property_msgidArgNames" class="">$msgidArgNames</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#property_msgidPluralArgNames" class="">$msgidPluralArgNames</a><br />
+                                                                    <a href="../classes/Geekwright-Po-PoInitSmarty.html#property_msgctxtArgNames" class="">$msgctxtArgNames</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/poinitsmarty.html"><div class="path-wrapper">PoInitSmarty.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Po</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper"><a href="../classes/Geekwright-Po-PoInitAbstract.html"><abbr title="\Geekwright\Po\PoInitAbstract">PoInitAbstract</abbr></a></div>
+                                                                                                    <div class="namespace-wrapper">\Geekwright\Po\PoInitSmarty</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                                            <dt>See also</dt>
+                                                                                        <dd><a href="https://github.com/geekwright/Po"><span class="namespace-wrapper"></span></a></dd>
+                                                                            
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                category
+                            </th>
+                            <td>
+                                                                                                        <p>Extractors</p>
+
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                                                        <p>Richard Griffith <a href="mailto:richard@geekwright.com">richard@geekwright.com</a></p>
+
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                copyright
+                            </th>
+                            <td>
+                                                                                                        <p>2015-2018 Richard Griffith</p>
+
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                license
+                            </th>
+                            <td>
+                                                                                                        <p>GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)</p>
+
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_poFile" name="property_poFile" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$poFile</h3>
+                <pre class="signature">$poFile : \Geekwright\Po\PoFile</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Geekwright-Po-PoFile.html"><abbr title="\Geekwright\Po\PoFile">PoFile</abbr></a>
+                &mdash; object to be used in msginit                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_gettextTags" name="property_gettextTags" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$gettextTags</h3>
+                <pre class="signature">$gettextTags : string[]</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../string[]"><abbr title="string[]">string[]</abbr></a>
+                &mdash; tags for gettext constructs, i.e. tag($msgid)                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_pgettextTags" name="property_pgettextTags" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$pgettextTags</h3>
+                <pre class="signature">$pgettextTags : string[]</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../string[]"><abbr title="string[]">string[]</abbr></a>
+                &mdash; tags for pgettext constructs, i.e. tag($msgctxt, $msgid)                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_ngettextTags" name="property_ngettextTags" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$ngettextTags</h3>
+                <pre class="signature">$ngettextTags : string[]</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../string[]"><abbr title="string[]">string[]</abbr></a>
+                &mdash; tags for ngettext constructs, i.e. tag($msgid, $msgid_plural)                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_smarty" name="property_smarty" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$smarty</h3>
+                <pre class="signature">$smarty : \Smarty</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                \Smarty
+                &mdash; Smarty 3 object                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_msgidArgNames" name="property_msgidArgNames" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$msgidArgNames</h3>
+                <pre class="signature">$msgidArgNames : string[]</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../string[]"><abbr title="string[]">string[]</abbr></a>
+                &mdash; names of Smarty function arguments for msgid                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_msgidPluralArgNames" name="property_msgidPluralArgNames" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$msgidPluralArgNames</h3>
+                <pre class="signature">$msgidPluralArgNames : string[]</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../string[]"><abbr title="string[]">string[]</abbr></a>
+                &mdash; names of Smarty function arguments for msgid_plural                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_msgctxtArgNames" name="property_msgctxtArgNames" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$msgctxtArgNames</h3>
+                <pre class="signature">$msgctxtArgNames : string[]</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../string[]"><abbr title="string[]">string[]</abbr></a>
+                &mdash; names of Smarty function argments for msgctxt                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPoFile" name="method_getPoFile" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPoFile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPoFile() : \Geekwright\Po\PoFile</pre>
+                <p><em>Get the PoFile object used in msginit process</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \Geekwright\Po\PoFile
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPoFile" name="method_setPoFile" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPoFile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPoFile(\Geekwright\Po\PoFile  <span class="argument">$poFile</span>) : void</pre>
+                <p><em>Set the PoFile object to use in msginit process</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Geekwright\Po\PoFile</td>
+                                <td>$poFile </td>
+                                <td><p>a PoFile object</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getGettextTags" name="method_getGettextTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getGettextTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getGettextTags() : string[]</pre>
+                <p><em>Get tags used for gettext like functions</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string[]
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setGettextTags" name="method_setGettextTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setGettextTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setGettextTags(string[]  <span class="argument">$tags</span>) : void</pre>
+                <p><em>Set tags used for gettext like functions</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string[]</td>
+                                <td>$tags </td>
+                                <td><p>array of tags to set</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addGettextTags" name="method_addGettextTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addGettextTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addGettextTags(string|string[]  <span class="argument">$tags</span>) : void</pre>
+                <p><em>Add tags used for gettext like functions</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|string[]</td>
+                                <td>$tags </td>
+                                <td><p>tag, or array of tags to add</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getNgettextTags" name="method_getNgettextTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getNgettextTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getNgettextTags() : string[]</pre>
+                <p><em>Get tags used for ngettext like functions</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string[]
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setNgettextTags" name="method_setNgettextTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setNgettextTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setNgettextTags(string[]  <span class="argument">$tags</span>) : void</pre>
+                <p><em>setNgettextTags - set tags used for ngettext like functions</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string[]</td>
+                                <td>$tags </td>
+                                <td><p>array of tags to set</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addNgettextTags" name="method_addNgettextTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addNgettextTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addNgettextTags(string|string[]  <span class="argument">$tags</span>) : void</pre>
+                <p><em>Add tags used for ngettext like functions</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|string[]</td>
+                                <td>$tags </td>
+                                <td><p>tag, or array of tags to add</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPgettextTags" name="method_getPgettextTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPgettextTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPgettextTags() : string[]</pre>
+                <p><em>Get tags used for pgettext like functions</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string[]
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPgettextTags" name="method_setPgettextTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPgettextTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPgettextTags(string[]  <span class="argument">$tags</span>) : void</pre>
+                <p><em>Set tags used for pgettext like functions</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string[]</td>
+                                <td>$tags </td>
+                                <td><p>array of tags to set</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addPgettextTags" name="method_addPgettextTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addPgettextTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addPgettextTags(string|string[]  <span class="argument">$tags</span>) : void</pre>
+                <p><em>Add tags used for pgettext like functions</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|string[]</td>
+                                <td>$tags </td>
+                                <td><p>tag, or array of tags to add</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_msginitFile" name="method_msginitFile" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">msginitFile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">msginitFile(string  <span class="argument">$filename</span>) : \Geekwright\Po\PoFile</pre>
+                <p><em>Inspect the supplied source file, capture gettext references as a PoFile object</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$filename </td>
+                                <td><p>name of source file</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Geekwright\Po\Exceptions\FileNotReadableException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \Geekwright\Po\PoFile
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_msginitString" name="method_msginitString" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">msginitString()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">msginitString(string  <span class="argument">$source</span>, string  <span class="argument">$refname</span>) : \Geekwright\Po\PoFile</pre>
+                <p><em>Inspect the supplied source, capture gettext references as a PoFile object.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$source </td>
+                                <td><p>php source code</p>
+</td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$refname </td>
+                                <td><p>source identification used for PO reference comments</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \Geekwright\Po\PoFile
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_escapeForPo" name="method_escapeForPo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">escapeForPo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">escapeForPo(string  <span class="argument">$string</span>) : string</pre>
+                <p><em>Prepare a string from tokenized output for use in a po file. Remove any
+surrounding quotes, escape control characters and double quotes.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$string </td>
+                                <td><p>raw string (T_STRING) identified by php token_get_all</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_checkPhpFormatFlag" name="method_checkPhpFormatFlag" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">checkPhpFormatFlag()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">checkPhpFormatFlag(\Geekwright\Po\PoEntry  <span class="argument">$entry</span>) : void</pre>
+                <p><em>Check the supplied entry for sprintf directives and set php-format flag if found</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Geekwright\Po\PoEntry</td>
+                                <td>$entry </td>
+                                <td><p>entry to check</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitAbstract.html"><div class="path-wrapper">\Geekwright\Po\PoInitAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(\Smarty  <span class="argument">$smarty</span>, \Geekwright\Po\PoFile|null  <span class="argument">$poFile = null</span>) : mixed</pre>
+                <p><em>Set the Smarty and PoObjects to use in the Init process</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Smarty</td>
+                                <td>$smarty </td>
+                                <td><p>a fully initialize Smarty 3 instance</p>
+</td>
+                            </tr>
+                                                    <tr>
+                                <td>\Geekwright\Po\PoFile|null</td>
+                                <td>$poFile </td>
+                                <td><p>a PoFile object to be used in msginit</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMsgctxtArgNames" name="method_getMsgctxtArgNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getMsgctxtArgNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMsgctxtArgNames() : string[]</pre>
+                <p><em>getMsgctxtArgNames - get argument name(s) used for the msgctxt</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string[]
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setMsgctxtArgNames" name="method_setMsgctxtArgNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setMsgctxtArgNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setMsgctxtArgNames(string[]  <span class="argument">$argNames</span>) : void</pre>
+                <p><em>Set argument name(s) used for the msgctxt</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string[]</td>
+                                <td>$argNames </td>
+                                <td><p>array of argument names to set</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addMsgctxtArgNames" name="method_addMsgctxtArgNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addMsgctxtArgNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addMsgctxtArgNames(string|string[]  <span class="argument">$argNames</span>) : void</pre>
+                <p><em>Add argument name(s) used for the msgctxt</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|string[]</td>
+                                <td>$argNames </td>
+                                <td><p>argument name(s) to add</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMsgidArgNames" name="method_getMsgidArgNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getMsgidArgNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMsgidArgNames() : string[]</pre>
+                <p><em>Get argument name(s) used for the msgid</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string[]
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setMsgidArgNames" name="method_setMsgidArgNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setMsgidArgNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setMsgidArgNames(string[]  <span class="argument">$argNames</span>) : void</pre>
+                <p><em>Set argument name(s) used for the msgid</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string[]</td>
+                                <td>$argNames </td>
+                                <td><p>array of argument names to set</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addMsgidArgNames" name="method_addMsgidArgNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addMsgidArgNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addMsgidArgNames(string|string[]  <span class="argument">$argNames</span>) : void</pre>
+                <p><em>Add argument name(s) used for the msgid</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|string[]</td>
+                                <td>$argNames </td>
+                                <td><p>argument name(s) to add</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMsgidPluralArgNames" name="method_getMsgidPluralArgNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getMsgidPluralArgNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMsgidPluralArgNames() : string[]</pre>
+                <p><em>Get argument name(s) used for the msgid_plural</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string[]
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setMsgidPluralArgNames" name="method_setMsgidPluralArgNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setMsgidPluralArgNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setMsgidPluralArgNames(string[]  <span class="argument">$argNames</span>) : void</pre>
+                <p><em>Set argument name(s) used for the msgid_plural</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string[]</td>
+                                <td>$argNames </td>
+                                <td><p>array of argument names to set</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addMsgidPluralArgNames" name="method_addMsgidPluralArgNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addMsgidPluralArgNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addMsgidPluralArgNames(string|string[]  <span class="argument">$argNames</span>) : void</pre>
+                <p><em>Add argument name(s) used for the msgid_plural</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|string[]</td>
+                                <td>$argNames </td>
+                                <td><p>argument name(s) to add</p>
+</td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Geekwright-Po-PoInitSmarty.html"><div class="path-wrapper">\Geekwright\Po\PoInitSmarty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">PoInitSmarty.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/PoInitSmarty.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/geekwright.html"><abbr title="\Geekwright">Geekwright</abbr></a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="https://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on December 30th, 2020 at 15:52.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
