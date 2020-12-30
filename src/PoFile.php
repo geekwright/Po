@@ -165,7 +165,7 @@ class PoFile
     {
         $key = $this->createKeyFromEntry($entry);
 
-        // some entires, such as obsolete entries, have no key
+        // some entries, such as obsolete entries, have no key
         // for some uses, these are dead weight - need better strategy for that case
         if (empty($key)) {
             $this->unkeyedEntries[] = $entry;
@@ -174,10 +174,10 @@ class PoFile
 
         if (isset($this->entries[$key]) && !$replace) {
             return false;
-        } else {
-            $this->entries[$key] = $entry;
-            return true;
         }
+
+        $this->entries[$key] = $entry;
+        return true;
     }
 
     /**
