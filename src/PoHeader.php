@@ -105,12 +105,12 @@ class PoHeader extends PoEntry
     {
         $this->buildStructuredHeaders();
         $lkey = strtolower($key);
+        $newHeader = array('key' => $key, 'value' => $value);
         if (isset($this->structuredHeaders[$lkey])) {
-            $this->structuredHeaders[$lkey]['value'] = $value;
-        } else {
-            $newHeader = array('key' => $key, 'value' => $value);
-            $this->structuredHeaders[$lkey] = $newHeader;
+            $newHeader = $this->structuredHeaders[$lkey];
+            $newHeader['value'] = $value;
         }
+        $this->structuredHeaders[$lkey] = $newHeader;
         $this->storeStructuredHeader();
     }
 

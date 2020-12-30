@@ -22,7 +22,7 @@
   },
   "require-dev": {
     "smarty/smarty": "^3.1",
-    "phpunit/phpunit": "^6.5|^7.0"
+    "phpunit/phpunit": "^7.0|^8.0"
   },
   "autoload": {
     "psr-4": {

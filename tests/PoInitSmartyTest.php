@@ -17,7 +17,7 @@ class PoInitSmartyTest extends \PHPUnit\Framework\TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
+    protected function setUp():void
     {
         if (!class_exists('\Smarty')) {
             $this->markTestSkipped('Smarty is not available.');
@@ -26,14 +26,6 @@ class PoInitSmartyTest extends \PHPUnit\Framework\TestCase
         $smarty->addPluginsDir(__DIR__ . '/smarty/plugins');
         $this->poFile = new PoFile();
         $this->object = new PoInitSmarty($smarty, $this->poFile);
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown()
-    {
     }
 
     public function testGetSetPoFile()

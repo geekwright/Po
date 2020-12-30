@@ -172,9 +172,8 @@ abstract class PoInitAbstract
      */
     public function msginitFile(string $filename): PoFile
     {
-        if (!is_readable($filename)) {
-            $source = false;
-        } else {
+        $source = false;
+        if (is_readable($filename)) {
             $source = file_get_contents($filename);
         }
         if (false===$source) {
